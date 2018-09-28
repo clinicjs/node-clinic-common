@@ -1,6 +1,6 @@
 {
   "name": "@nearform/clinic-common",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Shared parts between the clinic suite",
   "main": "index.js",
   "directories": {
