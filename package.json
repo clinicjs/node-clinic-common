@@ -1,0 +1,26 @@
+{
+  "name": "@nearform/clinic-common",
+  "version": "1.0.0",
+  "description": "Shared parts between the clinic suite",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo 'No tests so far. Please add some.'",
+    "lint": "standard --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nearform/node-clinic-common.git"
+  },
+  "author": "Ruben Bridgewater <ruben@bridgewater.de>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/nearform/node-clinic-common/issues"
+  },
+  "homepage": "https://github.com/nearform/node-clinic-common#readme",
+  "devDependencies": {
+    "standard": "^12.0.1"
+  }
+}
