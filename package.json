@@ -20,6 +20,9 @@
     "url": "https://github.com/nearform/node-clinic-common/issues"
   },
   "homepage": "https://github.com/nearform/node-clinic-common#readme",
+  "dependencies": {
+    "node-trace-log-join": "^1.0.0"
+  },
   "devDependencies": {
     "standard": "^12.0.1"
   }
