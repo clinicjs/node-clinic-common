@@ -7,8 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo 'No tests so far. Please add some.'",
-    "lint": "standard --fix"
+    "test": "standard | snazzy && tap --no-cov test/*.test.js",
+    "lint": "standard --fix | snazzy"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,8 @@
     "node-trace-log-join": "^1.0.0"
   },
   "devDependencies": {
-    "standard": "^12.0.1"
+    "standard": "^12.0.1",
+    "snazzy": "^8.0.0",
+    "tap": "^12.0.1"
   }
 }
