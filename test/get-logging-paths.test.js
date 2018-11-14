@@ -24,6 +24,30 @@ test('logging path - path', function (t) {
   t.end()
 })
 
+test('Collect - logging path - path and identifier', function (t) {
+  const paths = getLoggingPaths('doctor')({ path: './foo', identifier: 1062 })
+
+  t.strictDeepEqual(paths, {
+    '/': path.join('foo', '1062.clinic-doctor'),
+    '/traceevent': path.join('foo', '1062.clinic-doctor', '1062.clinic-doctor-traceevent'),
+    '/systeminfo': path.join('foo', '1062.clinic-doctor', '1062.clinic-doctor-systeminfo'),
+    '/processstat': path.join('foo', '1062.clinic-doctor', '1062.clinic-doctor-processstat')
+  })
+  t.end()
+})
+
+test('Collect - logging path - null path and identifier', function (t) {
+  const paths = getLoggingPaths('doctor')({ path: null, identifier: 1062 })
+
+  t.strictDeepEqual(paths, {
+    '/': path.join('', '1062.clinic-doctor'),
+    '/traceevent': path.join('', '1062.clinic-doctor', '1062.clinic-doctor-traceevent'),
+    '/systeminfo': path.join('', '1062.clinic-doctor', '1062.clinic-doctor-systeminfo'),
+    '/processstat': path.join('', '1062.clinic-doctor', '1062.clinic-doctor-processstat')
+  })
+  t.end()
+})
+
 test('logging path - supports 0x path templates', function (t) {
   const paths = getLoggingPaths('flame')({ identifier: '{pid}' })
   t.strictDeepEqual(paths, {
@@ -64,5 +88,29 @@ test('logging path - default paths for bubbleprof', function (t) {
     '/traceevent': path.normalize('2261.clinic-bubbleprof/2261.clinic-bubbleprof-traceevent'),
     '/stacktrace': path.normalize('2261.clinic-bubbleprof/2261.clinic-bubbleprof-stacktrace')
   })
+  t.end()
+})
+
+test('logging paths - null values', function (t) {
+  t.throws(
+    () => getLoggingPaths('toolname')({ identifier: null }),
+    new Error('missing either identifier or path value')
+  )
+  t.throws(
+    () => getLoggingPaths('toolname')({ path: null }),
+    new Error('missing either identifier or path value')
+  )
+  t.throws(
+    () => getLoggingPaths('toolname')({ path: null, identifier: null }),
+    new Error('missing either identifier or path value')
+  )
+  t.end()
+})
+
+test('logging paths - bad type', function (t) {
+  t.throws(
+    () => getLoggingPaths('toolname')({}),
+    new Error('missing either identifier or path value')
+  )
   t.end()
 })
