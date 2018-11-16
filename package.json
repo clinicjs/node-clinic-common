@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "npm run lint && tap test/*.test.js",
-    "lint": "standard --fix"
+    "lint": "standard --fix",
+    "ci-lint": "standard"
   },
   "repository": {
     "type": "git",
