@@ -23,6 +23,8 @@ Arguments:
 Returns a dictionary object whose keys are the icon names and the values are the svg files content.
 Useful to inline svg files.
 
+[Find here the icons list](https://github.com/nearform/node-clinic-common/blob/feature/svg-icons/icons/icons.md)
+
 ```js
 const svgIcons = require('@nearform/clinic-common')
 ...
