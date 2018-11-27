@@ -11,8 +11,10 @@
 // Largely inspired by: https://github.com/simple-icons/simple-icons
 
 const indexFile = `${__dirname}/../icons.js`
-const iconsDir = `${__dirname}/../assets/icons`
+const iconsDir = `${__dirname}/../assets`
 const exportDir = `${__dirname}/../icons`
+const mdIconsMap = `${exportDir}/icons.md`
+
 const fs = require('fs')
 
 const svgs = {}
@@ -30,6 +32,8 @@ fs.readdir(iconsDir, function (err, items) {
         `module.exports = \`${svg}\`\n`
       )
     })
+
+    fs.writeFileSync(mdIconsMap, files.map(f => `<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/${f}" width="100%" height="44" />`).join('\n'))
   }
 
   // write our generic index.js

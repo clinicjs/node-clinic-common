@@ -9,7 +9,8 @@
   "scripts": {
     "test": "npm run lint && tap test/*.test.js",
     "lint": "standard --fix",
-    "ci-lint": "standard"
+    "ci-lint": "standard",
+    "build-svgs": "node scripts/build-svgs.js"
   },
   "repository": {
     "type": "git",
