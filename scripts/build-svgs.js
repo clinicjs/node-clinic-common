@@ -10,10 +10,10 @@
 
 // Largely inspired by: https://github.com/simple-icons/simple-icons
 
-const indexFile = `${__dirname}/../icons.js`
-const iconsDir = `${__dirname}/../assets`
 const exportDir = `${__dirname}/../icons`
-const mdIconsMap = `${exportDir}/icons.md`
+const indexFile = `${exportDir}/index.js`
+const iconsDir = `${__dirname}/../assets`
+const mdIconsMap = `${exportDir}/readme.md`
 
 const fs = require('fs')
 
