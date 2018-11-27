@@ -18,7 +18,6 @@ const mdIconsMap = `${exportDir}/icons.md`
 const fs = require('fs')
 
 const svgs = {}
-const svgContent = []
 fs.readdir(iconsDir, function (err, items) {
   if (err) {
     console.error(err)
@@ -28,14 +27,13 @@ fs.readdir(iconsDir, function (err, items) {
       const svg = fs.readFileSync(`${iconsDir}/${file}`, 'utf8')
       const fileName = file.split('.')[0]
       svgs[fileName] = svg
-      svgContent.push({ file, svg })
       fs.writeFileSync(
         `${exportDir}/${fileName}.js`,
         `module.exports = \`${svg}\`\n`
       )
     })
 
-    fs.writeFileSync(mdIconsMap, svgContent.map(f => f.svg).join('\n'))
+    fs.writeFileSync(mdIconsMap, files.map(f => `${f} <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/${f}?sanitize=true" width="100%" height="44" />`).join('\n'))
   }
 
   // write our generic index.js
