@@ -29,15 +29,15 @@ Useful to inline svg files.
 [Find here the icons list](https://github.com/nearform/node-clinic-common/blob/feature/svg-icons/icons/icons.md)
 
 ```js
-const svgIcons = require('@nearform/clinic-common')
+const icons = require('@nearform/clinic-common').svgIcons
 ...
-myCustomElement.htmlContent=svgIcons.activity
+myCustomElement.htmlContent=icons.activity
 ```
 
 or
 
 ```js
-`<span class="my_icon">${svgIcons.activity}</span>`
+`<span class="my_icon">${icons.activity}</span>`
 ```
 
 
@@ -48,6 +48,25 @@ const activity = require('@nearform/clinic-common/icons/activity.js')
 `<span class="my_icon">${activity}</span>`
 ```
 
+
+Basic style can be injected into the page by calling:
+`icons.injectStyle()`
+
+That will add the following rules:
+```css
+  /* SVG icons */
+  svg.icon-img path {
+    /* Default to same fill as adjacent text */
+    fill: currentColor;
+  }
+  
+  svg.icon-img {
+    /* Default to same size as adjacent text */
+    width: 1em;
+    height: 1em;
+    display: block;
+  }
+```
 
 ## License
 
