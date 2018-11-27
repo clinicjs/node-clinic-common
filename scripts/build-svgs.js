@@ -40,52 +40,12 @@ fs.readdir(iconsDir, function (err, items) {
     fs.writeFileSync(mdIconsMap, `| Name | icon |\n|---|---|\n${md}`)
   }
 
-  const styleInjectFn = `function styleInject (css, { insertAt } = {}) {
-    if (!css || typeof document === 'undefined') return
-  
-    const head = document.head || document.getElementsByTagName('head')[0]
-    const style = document.createElement('style')
-    style.type = 'text/css'
-  
-    if (insertAt === 'top') {
-      if (head.firstChild) {
-        head.insertBefore(style, head.firstChild)
-      } else {
-        head.appendChild(style)
-      }
-    } else {
-      head.appendChild(style)
-    }
-  
-    if (style.styleSheet) {
-      style.styleSheet.cssText = css
-    } else {
-      style.appendChild(document.createTextNode(css))
-    }
-  }\n`
-
-  const style = `const style = \`
-  /* SVG icons */
-  svg.icon-img path {
-    /* Default to same fill as adjacent text */
-    fill: currentColor;
-  }
-  
-  svg.icon-img {
-    /* Default to same size as adjacent text */
-    width: 1em;
-    height: 1em;
-    display: block;
-  }\`\n`
-  const inject = `styleInject(style, { insertAt: 'top' })\n`
-
   // write our generic index.js
 
+  fs.copyFileSync(`${iconsDir}/svg-icons.css`, `${exportDir}/svg-icons.css`)
+
   fs.writeFileSync(indexFile, `
-${styleInjectFn}
-${style}
 module.exports = {
-  injectStyle: () => {${inject}},\n
   ${svgs.join(',')}\n
   }\n`)
 })
