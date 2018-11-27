@@ -1,87 +1,90 @@
-activity.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/activity.svg?sanitize=true" width="100%" height="44" />
-arrow-down.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/arrow-down.svg?sanitize=true" width="100%" height="44" />
-arrow-left.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/arrow-left.svg?sanitize=true" width="100%" height="44" />
-arrow-right.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/arrow-right.svg?sanitize=true" width="100%" height="44" />
-arrow-up.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/arrow-up.svg?sanitize=true" width="100%" height="44" />
-attachment.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/attachment.svg?sanitize=true" width="100%" height="44" />
-bell.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/bell.svg?sanitize=true" width="100%" height="44" />
-bin.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/bin.svg?sanitize=true" width="100%" height="44" />
-calendar.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/calendar.svg?sanitize=true" width="100%" height="44" />
-caret-down.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/caret-down.svg?sanitize=true" width="100%" height="44" />
-caret-left.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/caret-left.svg?sanitize=true" width="100%" height="44" />
-caret-right.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/caret-right.svg?sanitize=true" width="100%" height="44" />
-caret-up.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/caret-up.svg?sanitize=true" width="100%" height="44" />
-certificate.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/certificate.svg?sanitize=true" width="100%" height="44" />
-check.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/check.svg?sanitize=true" width="100%" height="44" />
-checkbox-checked.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/checkbox-checked.svg?sanitize=true" width="100%" height="44" />
-checkbox-indetermined.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/checkbox-indetermined.svg?sanitize=true" width="100%" height="44" />
-checkbox-more.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/checkbox-more.svg?sanitize=true" width="100%" height="44" />
-checkbox-unchecked.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/checkbox-unchecked.svg?sanitize=true" width="100%" height="44" />
-chevron-down.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/chevron-down.svg?sanitize=true" width="100%" height="44" />
-chevron-left-first.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/chevron-left-first.svg?sanitize=true" width="100%" height="44" />
-chevron-left.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/chevron-left.svg?sanitize=true" width="100%" height="44" />
-chevron-right-last.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/chevron-right-last.svg?sanitize=true" width="100%" height="44" />
-chevron-right.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/chevron-right.svg?sanitize=true" width="100%" height="44" />
-chevron-up.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/chevron-up.svg?sanitize=true" width="100%" height="44" />
-circle-arrow-down.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-arrow-down.svg?sanitize=true" width="100%" height="44" />
-circle-arrow-left.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-arrow-left.svg?sanitize=true" width="100%" height="44" />
-circle-arrow-right.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-arrow-right.svg?sanitize=true" width="100%" height="44" />
-circle-arrow-up.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-arrow-up.svg?sanitize=true" width="100%" height="44" />
-circle-attention.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-attention.svg?sanitize=true" width="100%" height="44" />
-circle-check.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-check.svg?sanitize=true" width="100%" height="44" />
-circle-close.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-close.svg?sanitize=true" width="100%" height="44" />
-circle-info.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-info.svg?sanitize=true" width="100%" height="44" />
-circle-minus.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-minus.svg?sanitize=true" width="100%" height="44" />
-circle-plus.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-plus.svg?sanitize=true" width="100%" height="44" />
-circle-question.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-question.svg?sanitize=true" width="100%" height="44" />
-clipboard.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/clipboard.svg?sanitize=true" width="100%" height="44" />
-close.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/close.svg?sanitize=true" width="100%" height="44" />
-code.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/code.svg?sanitize=true" width="100%" height="44" />
-cog.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/cog.svg?sanitize=true" width="100%" height="44" />
-copy.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/copy.svg?sanitize=true" width="100%" height="44" />
-dark-mode.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/dark-mode.svg?sanitize=true" width="100%" height="44" />
-download.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/download.svg?sanitize=true" width="100%" height="44" />
-external-link.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/external-link.svg?sanitize=true" width="100%" height="44" />
-eye-hide.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/eye-hide.svg?sanitize=true" width="100%" height="44" />
-eye-show.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/eye-show.svg?sanitize=true" width="100%" height="44" />
-fees.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/fees.svg?sanitize=true" width="100%" height="44" />
-filter.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/filter.svg?sanitize=true" width="100%" height="44" />
-grid-view.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/grid-view.svg?sanitize=true" width="100%" height="44" />
-horizontal-more.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/horizontal-more.svg?sanitize=true" width="100%" height="44" />
-inbox.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/inbox.svg?sanitize=true" width="100%" height="44" />
-info.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/info.svg?sanitize=true" width="100%" height="44" />
-light-mode.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/light-mode.svg?sanitize=true" width="100%" height="44" />
-link.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/link.svg?sanitize=true" width="100%" height="44" />
-list-view.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/list-view.svg?sanitize=true" width="100%" height="44" />
-loading-icon-1.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/loading-icon-1.svg?sanitize=true" width="100%" height="44" />
-loading-icon-2.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/loading-icon-2.svg?sanitize=true" width="100%" height="44" />
-loading-icon.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/loading-icon.svg?sanitize=true" width="100%" height="44" />
-minus.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/minus.svg?sanitize=true" width="100%" height="44" />
-pencil-edit.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/pencil-edit.svg?sanitize=true" width="100%" height="44" />
-pencil-write.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/pencil-write.svg?sanitize=true" width="100%" height="44" />
-pencil.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/pencil.svg?sanitize=true" width="100%" height="44" />
-pin-board.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/pin-board.svg?sanitize=true" width="100%" height="44" />
-plus.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/plus.svg?sanitize=true" width="100%" height="44" />
-portfolio.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/portfolio.svg?sanitize=true" width="100%" height="44" />
-power-off.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/power-off.svg?sanitize=true" width="100%" height="44" />
-redo.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/redo.svg?sanitize=true" width="100%" height="44" />
-reload.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/reload.svg?sanitize=true" width="100%" height="44" />
-save.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/save.svg?sanitize=true" width="100%" height="44" />
-scenarios.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/scenarios.svg?sanitize=true" width="100%" height="44" />
-search.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/search.svg?sanitize=true" width="100%" height="44" />
-sidepanel-collapse.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/sidepanel-collapse.svg?sanitize=true" width="100%" height="44" />
-sidepanel-expand.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/sidepanel-expand.svg?sanitize=true" width="100%" height="44" />
-speech-bubble.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/speech-bubble.svg?sanitize=true" width="100%" height="44" />
-star.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/star.svg?sanitize=true" width="100%" height="44" />
-timeline-detail.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/timeline-detail.svg?sanitize=true" width="100%" height="44" />
-timeline.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/timeline.svg?sanitize=true" width="100%" height="44" />
-trending-down.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/trending-down.svg?sanitize=true" width="100%" height="44" />
-trending-up.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/trending-up.svg?sanitize=true" width="100%" height="44" />
-undo.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/undo.svg?sanitize=true" width="100%" height="44" />
-unstar.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/unstar.svg?sanitize=true" width="100%" height="44" />
-upload.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/upload.svg?sanitize=true" width="100%" height="44" />
-user.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/user.svg?sanitize=true" width="100%" height="44" />
-vertical-more.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/vertical-more.svg?sanitize=true" width="100%" height="44" />
-warning-triangle.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/warning-triangle.svg?sanitize=true" width="100%" height="44" />
-zoom-in.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/zoom-in.svg?sanitize=true" width="100%" height="44" />
-zoom-out.svg <img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/zoom-out.svg?sanitize=true" width="100%" height="44" />
+
+| Name | icon  |
+|---|---|
+|activity|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/activity.svg?sanitize=true" width="100%" height="44" />|
+|arrow-down|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/arrow-down.svg?sanitize=true" width="100%" height="44" />|
+|arrow-left|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/arrow-left.svg?sanitize=true" width="100%" height="44" />|
+|arrow-right|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/arrow-right.svg?sanitize=true" width="100%" height="44" />|
+|arrow-up|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/arrow-up.svg?sanitize=true" width="100%" height="44" />|
+|attachment|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/attachment.svg?sanitize=true" width="100%" height="44" />|
+|bell|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/bell.svg?sanitize=true" width="100%" height="44" />|
+|bin|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/bin.svg?sanitize=true" width="100%" height="44" />|
+|calendar|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/calendar.svg?sanitize=true" width="100%" height="44" />|
+|caret-down|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/caret-down.svg?sanitize=true" width="100%" height="44" />|
+|caret-left|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/caret-left.svg?sanitize=true" width="100%" height="44" />|
+|caret-right|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/caret-right.svg?sanitize=true" width="100%" height="44" />|
+|caret-up|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/caret-up.svg?sanitize=true" width="100%" height="44" />|
+|certificate|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/certificate.svg?sanitize=true" width="100%" height="44" />|
+|check|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/check.svg?sanitize=true" width="100%" height="44" />|
+|checkbox-checked|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/checkbox-checked.svg?sanitize=true" width="100%" height="44" />|
+|checkbox-indetermined|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/checkbox-indetermined.svg?sanitize=true" width="100%" height="44" />|
+|checkbox-more|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/checkbox-more.svg?sanitize=true" width="100%" height="44" />|
+|checkbox-unchecked|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/checkbox-unchecked.svg?sanitize=true" width="100%" height="44" />|
+|chevron-down|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/chevron-down.svg?sanitize=true" width="100%" height="44" />|
+|chevron-left-first|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/chevron-left-first.svg?sanitize=true" width="100%" height="44" />|
+|chevron-left|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/chevron-left.svg?sanitize=true" width="100%" height="44" />|
+|chevron-right-last|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/chevron-right-last.svg?sanitize=true" width="100%" height="44" />|
+|chevron-right|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/chevron-right.svg?sanitize=true" width="100%" height="44" />|
+|chevron-up|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/chevron-up.svg?sanitize=true" width="100%" height="44" />|
+|circle-arrow-down|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-arrow-down.svg?sanitize=true" width="100%" height="44" />|
+|circle-arrow-left|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-arrow-left.svg?sanitize=true" width="100%" height="44" />|
+|circle-arrow-right|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-arrow-right.svg?sanitize=true" width="100%" height="44" />|
+|circle-arrow-up|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-arrow-up.svg?sanitize=true" width="100%" height="44" />|
+|circle-attention|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-attention.svg?sanitize=true" width="100%" height="44" />|
+|circle-check|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-check.svg?sanitize=true" width="100%" height="44" />|
+|circle-close|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-close.svg?sanitize=true" width="100%" height="44" />|
+|circle-info|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-info.svg?sanitize=true" width="100%" height="44" />|
+|circle-minus|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-minus.svg?sanitize=true" width="100%" height="44" />|
+|circle-plus|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-plus.svg?sanitize=true" width="100%" height="44" />|
+|circle-question|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/circle-question.svg?sanitize=true" width="100%" height="44" />|
+|clipboard|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/clipboard.svg?sanitize=true" width="100%" height="44" />|
+|close|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/close.svg?sanitize=true" width="100%" height="44" />|
+|code|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/code.svg?sanitize=true" width="100%" height="44" />|
+|cog|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/cog.svg?sanitize=true" width="100%" height="44" />|
+|copy|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/copy.svg?sanitize=true" width="100%" height="44" />|
+|dark-mode|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/dark-mode.svg?sanitize=true" width="100%" height="44" />|
+|download|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/download.svg?sanitize=true" width="100%" height="44" />|
+|external-link|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/external-link.svg?sanitize=true" width="100%" height="44" />|
+|eye-hide|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/eye-hide.svg?sanitize=true" width="100%" height="44" />|
+|eye-show|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/eye-show.svg?sanitize=true" width="100%" height="44" />|
+|fees|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/fees.svg?sanitize=true" width="100%" height="44" />|
+|filter|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/filter.svg?sanitize=true" width="100%" height="44" />|
+|grid-view|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/grid-view.svg?sanitize=true" width="100%" height="44" />|
+|horizontal-more|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/horizontal-more.svg?sanitize=true" width="100%" height="44" />|
+|inbox|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/inbox.svg?sanitize=true" width="100%" height="44" />|
+|info|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/info.svg?sanitize=true" width="100%" height="44" />|
+|light-mode|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/light-mode.svg?sanitize=true" width="100%" height="44" />|
+|link|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/link.svg?sanitize=true" width="100%" height="44" />|
+|list-view|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/list-view.svg?sanitize=true" width="100%" height="44" />|
+|loading-icon-1|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/loading-icon-1.svg?sanitize=true" width="100%" height="44" />|
+|loading-icon-2|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/loading-icon-2.svg?sanitize=true" width="100%" height="44" />|
+|loading-icon|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/loading-icon.svg?sanitize=true" width="100%" height="44" />|
+|minus|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/minus.svg?sanitize=true" width="100%" height="44" />|
+|pencil-edit|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/pencil-edit.svg?sanitize=true" width="100%" height="44" />|
+|pencil-write|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/pencil-write.svg?sanitize=true" width="100%" height="44" />|
+|pencil|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/pencil.svg?sanitize=true" width="100%" height="44" />|
+|pin-board|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/pin-board.svg?sanitize=true" width="100%" height="44" />|
+|plus|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/plus.svg?sanitize=true" width="100%" height="44" />|
+|portfolio|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/portfolio.svg?sanitize=true" width="100%" height="44" />|
+|power-off|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/power-off.svg?sanitize=true" width="100%" height="44" />|
+|redo|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/redo.svg?sanitize=true" width="100%" height="44" />|
+|reload|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/reload.svg?sanitize=true" width="100%" height="44" />|
+|save|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/save.svg?sanitize=true" width="100%" height="44" />|
+|scenarios|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/scenarios.svg?sanitize=true" width="100%" height="44" />|
+|search|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/search.svg?sanitize=true" width="100%" height="44" />|
+|sidepanel-collapse|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/sidepanel-collapse.svg?sanitize=true" width="100%" height="44" />|
+|sidepanel-expand|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/sidepanel-expand.svg?sanitize=true" width="100%" height="44" />|
+|speech-bubble|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/speech-bubble.svg?sanitize=true" width="100%" height="44" />|
+|star|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/star.svg?sanitize=true" width="100%" height="44" />|
+|timeline-detail|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/timeline-detail.svg?sanitize=true" width="100%" height="44" />|
+|timeline|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/timeline.svg?sanitize=true" width="100%" height="44" />|
+|trending-down|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/trending-down.svg?sanitize=true" width="100%" height="44" />|
+|trending-up|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/trending-up.svg?sanitize=true" width="100%" height="44" />|
+|undo|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/undo.svg?sanitize=true" width="100%" height="44" />|
+|unstar|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/unstar.svg?sanitize=true" width="100%" height="44" />|
+|upload|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/upload.svg?sanitize=true" width="100%" height="44" />|
+|user|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/user.svg?sanitize=true" width="100%" height="44" />|
+|vertical-more|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/vertical-more.svg?sanitize=true" width="100%" height="44" />|
+|warning-triangle|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/warning-triangle.svg?sanitize=true" width="100%" height="44" />|
+|zoom-in|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/zoom-in.svg?sanitize=true" width="100%" height="44" />|
+|zoom-out|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/zoom-out.svg?sanitize=true" width="100%" height="44" />|
