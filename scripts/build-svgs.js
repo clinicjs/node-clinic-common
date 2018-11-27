@@ -33,7 +33,7 @@ fs.readdir(iconsDir, function (err, items) {
       )
     })
 
-    fs.writeFileSync(mdIconsMap, files.map(f => `<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/${f}" width="100%" height="44" />`).join('\n'))
+    fs.writeFileSync(mdIconsMap, files.map(f => `<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/${f}?sanitize=1" width="100%" height="44" />`).join('\n'))
   }
 
   // write our generic index.js
