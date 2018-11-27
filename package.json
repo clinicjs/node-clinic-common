@@ -10,7 +10,8 @@
     "test": "npm run lint && tap test/*.test.js",
     "lint": "standard --fix",
     "ci-lint": "standard",
-    "build-svgs": "node scripts/build-svgs.js && npm run lint"
+    "build-svgs": "node scripts/build-svgs.js && npm run lint",
+    "prepublishOnly" : "npm run build-svgs"
   },
   "repository": {
     "type": "git",
