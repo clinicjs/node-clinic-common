@@ -26,13 +26,13 @@ Arguments:
 Returns a dictionary object whose keys are the icon names and the values are the svg files content.
 Useful to inline svg files.
 
-[Find here the icons list](https://github.com/nearform/node-clinic-common/blob/master/icons/icons.md)
+[Find here the icons list](https://github.com/nearform/node-clinic-common/blob/master/icons/readme.md)
 
 **Use examples:**
 ```js
-const icons = require('@nearform/clinic-common').svgIcons
+const svgIcons = require('@nearform/clinic-common/icons')
 
-console.log(icons.activity)
+console.log(svgIcons.activity)
 
 output:
 `<svg class="icon-img activity-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,14 +43,14 @@ output:
 
 Alternatively you can import the needed icons individually:
 ```js
-const activity = require('@nearform/clinic-common/icons/activity.js')
+const cog = require('@nearform/clinic-common/icons/cog')
 ...
-`<span class="my_icon">${activity}</span>`
+`<span class="my_icon_wrapper">${cog}</span>`
 ```
 
 
 Basic style can be injected into the page by calling:
-`icons.injectStyle()`
+`svgIcons.injectStyle()`
 
 That will add the following rules:
 ```css
