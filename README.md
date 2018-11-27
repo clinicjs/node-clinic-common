@@ -19,6 +19,9 @@ Arguments:
     If `toolName` is 'bubbleprof', this defaults to `['/traceevent', '/stacktrace']`.
 
 
+***
+
+
 ## `svgIcons`
 Returns a dictionary object whose keys are the icon names and the values are the svg files content.
 Useful to inline svg files.
@@ -42,7 +45,7 @@ Alternatively you can import the needed icons individually:
 ```js
 const activity = require('@nearform/clinic-common/icons/activity.js')
 ...
-<span class="my_icon">{activity}</span>
+`<span class="my_icon">${activity}</span>`
 ```
 
 
