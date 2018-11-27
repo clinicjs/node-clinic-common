@@ -49,8 +49,10 @@ const cog = require('@nearform/clinic-common/icons/cog')
 ```
 
 
-Basic style can be injected into the page by calling:
-`svgIcons.injectStyle()`
+Basic style can be imported into the page by adding the following line to your main css file (if you use [postcss-import](https://github.com/postcss/postcss-import)):
+```css
+@import "@nearform/clinic-common/icons/svg-icons.css";
+```
 
 That will add the following rules:
 ```css
