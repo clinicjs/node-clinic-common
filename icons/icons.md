@@ -1,5 +1,4 @@
-
-| Name | icon  |
+| Name | icon |
 |---|---|
 |activity|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/activity.svg?sanitize=true" width="100%" height="44" />|
 |arrow-down|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/feature/svg-icons/assets/arrow-down.svg?sanitize=true" width="100%" height="44" />|
