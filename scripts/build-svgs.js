@@ -36,7 +36,7 @@ fs.readdir(iconsDir, function (err, items) {
       )
     })
 
-    const md = files.map(f => `|${f.split('.')[0]}|<img src="https://raw.githubusercontent.com/nearform/node-clinic-common/master/assets/${f}?sanitize=true" width="100%" height="44" />|`).join('\n')
+    const md = files.map(f => `|${f.split('.')[0]}|<img src="../assets/${f}?sanitize=true" width="100%" height="44" />|`).join('\n')
     fs.writeFileSync(mdIconsMap, `| Name | icon |\n|---|---|\n${md}`)
   }
 
