@@ -9,8 +9,7 @@ body:not(.content-ready):after {
   position: absolute;
   left: 50%;
   top: 50%;
-  margin-top: -60px;
-  margin-left: -60px;
+  transform: translate3d(-50%, -50%, 0);
   z-index: 9;
 }
 
@@ -28,11 +27,10 @@ body:not(.content-ready):before{
   border-top: 4px solid var(--flame-orange);
   content: "";
   display: block;
-  transform: rotate(0deg);
+  transform: translate3d(-50%, -50%, 0) rotate(0deg);
 }
 
 body:not(.content-ready):after{
-  align-items: center;
   color: var(--max-contrast);
   content: var(--loading-message);
   display: flex;
@@ -40,7 +38,6 @@ body:not(.content-ready):after{
   font-weight: bold;
   height: auto;
   justify-content: center;
-  line-height: 1;
   margin-top: 0;
   position: absolute;
   text-align: center;
@@ -49,11 +46,11 @@ body:not(.content-ready):after{
 
 @keyframes loading {
   100% {
-    -webkit-transform: rotate(359deg);
-    -moz-transform: rotate(359deg);
-    -ms-transform: rotate(359deg);
-    -o-transform: rotate(359deg);
-    transform: rotate(359deg);
+    -webkit-transform: translate3d(-50%, -50%, 0) rotate(359deg);
+    -moz-transform: translate3d(-50%, -50%, 0) rotate(359deg);
+    -ms-transform: translate3d(-50%, -50%, 0) rotate(359deg);
+    -o-transform: translate3d(-50%, -50%, 0) rotate(359deg);
+    transform: translate3d(-50%, -50%, 0) rotate(359deg);
   }
   
 }
