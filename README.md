@@ -53,7 +53,7 @@ The spinner rotating border is white by default, you can customise it by setting
 html {
   --spinner-border-color: --my-fancy-primary-color;
 }
-
+```
 
 Please note that when showing the `spinner` after the page loaded you quite possibly will have some content underneath the spinner itself:
 
