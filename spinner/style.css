@@ -1,5 +1,6 @@
 html {
   --loading-message: "Loading file";
+  --spinner-border-color: #fff;
 }
 
 body:not(.content-ready):before,
@@ -20,11 +21,11 @@ body:not(.content-ready) {
 
 body:not(.content-ready):before{
   animation: loading 1.6s infinite linear;
-  border-bottom: 4px solid var(--flame-orange);
+  border-bottom: 4px solid var(--spinner-border-color);
   border-left: 1px solid var(--primary-grey);
   border-radius: 50%;
   border-right: 1px solid var(--primary-grey);
-  border-top: 4px solid var(--flame-orange);
+  border-top: 4px solid var(--spinner-border-color);
   content: "";
   display: block;
   transform: translate3d(-50%, -50%, 0) rotate(0deg);

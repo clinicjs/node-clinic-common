@@ -48,6 +48,13 @@ spinner.hide()
 
 ```
 
+The spinner rotating border is white by default, you can customise it by setting the css var `--spinner-border-color` in your css:
+```css
+html {
+  --spinner-border-color: --my-fancy-primary-color;
+}
+
+
 Please note that when showing the `spinner` after the page loaded you quite possibly will have some content underneath the spinner itself:
 
 ![screenshot 2018-11-28 at 12 00 45](https://user-images.githubusercontent.com/1298616/49147975-64b90300-f306-11e8-89f6-d7a26f6175d5.png)
