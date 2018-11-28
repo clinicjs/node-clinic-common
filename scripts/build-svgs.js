@@ -42,7 +42,7 @@ fs.readdir(iconsDir, function (err, items) {
 
   // write our generic index.js
 
-  fs.copyFileSync(`${iconsDir}/svg-icons.css`, `${exportDir}/svg-icons.css`)
+  fs.copyFileSync(`${iconsDir}/style.css`, `${exportDir}/style.css`)
 
   fs.writeFileSync(indexFile, `
 module.exports = {
