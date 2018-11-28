@@ -22,7 +22,7 @@ Arguments:
 ***
 
 
-## `svgIcons`
+## `Icons`
 Returns a dictionary object whose keys are the icon names and the values are the svg files content.
 Useful to inline svg files.
 
@@ -30,9 +30,9 @@ Useful to inline svg files.
 
 **Use examples:**
 ```js
-const svgIcons = require('@nearform/clinic-common/icons')
+const icons = require('@nearform/clinic-common/icons')
 
-console.log(svgIcons.activity)
+console.log(icons.activity)
 
 output:
 `<svg class="icon-img activity-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,7 +51,7 @@ const cog = require('@nearform/clinic-common/icons/cog')
 
 Basic style can be imported into the page by adding the following line to your main css file (if you use [postcss-import](https://github.com/postcss/postcss-import)):
 ```css
-@import "@nearform/clinic-common/icons/svg-icons.css";
+@import "@nearform/clinic-common/icons/style.css";
 ```
 
 That will add the following rules:
