@@ -28,7 +28,9 @@ body:not(.content-ready):before{
   border-top: 4px solid var(--spinner-border-color);
   content: "";
   display: block;
-  transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  transform: rotate(0deg);
+  margin-top: -64px;
+  margin-left: -62px;
 }
 
 body:not(.content-ready):after{
@@ -47,11 +49,11 @@ body:not(.content-ready):after{
 
 @keyframes loading {
   100% {
-    -webkit-transform: translate3d(-50%, -50%, 0) rotate(359deg);
-    -moz-transform: translate3d(-50%, -50%, 0) rotate(359deg);
-    -ms-transform: translate3d(-50%, -50%, 0) rotate(359deg);
-    -o-transform: translate3d(-50%, -50%, 0) rotate(359deg);
-    transform: translate3d(-50%, -50%, 0) rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    -moz-transform: rotate(359deg);
+    -ms-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    transform: rotate(359deg);
   }
   
 }
