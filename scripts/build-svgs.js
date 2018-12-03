@@ -24,7 +24,8 @@ fs.readdir(iconsDir, function (err, items) {
   } else {
     const files = items.filter(file => file.indexOf('.svg') > 0)
     files.forEach((file, i) => {
-      const svg = fs.readFileSync(`${iconsDir}/${file}`, 'utf8')
+      // reading the file and removing any line break
+      const svg = fs.readFileSync(`${iconsDir}/${file}`, 'utf8').replace(/(\r\n\t|\n|\r\t)/gm, '')
       const fileName = file.split('.')[0]
 
       const svgTag = svg.replace('<svg ', `<svg class="icon-img ${fileName}-svg" `)
@@ -33,6 +34,11 @@ fs.readdir(iconsDir, function (err, items) {
       fs.writeFileSync(
         `${exportDir}/${fileName}.js`,
         `module.exports = \`${svgTag}\`\n`
+      )
+
+      fs.writeFileSync(
+        `${exportDir}/${fileName}.css`,
+        `html { --${fileName}-icon: url('data:image/svg+xml;utf8,${svg}');}\n`
       )
     })
 
