@@ -26,9 +26,10 @@ body:not(.content-ready):after {
 ._loading_spinner_ {
   z-index: 999;
   position: absolute;
+  background-color: rgba(0,0,0,0.6);
 }
 ._loading_spinner_container {
-  opacity: .2;
+  filter: blur(3px);
 }
 
 body:not(.content-ready) {
