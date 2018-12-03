@@ -26,7 +26,7 @@ Arguments:
 Returns a dictionary object whose keys are the icon names and the values are the svg files content.
 Useful to inline svg files.
 
-[Find here the icons list](https://github.com/nearform/node-clinic-common/blob/master/icons/readme.md)
+[Find here the icons list](../icons/readme.md)
 
 **Use examples:**
 ```js
@@ -70,6 +70,28 @@ That will add the following rules:
   }
 ```
 
+**Using the icons as BG images**
+It is possible to use an icon as a background image too.
+In your `style.css` import the icons you need, i.e.:
+```css
+@import "@nearform/clinic-common/icons/cog.css";
+```
+
+This will generate the following **css variable** :
+```css
+html {
+    --cog-icon: url(data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fil…2 19.0006 14.7857 18.9737 14.8485L18.0545 14.4545Z" fill="#7A7F8F"></svg>);
+}
+```
+Now you can use it like this:
+```css
+.settings-button{
+  background-image: var(--cog-icon);
+  width: 24px;
+  height: 24px;
+...
+}
+```
 ## License
 
 [GPL 3.0](LICENSE)
