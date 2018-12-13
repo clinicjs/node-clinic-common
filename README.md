@@ -92,7 +92,6 @@ Now you can use it like this:
 ...
 }
 ```
-## License
 
 ***
 
@@ -144,5 +143,6 @@ Attaching the spinner to an element creates a new instance of `spinner` that can
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/1298616/49368446-ffdb1f80-f6ee-11e8-9c08-b134bcdcc2e6.gif)
 
 
+## License
 
 [GPL 3.0](LICENSE)
