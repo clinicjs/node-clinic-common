@@ -74,6 +74,5 @@ body:not(.content-ready):after{
     -ms-transform: rotate(359deg);
     -o-transform: rotate(359deg);
     transform: rotate(359deg);
-  }
-  
+  } 
 }
