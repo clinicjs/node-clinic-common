@@ -26,7 +26,7 @@ Arguments:
 Returns a dictionary object whose keys are the icon names and the values are the svg files content.
 Useful to inline svg files.
 
-[Find here the icons list](../icons/readme.md)
+[Find here the icons list](../master/icons/readme.md)
 
 **Use examples:**
 ```js
