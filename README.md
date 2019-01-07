@@ -57,11 +57,6 @@ Basic style can be imported into the page by adding the following line to your m
 That will add the following rules:
 ```css
   /* SVG icons */
-  svg.icon-img path {
-    /* Default to same fill as adjacent text */
-    fill: currentColor;
-  }
-  
   svg.icon-img {
     /* Default to same size as adjacent text */
     width: 1em;
