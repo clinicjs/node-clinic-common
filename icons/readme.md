@@ -49,6 +49,7 @@
 |fees|<img src="../assets/fees.svg?sanitize=true" width="100%" height="44" />|
 |filter|<img src="../assets/filter.svg?sanitize=true" width="100%" height="44" />|
 |grid-view|<img src="../assets/grid-view.svg?sanitize=true" width="100%" height="44" />|
+|hamburger|<img src="../assets/hamburger.svg?sanitize=true" width="100%" height="44" />|
 |horizontal-more|<img src="../assets/horizontal-more.svg?sanitize=true" width="100%" height="44" />|
 |inbox|<img src="../assets/inbox.svg?sanitize=true" width="100%" height="44" />|
 |info|<img src="../assets/info.svg?sanitize=true" width="100%" height="44" />|
@@ -66,6 +67,8 @@
 |plus|<img src="../assets/plus.svg?sanitize=true" width="100%" height="44" />|
 |portfolio|<img src="../assets/portfolio.svg?sanitize=true" width="100%" height="44" />|
 |power-off|<img src="../assets/power-off.svg?sanitize=true" width="100%" height="44" />|
+|radio-button-checked|<img src="../assets/radio-button-checked.svg?sanitize=true" width="100%" height="44" />|
+|radio-button-unchecked|<img src="../assets/radio-button-unchecked.svg?sanitize=true" width="100%" height="44" />|
 |redo|<img src="../assets/redo.svg?sanitize=true" width="100%" height="44" />|
 |reload|<img src="../assets/reload.svg?sanitize=true" width="100%" height="44" />|
 |save|<img src="../assets/save.svg?sanitize=true" width="100%" height="44" />|
