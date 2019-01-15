@@ -20,20 +20,20 @@ html {
   position: absolute;
   left: -10%;
   top: -10%;
-  width: 120%;
-  height: 120%;
+  width: 120% !important;
+  height: 120% !important;
 }
 
 /* Code block */
 .nc-code {
   padding: 1em;
-  font-size: 1.2rem;
+  font-size: 18px;
   font-weight: bold;
   text-align: left;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
-  white-space: pre-line;
+  white-space: pre;
   tab-size: 2;
   hyphens: none;
   border-radius: 4px;
@@ -50,7 +50,7 @@ html {
   z-index: 0;
   width: auto;
   padding: 0.5em;
-  font-size: 0.8rem;
+  font-size: 13px;
   font-family: inherit;
   font-weight: bold;
   text-decoration: none;
@@ -92,7 +92,7 @@ html {
   top: -0.5em;
   width: 1em;
   height: 1em;
-  font-size: 0.6rem;
+  font-size: 0.6em;
   background-color: var(--nc-colour-notification-dot);
   border-radius: 100%;
   opacity: 0;
@@ -110,10 +110,6 @@ html {
 .nc-button:focus {
   outline: 0;
   box-shadow: 0 0 0 1px var(--nc-colour-notification-dot);
-}
-
-.nc-button__icon {
-  padding-right: 0.5em;
 }
 
 .nc-button__text {
@@ -143,20 +139,21 @@ html {
 .nc-tray {
   background-color: var(--nc-colour-tray);
   color: var(--nc-colour-text);
+  font-size: 16px;
   transform: translateX(100%);
 }
 
 .nc-tray__inner {
-  padding: 2rem;
+  padding: 32px;
 }
 
 .nc-tray__close {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  width: 2rem;
-  height: 2rem;
-  padding: 0.5em;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  padding: 8px;
   border: 0;
   border-radius: 100%;
 }
@@ -190,7 +187,7 @@ html {
   height: 65px;
   background: var(--nc-colour-header-background);
   justify-content: space-between;
-  padding: 0px 1rem;
+  padding: 0px 16px;
 }
 
 .nc-header__logo {
@@ -202,23 +199,23 @@ html {
 .nc-header__logo-text {
   color: var(--nc-colour-text);
   font-weight: bold;
-  font-size: 1.125rem;
+  font-size: 18px;
 }
 
 .nc-header__logo svg {
   display: block;
-  height: 1.8rem;
+  height: 29px;
   width: auto;
-  margin-right: 0.8rem;
+  margin-right: 13px;
 }
 
 .nc-header__sponsor {
-  padding-right: 0.8rem;
+  padding-right: 13px;
 }
 
 .nc-header__sponsor svg {
   display: block;
-  height: 0.9rem;
+  height: 15px;
   width: auto;
 }
 
@@ -227,10 +224,14 @@ html {
   align-items: center;
 }
 
-@media(min-width: 40em) {
+@media(min-width: 640px) {
   .nc-button {
     padding: 0.5em 1em;
-    font-size: 1rem
+    font-size: 16px;
+  }
+
+  .nc-button__icon {
+    margin-right: 0.25em;
   }
 
   .nc-button__text {
@@ -238,7 +239,7 @@ html {
   }
 
   .nc-tray {
-    width: 40em;
+    width: 640px;
   }
 
   .nc-tray__close {
@@ -246,19 +247,19 @@ html {
   }
 
   .nc-header__logo-text {
-    font-size: 1.5rem;
+    font-size: 24px;
   }
 
   .nc-header__logo svg {
-    height: 2.6rem;
-    margin-right: 1rem;
+    height: 42px;
+    margin-right: 16px;
   }
 
   .nc-header__sponsor {
-    padding-right: 1rem;
+    padding-right: 16px;
   }
 
   .nc-header__sponsor svg {
-    height: 1.3rem;
+    height: 21px;
   }
 }
