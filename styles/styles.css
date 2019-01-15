@@ -50,7 +50,7 @@ html {
   z-index: 0;
   width: auto;
   padding: 0.5em;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-family: inherit;
   font-weight: bold;
   text-decoration: none;
@@ -190,7 +190,7 @@ html {
   height: 65px;
   background: var(--nc-colour-header-background);
   justify-content: space-between;
-  padding: 0px 18px;
+  padding: 0px 1rem;
 }
 
 .nc-header__logo {
@@ -202,23 +202,23 @@ html {
 .nc-header__logo-text {
   color: var(--nc-colour-text);
   font-weight: bold;
-  font-size: 23px;
+  font-size: 1.125rem;
 }
 
 .nc-header__logo svg {
   display: block;
-  height: 51px;
+  height: 1.8rem;
   width: auto;
-  margin-right: 12px;
+  margin-right: 0.8rem;
 }
 
 .nc-header__sponsor {
-  padding-right: 1em;
+  padding-right: 0.8rem;
 }
 
 .nc-header__sponsor svg {
   display: block;
-  height: 21px;
+  height: 0.9rem;
   width: auto;
 }
 
@@ -230,6 +230,7 @@ html {
 @media(min-width: 40em) {
   .nc-button {
     padding: 0.5em 1em;
+    font-size: 1rem
   }
 
   .nc-button__text {
@@ -242,5 +243,22 @@ html {
 
   .nc-tray__close {
     padding: 0.5em;
+  }
+
+  .nc-header__logo-text {
+    font-size: 1.5rem;
+  }
+
+  .nc-header__logo svg {
+    height: 2.6rem;
+    margin-right: 1rem;
+  }
+
+  .nc-header__sponsor {
+    padding-right: 1rem;
+  }
+
+  .nc-header__sponsor svg {
+    height: 1.3rem;
   }
 }
