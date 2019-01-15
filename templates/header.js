@@ -4,20 +4,20 @@ const streamTemplate = require('stream-template')
 const speechBubble = require('../icons/speech-bubble')
 
 const header = (opts = {}) => streamTemplate`
-  <div id="banner">
+  <div class="nc-header">
     <a
-      id="main-logo"
+      class="nc-header__logo"
       href="${opts.headerLogoUrl}"
       title="${opts.headerLogoTitle}"
       target="_blank"
       rel="noopener noreferrer"
     >
       ${opts.headerLogo}
-      <span>${opts.headerText}</span>
+      <span class="nc-header__logo-text">${opts.headerText}</span>
     </a>
-    <div id="banner-inner">
+    <div class="nc-header__inner">
       <a
-        id="company-logo"
+        class="nc-header__sponsor"
         href="https://nearform.com"
         title="NearForm"
         target="_blank"

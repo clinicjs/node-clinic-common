@@ -4,8 +4,10 @@ html {
   --nc-colour-notification-dot: #2165E5;
   --nc-colour-tray-backdrop: rgba(0, 0, 0, 0.6);
   --nc-colour-tray: #292d39;
+  --nc-colour-header-background: #292d39;
 }
 
+/* Icon */
 .nc-icon {
   display: inline-block;
   position: relative;
@@ -22,6 +24,7 @@ html {
   height: 120%;
 }
 
+/* Code block */
 .nc-code {
   padding: 1em;
   font-size: 1.2rem;
@@ -40,6 +43,7 @@ html {
   overflow: auto;
 }
 
+/* Button */
 .nc-button {
   display: inline-block;
   position: relative;
@@ -116,6 +120,7 @@ html {
   display: none;
 }
 
+/* Tray */
 .nc-tray-backdrop,
 .nc-tray {
   display: none;
@@ -176,6 +181,50 @@ html {
 .is-tray-active .nc-tray-backdrop {
   opacity: 1;
   transform: none;
+}
+
+/* Header */
+.nc-header {
+  display: flex;
+  align-items: center;
+  height: 65px;
+  background: var(--nc-colour-header-background);
+  justify-content: space-between;
+  padding: 0px 18px;
+}
+
+.nc-header__logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nc-header__logo-text {
+  color: var(--nc-colour-text);
+  font-weight: bold;
+  font-size: 23px;
+}
+
+.nc-header__logo svg {
+  display: block;
+  height: 51px;
+  width: auto;
+  margin-right: 12px;
+}
+
+.nc-header__sponsor {
+  padding-right: 1em;
+}
+
+.nc-header__sponsor svg {
+  display: block;
+  height: 21px;
+  width: auto;
+}
+
+.nc-header__inner {
+  display: flex;
+  align-items: center;
 }
 
 @media(min-width: 40em) {

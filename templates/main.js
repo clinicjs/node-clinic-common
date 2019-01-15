@@ -6,7 +6,7 @@ const askTray = require('./ask-tray')
 
 const main = (opts = {}) => streamTemplate`
   <!DOCTYPE html>
-  <html lang="en" class="grid-layout">
+  <html lang="en" class="${opts.htmlClass}">
     <head>
       <meta charset="utf8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
