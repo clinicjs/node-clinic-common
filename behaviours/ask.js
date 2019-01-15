@@ -1,70 +1,22 @@
 'use strict'
 
-const styles = require('./styles')
-const createButton = require('./button')
-const createTray = require('./tray')
-
 const CLASS = {
   BUTTON_NOTIFIED: 'is-notified',
   TRAY_VISIBLE: 'is-tray-visible',
   TRAY_ACTIVE: 'is-tray-active'
 }
 
-const getUploadIdFromLocation = () =>
-  window.location.href.split('/').pop().split('.html').shift()
-
 const timeoutFrame = (cb, duration) => setTimeout(
   () => window.requestAnimationFrame(cb),
   duration
 )
 
-const defaultOpts = {
-  // The element to append the tray to
-  trayContainer: document.body,
-  // Button options
-  button: {
-    text: 'Ask an expert'
-  },
-  // Tray options
-  tray: {
-    title: 'Ask an expert',
-    command: `clinic ask ${getUploadIdFromLocation()}`
-  },
-  // Style options. A simple map of variable key: values
-  styleVars: {
-    'colourText': 'white',
-    'colourCode': '#E9F100',
-    'colourNotificationDot': '#2165E5',
-    'colourTrayBackdrop': 'rgba(0, 0, 0, 0.6)',
-    'colourTray': '#292d39'
-  }
-}
-
-const init = (userOpts = {}) => {
-  if (!userOpts.buttonContainer) {
-    throw new Error('Please specify a buttonContainer element')
-  }
-
-  // Merge options with defaults
-  const opts = Object.assign({}, defaultOpts, userOpts)
-
-  // Create new elements
-  const $style = document.createElement('style')
-  const $buttonWrapper = document.createElement('div')
-  const $trayWrapper = document.createElement('div')
-
-  // Add styles to <style> element with options
-  $style.innerHTML = styles(opts.styleVars)
-  // Add button to wrapper element
-  $buttonWrapper.innerHTML += createButton(opts.button)
-  // Add tray to wrapper element
-  $trayWrapper.innerHTML += createTray(opts.tray)
-
+const init = () => {
   // Get DOM node refs
   const $body = document.body
-  const $button = $buttonWrapper.querySelector('button')
-  const $trayBackdrop = $trayWrapper.querySelector('div')
-  const $trayClose = $trayWrapper.querySelector('button')
+  const $button = document.querySelector('[data-nc-ask-button]')
+  const $trayBackdrop = document.querySelector('[data-nc-ask-tray-backdrop]')
+  const $trayClose = document.querySelector('[data-nc-ask-tray-close]')
 
   const notifyButton = () => $button.classList.add(CLASS.BUTTON_NOTIFIED)
 
@@ -113,16 +65,7 @@ const init = (userOpts = {}) => {
     $trayBackdrop.removeEventListener('click', handleToggleClick)
     $trayClose.removeEventListener('click', handleToggleClick)
     window.removeEventListener('keyup', handleWindowKeyUp)
-    $buttonWrapper.remove()
-    $style.remove()
   }
-
-  // Append button and wrapper to given container
-  opts.buttonContainer.appendChild($buttonWrapper)
-  // Append tray and wrapper to given container
-  opts.trayContainer.appendChild($trayWrapper)
-  // Output styles in head
-  document.head.appendChild($style)
 
   // Bind event listeners
   $button.addEventListener('click', handleToggleClick)

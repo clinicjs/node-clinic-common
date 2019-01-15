@@ -26,5 +26,8 @@
   "devDependencies": {
     "standard": "^12.0.1",
     "tap": "^12.1.0"
+  },
+  "dependencies": {
+    "stream-template": "0.0.10"
   }
 }
