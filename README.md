@@ -1,8 +1,39 @@
 # node-clinic-common
 
-Common functionality shared throughout node-clinic
+Common functionality shared throughout node-clinic.
 
-## `getLoggingPaths(toolName, toolSpecificFiles=[])`
+<details>
+  <summary>Table of contents</summary>
+
+<!-- MarkdownTOC autolink="true" levels="1,2,3,4" -->
+
+- [Utils](#utils)
+  - [`getLoggingPaths(toolName, toolSpecificFiles=[])`](#getloggingpathstoolname-toolspecificfiles)
+- [Scripts](#scripts)
+  - [`buildJs(opts = {})`](#buildjsopts--)
+    - [Usage](#usage)
+  - [`buildCss(opts = {})`](#buildcssopts--)
+    - [Usage](#usage-1)
+- [Templates](#templates)
+  - [`mainTemplate(opts = {})`](#maintemplateopts--)
+    - [Usage](#usage-2)
+- [Styles](#styles)
+  - [Usage](#usage-3)
+- [Behaviours](#behaviours)
+  - [`ask()`](#ask)
+  - [Usage](#usage-4)
+- [Icons](#icons)
+- [Components](#components)
+  - [Spinner](#spinner)
+- [License](#license)
+
+<!-- /MarkdownTOC -->
+
+</details>
+
+## Utils
+
+### `getLoggingPaths(toolName, toolSpecificFiles=[])`
 
 Create a function that builds paths for tool log information. The returned function returns an object mapping virtual path names to actual path names, such as:
 
@@ -18,11 +49,120 @@ Arguments:
     If `toolName` is 'doctor', this defaults to `['/traceevent', '/processstat']`.
     If `toolName` is 'bubbleprof', this defaults to `['/traceevent', '/stacktrace']`.
 
+***
+
+## Scripts
+
+### `buildJs(opts = {})`
+Returns a Browserify bundle (Readable Stream)
+
+#### Usage
+```js
+const buildJs = require('@nearform/clinic-common/scripts/build-js')
+
+const scriptFile = buildJs({
+  basedir: __dirname, (String)
+  debug: this.debug, (Boolean)
+  fakeDataPath, (String)
+  scriptPath, (String)
+  beforeBundle: b => b.doSomethingWithBundle() (Function)
+})
+```
+
+💡 The `debug` option will ensure the bundle contains a sourcemap
+
+### `buildCss(opts = {})`
+Returns a PostCSS bundle (Promise)
+
+#### Usage
+```js
+const buildCss = require('@nearform/clinic-common/scripts/build-css')
+
+const styleFile = buildCss({
+  stylePath, (String)
+  debug: this.debug (Boolean)
+})
+```
+
+💡 The `debug` option will ensure the bundle contains a sourcemap
 
 ***
 
+## Templates
+Templates use stream-templates to interpolate streams, promises and strings into a common template without the need to buffer them first.
 
-## `Icons`
+### `mainTemplate(opts = {})`
+Returns a streamTemplate (Readable Stream)
+
+Use this template for building tool output with a common chrome including a header and a popout tray.
+
+This will need to be used in conjunction with the common UI [styles](#styles) and the tray [behaviours](#behaviours).
+
+#### Usage
+```js
+const mainTemplate = require('@nearform/clinic-common/templates/main')
+
+const outputFile = mainTemplate({
+  htmlClass: '', (String)
+  favicon: 'URI', (String)
+  title: 'Title', (String)
+  styles: styleFile, (Readable Stream)
+  script: scriptFile, (Promise)
+  headerLogoUrl: 'https://github.com/somewhere', (String)
+  headerLogoTitle: 'Logo title', (String)
+  headerLogo: logoFile, (String)
+  headerText: 'Text', (String)
+  nearFormLogo: 'URI', (String)
+  uploadId: 'ID', (String)
+  head: 'extra <head> content', (String)
+  body: 'extra <body> contents' (String)
+})
+```
+
+***
+
+## Styles
+Importable CSS to include when using the `mainTemplate` to be used in conjunction with the `buildCss` script to ensure it is bundled with tool-specific styling. This adds some global styles for the header and tray.  The CSS is written using BEM to avoid specificity and has the following overrideable CSS variables:
+
+```css
+html {
+  --nc-colour-text: white;
+  --nc-colour-code: #E9F100;
+  --nc-colour-notification-dot: #2165E5;
+  --nc-colour-tray-backdrop: rgba(0, 0, 0, 0.6);
+  --nc-colour-tray: #292d39;
+  --nc-colour-header-background: #292d39;
+}
+```
+
+### Usage
+```css
+@import '@nearform/clinic-common/styles/styles.css';
+
+.your {
+  tool: styles;
+}
+```
+
+***
+
+## Behaviours
+Importable JS modules which expose an attach function and return a programmable API with at least a `destroy()` method. Each behaviour uses data-attributes to target DOM nodes.
+
+### `ask()`
+Returns an object with a `destroy()` and `toggleTray()` method to allow showing/hiding of the 'Ask an expert' side tray. This behaviour binds event listeners to open the tray on header button click and close it on close button and backdrop click.
+
+### Usage
+```js
+const askBehaviours = require('@nearform/clinic-common/behaviours/ask')
+
+// Bind ask behaviours
+askBehaviours()
+```
+
+***
+
+## Icons
 Returns a dictionary object whose keys are the icon names and the values are the svg files content.
 Useful to inline svg files.
 
@@ -90,7 +230,9 @@ Now you can use it like this:
 
 ***
 
-## Spinner
+## Components
+
+### Spinner
 To add the `loading spinner` to your app please import `@nearform/clinic-common/spinner` in your `main.js` and the style.css file to your `style.css`
 
 Example:
