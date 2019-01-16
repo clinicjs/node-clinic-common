@@ -3,17 +3,14 @@ const postcssImport = require('postcss-import')
 const { promisify } = require('util')
 const readFile = promisify(require('fs').readFile)
 
-const buildCss = ({ stylePath, debug }) => (
-  readFile(stylePath, 'utf8')
-    .then((css) => postcss([
-      postcssImport()
-    ]).process(css, {
+const buildCss = async ({ stylePath, debug }) => {
+  const css = await readFile(stylePath, 'utf8')
+  const result = await postcss([postcssImport()])
+    .process(css, {
       from: stylePath,
       map: this.debug ? { inline: true } : false
-    }))
-    .then((result) => {
-      return result.css
     })
-)
 
+  return result.css
+}
 module.exports = buildCss

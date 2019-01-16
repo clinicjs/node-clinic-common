@@ -1,4 +1,5 @@
 const browserify = require('browserify')
+const brfs = require('brfs')
 const envify = require('loose-envify/custom')
 
 const buildJs = ({ basedir, debug, fakeDataPath, scriptPath, beforeBundle, env = {} }) => {
@@ -14,7 +15,7 @@ const buildJs = ({ basedir, debug, fakeDataPath, scriptPath, beforeBundle, env =
 
   return b
     .add(scriptPath)
-    .transform('brfs')
+    .transform(brfs)
     .transform(envify({
       DEBUG_MODE: debug,
       ...env
