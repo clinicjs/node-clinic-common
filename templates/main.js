@@ -8,7 +8,7 @@ const main = (opts = {}) => streamTemplate`
   <!DOCTYPE html>
   <html lang="en" class="${opts.htmlClass}">
     <head>
-      <meta charset="utf8">
+      <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="shortcut icon" type="image/png" href="${opts.favicon}">
       <title>${opts.title}</title>
