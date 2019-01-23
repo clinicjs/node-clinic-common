@@ -19,6 +19,8 @@ Common functionality shared throughout node-clinic.
     - [Usage](#usage-2)
 - [Styles](#styles)
   - [Usage](#usage-3)
+  - [Standards](#standards)
+    - [Breakdown](#breakdown)
 - [Behaviours](#behaviours)
   - [`ask()`](#ask)
   - [Usage](#usage-4)
@@ -142,6 +144,26 @@ html {
 .your {
   tool: styles;
 }
+```
+
+### Standards
+CSS should be written using classes using [BEM](https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) as a naming convention for better encapsulation and lower specificity.
+
+Inside this repo, all classes are vendor-prfixed with `.nc-` to avoid class name collision with third party or tool specific styles. For tool-based styling, all styles should follow the same conventions with prefixes for the tools as follows:
+
+```
+.ncd- Clinic Doctor
+.ncb- Clinic Bubbleprof
+.ncf- Clinic Flame
+```
+
+#### Breakdown
+```css
+/* Block: Tray component  */
+.nc-tray { ...
+
+/* Element: Tray inner component */
+.nc-tray__inner { ...
 ```
 
 ***
