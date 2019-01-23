@@ -15,7 +15,7 @@ const main = (opts = {}) => streamTemplate`
       <style>${opts.styles}</style>
       ${opts.head}
     </head>
-    <body>
+    <body class="${opts.bodyClass}">
       ${header(opts)}
       ${opts.body}
       ${askTray(opts)}
