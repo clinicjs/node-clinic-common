@@ -2,7 +2,7 @@
 
 const WebFont = require('webfontloader')
 
-const styleSheetUrl = 'https://adoring-einstein-015923.netlify.com/assets/css/fonts.css'
+const styleSheetUrl = 'https://clinicjs.org/assets/css/fonts.css'
 const allFonts = [
   'Archia:n4',
   'Archia:n7',
