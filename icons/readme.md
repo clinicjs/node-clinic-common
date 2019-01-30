@@ -56,10 +56,10 @@
 |light-mode|<img src="../assets/light-mode.svg?sanitize=true" width="100%" height="44" />|
 |link|<img src="../assets/link.svg?sanitize=true" width="100%" height="44" />|
 |list-view|<img src="../assets/list-view.svg?sanitize=true" width="100%" height="44" />|
-|loading-icon-1|<img src="../assets/loading-icon-1.svg?sanitize=true" width="100%" height="44" />|
-|loading-icon-2|<img src="../assets/loading-icon-2.svg?sanitize=true" width="100%" height="44" />|
 |loading-icon|<img src="../assets/loading-icon.svg?sanitize=true" width="100%" height="44" />|
 |minus|<img src="../assets/minus.svg?sanitize=true" width="100%" height="44" />|
+|padlock-locked|<img src="../assets/padlock-locked.svg?sanitize=true" width="100%" height="44" />|
+|padlock-unlocked|<img src="../assets/padlock-unlocked.svg?sanitize=true" width="100%" height="44" />|
 |pencil-edit|<img src="../assets/pencil-edit.svg?sanitize=true" width="100%" height="44" />|
 |pencil-write|<img src="../assets/pencil-write.svg?sanitize=true" width="100%" height="44" />|
 |pencil|<img src="../assets/pencil.svg?sanitize=true" width="100%" height="44" />|
