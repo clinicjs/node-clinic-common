@@ -11,14 +11,15 @@ const allFonts = [
   'Space Mono:n7'
 ]
 
-const init = ({
-  onLoad,
-  onTimeout,
-  onLoadAfterTimeout,
-  timeout = 2000,
-  criticalFonts = allFonts,
-  ...opts
-} = {}) => {
+const init = (opts = {}) => {
+  const {
+    onLoad,
+    onTimeout,
+    onLoadAfterTimeout,
+    timeout = 2000,
+    criticalFonts = allFonts
+  } = opts
+
   // Flag loaded state
   let isLoading = true
   // Keep track of loaded fonts
@@ -74,16 +75,17 @@ const init = ({
   // Noop
   const destroy = () => null
 
-  // Kick things off
-  WebFont.load({
+  const webFontOpts = Object.assign({
     custom: {
       families: allFonts,
       urls: [styleSheetUrl]
     },
     active,
-    fontactive,
-    ...opts
-  })
+    fontactive
+  }, opts)
+
+  // Kick things off
+  WebFont.load(webFontOpts)
 
   return {
     destroy
