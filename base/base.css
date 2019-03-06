@@ -1,4 +1,6 @@
 @import "./button.css";
 @import "./checkbox.css";
-@import "./contex-overlay.css";
+@import "./context-overlay.css";
 @import "./drop-down.css";
+@import "./walkthrough-player.css";
+@import "./element-highlighter.css";

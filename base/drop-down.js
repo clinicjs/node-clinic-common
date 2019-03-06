@@ -1,5 +1,5 @@
-const caretRight = require('@nearform/clinic-common/icons/caret-right')
-const caretLeft = require('@nearform/clinic-common/icons/caret-left')
+const caretRight = require('../icons/caret-right')
+const caretLeft = require('../icons/caret-left')
 const button = require('./button.js')
 const { toHtml } = require('./helpers.js')
 

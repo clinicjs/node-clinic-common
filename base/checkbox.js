@@ -1,6 +1,6 @@
-const checkboxCheckedIcon = require('@nearform/clinic-common/icons/checkbox-checked')
-const checkboxUncheckedIcon = require('@nearform/clinic-common/icons/checkbox-unchecked')
-const checkboxIndeterminedIcon = require('@nearform/clinic-common/icons/checkbox-indetermined')
+const checkboxCheckedIcon = require('../icons/checkbox-checked')
+const checkboxUncheckedIcon = require('../icons/checkbox-unchecked')
+const checkboxIndeterminedIcon = require('../icons/checkbox-indetermined')
 
 module.exports = ({ leftLabel, rightLabel, classNames = [], checked = false, disabled = false, indeterminate = false, onChange } = {}) => {
   const wrappingLabel = document.createElement('label')
