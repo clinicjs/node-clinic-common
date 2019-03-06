@@ -1,5 +1,4 @@
 const caretRight = require('../icons/caret-right')
-const caretLeft = require('../icons/caret-left')
 const button = require('./button.js')
 const { toHtml } = require('./helpers.js')
 
@@ -7,27 +6,27 @@ let currentlyExpandedDropDown = null
 
 // Closes when the user clicks outside the dropdown content.
 document.body.addEventListener('click', (event) => {
-  if (event.target.closest('.dropdown-content-wrapper') !== currentlyExpandedDropDown) closeCurrentlyExpandedDropDown()
+  if (event.target.closest('.nc_dropdown-content-wrapper') !== currentlyExpandedDropDown) closeCurrentlyExpandedDropDown()
 })
 
 function closeCurrentlyExpandedDropDown () {
-  currentlyExpandedDropDown && currentlyExpandedDropDown.closest('.c_dropdown').close()
+  currentlyExpandedDropDown && currentlyExpandedDropDown.closest('.nc_dropdown').close()
 }
 
 module.exports = ({ label, classNames = [], disabled = false, expandAbove = false, content } = {}) => {
+  let ddContent = content
   const wrapper = document.createElement('div')
-  wrapper.classList.add('c_dropdown', ...classNames)
+  wrapper.classList.add('nc_dropdown', ...classNames)
   wrapper.classList.toggle('direction-up', expandAbove)
 
   const labelWrapper = document.createElement('div')
   labelWrapper.classList.add('label-wrapper')
-  const labelHtml = toHtml(label, 'label')
-  labelWrapper.appendChild(labelHtml)
+
   wrapper.appendChild(labelWrapper)
 
   wrapper.appendChild(button({
     disabled,
-    leftIcon: expandAbove ? caretRight : caretLeft,
+    leftIcon: caretRight,
     onClick: e => {
       e.stopPropagation()
 
@@ -39,6 +38,19 @@ module.exports = ({ label, classNames = [], disabled = false, expandAbove = fals
     }
   }))
 
+  wrapper.update = ({ label, content }) => {
+    if (label) {
+      const labelHtml = toHtml(label, 'label')
+      labelWrapper.innerHTML = ''
+      labelWrapper.appendChild(labelHtml)
+    }
+
+    if (content) {
+      ddContent = content
+      updateContent()
+    }
+  }
+
   wrapper.addEventListener('animationend', () => {
     wrapper.classList.toggle('contracted', false)
   })
@@ -47,22 +59,27 @@ module.exports = ({ label, classNames = [], disabled = false, expandAbove = fals
   contentWrapper.classList.add('dropdown-content-wrapper')
 
   wrapper.close = () => {
-    wrapper.classList.toggle('expanded', false)
+    wrapper.classList.remove('expanded')
     wrapper.classList.toggle('contracted', true)
     currentlyExpandedDropDown = null
   }
   wrapper.open = () => {
     closeCurrentlyExpandedDropDown()
-    contentWrapper.innerHTML = ''
-    if (content) {
-      contentWrapper.appendChild(toHtml(content), 'content')
-    }
-    wrapper.classList.toggle('contracted', false)
-    wrapper.classList.toggle('expanded', true)
+    updateContent()
+    wrapper.classList.remove('contracted')
+    wrapper.classList.add('expanded')
+
     currentlyExpandedDropDown = contentWrapper
   }
 
-  wrapper.appendChild(contentWrapper)
+  function updateContent () {
+    contentWrapper.innerHTML = ''
+    if (ddContent) {
+      contentWrapper.appendChild(toHtml(ddContent))
+    }
+  }
 
+  wrapper.appendChild(contentWrapper)
+  wrapper.update({ label })
   return wrapper
 }

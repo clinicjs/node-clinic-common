@@ -2,15 +2,15 @@ const { toHtml } = require('./helpers.js')
 const debounce = require('lodash.debounce')
 
 const overlayEl = document.createElement('div')
-overlayEl.classList.add('c_context-overlay')
+overlayEl.classList.add('nc_context-overlay')
 
 const overlayInnerEl = document.createElement('div')
-overlayInnerEl.classList.add('c_context-overlay-inner')
+overlayInnerEl.classList.add('nc_context-overlay-inner')
 
 overlayEl.appendChild(overlayInnerEl)
 
 const overlayArrow = document.createElement('div')
-overlayArrow.classList.add('c_context-overlay-arrow')
+overlayArrow.classList.add('nc_context-overlay-arrow')
 overlayEl.appendChild(overlayArrow)
 
 overlayArrow.addEventListener('animationend', () => {
@@ -105,6 +105,8 @@ const overlay = {
     overlayInnerEl.style.width = oldWidth
 
     const justToForceRedraw = overlayInnerEl.offsetWidth
+    // the following line is to avoid the "no-unused-vars" error
+    if (justToForceRedraw === 0) console.log(justToForceRedraw)
 
     // positioning the overlay content
     // making sure that it doesn't go over the element right edge

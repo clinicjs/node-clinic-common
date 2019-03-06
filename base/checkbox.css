@@ -1,4 +1,4 @@
-.c_checkbox {
+.nc_checkbox {
   background-color: var(--opposite-contrast);
   padding         : 0.3em;
   display         : flex;
@@ -7,11 +7,11 @@
   min-width       : 0;
 }
 
-.c_checkbox input {
+.nc_checkbox input {
   display: none;
 }
 
-.c_checkbox .copy-wrapper {
+.nc_checkbox .copy-wrapper {
   margin       : 0.3em;
   overflow     : hidden;
   text-overflow: ellipsis;
@@ -19,12 +19,12 @@
   min-width    : 1.3em;
 }
 
-.c_checkbox:hover:not(:disabled) {
+.nc_checkbox:hover:not(:disabled) {
   background-color: var(--clickable-bg-hover);
   outline: 1px dotted var(--light-glare);  
 }
 
-.c_checkbox .icon-wrapper {
+.nc_checkbox .icon-wrapper {
   align-items    : center;
   border-radius  : 3px;
   display        : flex;
@@ -34,34 +34,34 @@
   justify-content: center;
   color          : var(--checkbox-border-color);
 }
-.c_checkbox .icon-wrapper svg{
+.nc_checkbox .icon-wrapper svg{
   display: none;
 }
-.c_checkbox .icon-wrapper .checkbox-unchecked-svg{
+.nc_checkbox .icon-wrapper .checkbox-unchecked-svg{
   display: initial;
 }
 
-.c_checkbox :checked ~ .icon-wrapper .checkbox-unchecked-svg{
+.nc_checkbox :checked ~ .icon-wrapper .checkbox-unchecked-svg{
   display: none;
 }
 
-.c_checkbox :checked ~ .icon-wrapper{
+.nc_checkbox :checked ~ .icon-wrapper{
   color: var(--max-contrast);
 }
 
-.c_checkbox :checked ~ .icon-wrapper .checkbox-checked-svg{
+.nc_checkbox :checked ~ .icon-wrapper .checkbox-checked-svg{
   display: initial;
 }
 
-.c_checkbox :indeterminate ~ .icon-wrapper {
+.nc_checkbox :indeterminate ~ .icon-wrapper {
   color: var(--grey-highlight);
 }
 
-.c_checkbox :indeterminate ~ .icon-wrapper .checkbox-indetermined-svg {
+.nc_checkbox :indeterminate ~ .icon-wrapper .checkbox-indetermined-svg {
   display: initial;
 }
 
-.c_checkbox :indeterminate ~ .icon-wrapper .checkbox-unchecked-svg,
-.c_checkbox :indeterminate ~ .icon-wrapper .checkbox-checked-svg{
+.nc_checkbox :indeterminate ~ .icon-wrapper .checkbox-unchecked-svg,
+.nc_checkbox :indeterminate ~ .icon-wrapper .checkbox-checked-svg{
   display: none;
 }

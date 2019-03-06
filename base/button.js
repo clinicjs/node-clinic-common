@@ -1,6 +1,6 @@
 module.exports = ({ label, classNames = [], leftIcon = '', rightIcon = '', disabled = false, onClick, title } = {}) => {
   const button = document.createElement('button')
-  button.classList.add('c_button', ...classNames)
+  button.classList.add('nc_button', ...classNames)
 
   button.disabled = disabled
   if (title) button.title = title

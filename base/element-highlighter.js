@@ -10,11 +10,11 @@ wrapper.innerHTML = `
   <div class="element-highlighter-panel element-highlighter-left"></div>
   <div class="element-highlighter-border"></div>
 `
-const backdropTop = wrapper.querySelector('.element-highlighter-top')
-const backdropRight = wrapper.querySelector('.element-highlighter-right')
-const backdropBottom = wrapper.querySelector('.element-highlighter-bottom')
-const backdropLeft = wrapper.querySelector('.element-highlighter-left')
-const backdropBorder = wrapper.querySelector('.element-highlighter-border')
+const backdropTop = wrapper.querySelector('.nc_element-highlighter-top')
+const backdropRight = wrapper.querySelector('.nc_element-highlighter-right')
+const backdropBottom = wrapper.querySelector('.nc_element-highlighter-bottom')
+const backdropLeft = wrapper.querySelector('.nc_element-highlighter-left')
+const backdropBorder = wrapper.querySelector('.nc_element-highlighter-border')
 
 document.body.appendChild(wrapper)
 
