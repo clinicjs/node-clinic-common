@@ -4,7 +4,7 @@ const checkboxIndeterminedIcon = require('../icons/checkbox-indetermined')
 
 module.exports = ({ leftLabel, rightLabel, classNames = [], checked = false, disabled = false, indeterminate = false, onChange } = {}) => {
   const wrappingLabel = document.createElement('label')
-  wrappingLabel.classList.add('nc_checkbox', ...classNames)
+  wrappingLabel.classList.add('nc-checkbox', ...classNames)
 
   wrappingLabel.innerHTML = `
         <input type="checkbox" 

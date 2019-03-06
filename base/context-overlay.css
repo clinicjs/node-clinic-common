@@ -1,15 +1,15 @@
-.nc_context-overlay {
+.nc-context-overlay {
   position: fixed;
   z-index: 9;
   transition: left 1s cubic-bezier(0.65, 0.05, 0.36, 1), top 1s cubic-bezier(0.65, 0.05, 0.36, 1);
   display: none;
 }
 
-.nc_context-overlay.show {
+.nc-context-overlay.show {
   display: block;
 }
 
-.nc_context-overlay-inner {
+.nc-context-overlay-inner {
   overflow: hidden;
   height: 20px;
   width: 20px;
@@ -18,26 +18,26 @@
   transition: left 1s ease-in-out, top 1s ease-in-out, height 0.5s ease-in-out, width 0.5s ease-in-out;
 }
 
-.nc_context-overlay-arrow {
+.nc-context-overlay-arrow {
   position: absolute;
   border: 10px solid transparent;  
   left: -10px;
   display: none;
 }
 
-.nc_context-overlay.arrowTop .nc_context-overlay-arrow {
+.nc-context-overlay.arrowTop .nc-context-overlay-arrow {
   border-bottom-color: white;
   top: -19px;
   display: block;
 }
 
-.nc_context-overlay.arrowBottom .nc_context-overlay-arrow {
+.nc-context-overlay.arrowBottom .nc-context-overlay-arrow {
   border-top-color: white;
   bottom: -19px;
   display: block;
 }
 
-.nc_context-overlay-arrow.fade-in {
+.nc-context-overlay-arrow.fade-in {
   animation: 1s context-overlay-arrow-fade-in 1 normal forwards;
 }
 

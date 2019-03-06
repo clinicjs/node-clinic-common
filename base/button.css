@@ -1,4 +1,4 @@
-.nc_button {
+.nc-button {
   align-items     : center;
   background-color: var(--opposite-contrast);
   border          : none;
@@ -11,24 +11,24 @@
   min-width       : 0;
   padding         : 0.3em;
 }
-.nc_button:hover:not(:disabled) {
+.nc-button:hover:not(:disabled) {
   background-color: var(--clickable-bg-hover);
   outline         : 1px dotted var(--light-glare);
 }
 
-.nc_button:disabled {
+.nc-button:disabled {
   opacity: 0.5;
   cursor: auto;
   filter: saturate(0);
 }
 
-.nc_button .icon-img {
+.nc-button .icon-img {
   font-size: 1.5em;
   margin   : 0.133em;
   flex-shrink: 0;
 }
 
-.nc_button .label {
+.nc-button .label {
   margin       : 0.3em;
   overflow     : hidden;
   text-overflow: ellipsis;

@@ -1,4 +1,4 @@
-.nc_element-highlighter {
+.nc-element-highlighter {
   display   : none;
   opacity   : 0;
   transition: opacity 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -6,11 +6,11 @@
   z-index   : 5;
 }
 
-.nc_element-highlighter.show {
+.nc-element-highlighter.show {
   display: block;
 }
 
-.nc_element-highlighter .nc_element-highlighter-panel {
+.nc-element-highlighter .nc-element-highlighter-panel {
   position        : fixed;
   top             : 0;
   left            : 0;
@@ -19,13 +19,13 @@
   transition      : transform 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   background-color: #000;
 }
-.nc_element-highlighter .nc_element-highlighter-border {
+.nc-element-highlighter .nc-element-highlighter-border {
   position: fixed;
   transition: all 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
-.nc_element-highlighter .nc_element-highlighter-border::before,
-.nc_element-highlighter .nc_element-highlighter-border::after {
+.nc-element-highlighter .nc-element-highlighter-border::before,
+.nc-element-highlighter .nc-element-highlighter-border::after {
   content   : "";
   position  : absolute;
   width     : 10px;
@@ -33,14 +33,14 @@
   color     : var(--flame-orange);
 }
 
-.nc_element-highlighter .nc_element-highlighter-border::before {
+.nc-element-highlighter .nc-element-highlighter-border::before {
   border-top : 2px solid;
   border-left: 2px solid;
   top        : -1px;
   left       : -1px;
 }
 
-.nc_element-highlighter .nc_element-highlighter-border::after {
+.nc-element-highlighter .nc-element-highlighter-border::after {
   border-bottom: 2px solid;
   border-right : 2px solid;
   right        : -1px;

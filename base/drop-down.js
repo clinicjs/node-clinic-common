@@ -6,17 +6,17 @@ let currentlyExpandedDropDown = null
 
 // Closes when the user clicks outside the dropdown content.
 document.body.addEventListener('click', (event) => {
-  if (event.target.closest('.nc_dropdown-content-wrapper') !== currentlyExpandedDropDown) closeCurrentlyExpandedDropDown()
+  if (event.target.closest('.nc-dropdown-content-wrapper') !== currentlyExpandedDropDown) closeCurrentlyExpandedDropDown()
 })
 
 function closeCurrentlyExpandedDropDown () {
-  currentlyExpandedDropDown && currentlyExpandedDropDown.closest('.nc_dropdown').close()
+  currentlyExpandedDropDown && currentlyExpandedDropDown.closest('.nc-dropdown').close()
 }
 
 module.exports = ({ label, classNames = [], disabled = false, expandAbove = false, content } = {}) => {
   let ddContent = content
   const wrapper = document.createElement('div')
-  wrapper.classList.add('nc_dropdown', ...classNames)
+  wrapper.classList.add('nc-dropdown', ...classNames)
   wrapper.classList.toggle('direction-up', expandAbove)
 
   const labelWrapper = document.createElement('div')

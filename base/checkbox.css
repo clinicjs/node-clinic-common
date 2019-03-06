@@ -1,4 +1,4 @@
-.nc_checkbox {
+.nc-checkbox {
   background-color: var(--opposite-contrast);
   padding         : 0.3em;
   display         : flex;
@@ -7,11 +7,11 @@
   min-width       : 0;
 }
 
-.nc_checkbox input {
+.nc-checkbox input {
   display: none;
 }
 
-.nc_checkbox .copy-wrapper {
+.nc-checkbox .copy-wrapper {
   margin       : 0.3em;
   overflow     : hidden;
   text-overflow: ellipsis;
@@ -19,12 +19,12 @@
   min-width    : 1.3em;
 }
 
-.nc_checkbox:hover:not(:disabled) {
+.nc-checkbox:hover:not(:disabled) {
   background-color: var(--clickable-bg-hover);
   outline: 1px dotted var(--light-glare);  
 }
 
-.nc_checkbox .icon-wrapper {
+.nc-checkbox .icon-wrapper {
   align-items    : center;
   border-radius  : 3px;
   display        : flex;
@@ -34,34 +34,34 @@
   justify-content: center;
   color          : var(--checkbox-border-color);
 }
-.nc_checkbox .icon-wrapper svg{
+.nc-checkbox .icon-wrapper svg{
   display: none;
 }
-.nc_checkbox .icon-wrapper .checkbox-unchecked-svg{
+.nc-checkbox .icon-wrapper .checkbox-unchecked-svg{
   display: initial;
 }
 
-.nc_checkbox :checked ~ .icon-wrapper .checkbox-unchecked-svg{
+.nc-checkbox :checked ~ .icon-wrapper .checkbox-unchecked-svg{
   display: none;
 }
 
-.nc_checkbox :checked ~ .icon-wrapper{
+.nc-checkbox :checked ~ .icon-wrapper{
   color: var(--max-contrast);
 }
 
-.nc_checkbox :checked ~ .icon-wrapper .checkbox-checked-svg{
+.nc-checkbox :checked ~ .icon-wrapper .checkbox-checked-svg{
   display: initial;
 }
 
-.nc_checkbox :indeterminate ~ .icon-wrapper {
+.nc-checkbox :indeterminate ~ .icon-wrapper {
   color: var(--grey-highlight);
 }
 
-.nc_checkbox :indeterminate ~ .icon-wrapper .checkbox-indetermined-svg {
+.nc-checkbox :indeterminate ~ .icon-wrapper .checkbox-indetermined-svg {
   display: initial;
 }
 
-.nc_checkbox :indeterminate ~ .icon-wrapper .checkbox-unchecked-svg,
-.nc_checkbox :indeterminate ~ .icon-wrapper .checkbox-checked-svg{
+.nc-checkbox :indeterminate ~ .icon-wrapper .checkbox-unchecked-svg,
+.nc-checkbox :indeterminate ~ .icon-wrapper .checkbox-checked-svg{
   display: none;
 }
