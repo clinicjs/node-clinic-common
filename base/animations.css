@@ -1,0 +1,16 @@
+.nc-animation-pulse {
+  animation-name: nc-animation-pulse;
+  animation-direction: alternate;
+  animation-duration: 0.8s;
+  animation-iteration-count: 8;
+  animation-timing-function: ease-in-out;  
+  transform-origin: 50%;
+}
+
+
+@keyframes nc-animation-pulse {
+  100% {
+    opacity: 0.2;
+    transform: scale(0.95);
+  }
+}

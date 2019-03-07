@@ -4,6 +4,7 @@ const dropdown = require('./drop-down.js')
 const helpers = require('./helpers.js')
 const contextOverlay = require('./helpers.js')
 const Walkthrough = require('./walkthrough-player.js')
+const link = require('./link.js')
 
 module.exports = {
   button,
@@ -11,5 +12,6 @@ module.exports = {
   dropdown,
   helpers,
   contextOverlay,
-  Walkthrough
+  Walkthrough,
+  link
 }

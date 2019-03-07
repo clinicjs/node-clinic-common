@@ -1,0 +1,37 @@
+.nc-link {
+  align-items     : center;
+  background-color: var(--nc-link-bgColor, transparent);
+  border          : none;
+  color           : var(--nc-link-color, white);
+  cursor          : pointer;
+  display         : flex;
+  font-size       : var(--nc-link-fontSize, 1rem);
+  justify-content : center;
+  line-height     : 1;
+  min-width       : 0;
+  padding         : 0.3em;
+  text-decoration : none;
+}
+.nc-link:hover {
+  background-color: var(--nc-link-bgHover, rgba(0, 0, 0, 0.1));
+}
+
+
+.nc-link .icon-img {
+  font-size: 1.5em;
+  margin   : 0.133em;
+  flex-shrink: 0;
+}
+
+.nc-link .label {
+  margin       : 0.3em;
+  overflow     : hidden;
+  text-overflow: ellipsis;
+  white-space  : nowrap;
+  min-width    : 1.3em;
+  border-bottom: 1px dotted transparent;
+}
+
+.nc-link:hover .label {
+  border-bottom-color: currentColor;
+}
