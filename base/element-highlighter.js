@@ -1,14 +1,14 @@
 const debounce = require('lodash.debounce')
 
 const wrapper = document.createElement('div')
-wrapper.classList.add('element-highlighter')
+wrapper.classList.add('nc-element-highlighter')
 
 wrapper.innerHTML = `
-  <div class="element-highlighter-panel element-highlighter-top"></div>
-  <div class="element-highlighter-panel element-highlighter-right"></div>
-  <div class="element-highlighter-panel element-highlighter-bottom"></div>
-  <div class="element-highlighter-panel element-highlighter-left"></div>
-  <div class="element-highlighter-border"></div>
+  <div class="nc-element-highlighter-panel nc-element-highlighter-top"></div>
+  <div class="nc-element-highlighter-panel nc-element-highlighter-right"></div>
+  <div class="nc-element-highlighter-panel nc-element-highlighter-bottom"></div>
+  <div class="nc-element-highlighter-panel nc-element-highlighter-left"></div>
+  <div class="nc-element-highlighter-border"></div>
 `
 const backdropTop = wrapper.querySelector('.nc-element-highlighter-top')
 const backdropRight = wrapper.querySelector('.nc-element-highlighter-right')
