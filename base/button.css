@@ -12,8 +12,8 @@
   padding         : 0.3em;
 }
 .nc-button:hover:not(:disabled) {
-  background-color: var(--nc-button-bgHover);
-  outline         : 1px dotted var(--nc-button-hoverOutline);
+  background-color: var(--nc-button-bgHover, rgb(25, 25, 25));
+  outline         : 1px dotted var(--nc-button-hoverOutline, rgba(255, 255, 255, 0.5));
 }
 
 .nc-button:disabled {

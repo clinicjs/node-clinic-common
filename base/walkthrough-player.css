@@ -1,5 +1,5 @@
 
-.wt-container .c_context-overlay-inner {
+.wt-container .nc-context-overlay-inner {
   background-color: #fff;
   border-radius   : 3px;
   box-shadow      : 0 2px 3px rgba(0, 0, 0, 0.5);
@@ -10,7 +10,7 @@
 .walkthrough-wrapper {
   display       : flex;
   flex-direction: column;
-  min-width : 300px;
+  min-width     : 300px;
 }
 
 .walkthrough-content{
@@ -26,13 +26,13 @@
   flex-shrink    : 0;
 }
 
-.walkthrough-controls .c_button,
+.walkthrough-controls .nc-button,
 .closeBtn {
-  --clickable-bg-hover: rgba(15, 15, 15, 0.2);
-  background-color    : transparent;
-  color               : rgba(0, 0, 0, 0.5);
-  flex-shrink         : 0;
-  padding             : 0;
+  --nc-button-bgHover: rgba(15, 15, 15, 0.2);
+  --nc-button-bgColor: transparent;
+  --nc-button-color  : rgba(0, 0, 0, 0.5);
+  flex-shrink        : 0;
+  padding            : 0;
 }
 
 .walkthrough-wrapper .closeBtn {
@@ -48,18 +48,18 @@
 }
 
 .walkthrough-wrapper.done .doneBtn {
-  --clickable-bg-hover: rgb(2, 112, 2);
-  background-color    : green;
-  color               : white;
-  display             : initial;
-  padding             : 0 0.3em;
+  --nc-button-bgHover: rgb(2, 112, 2);
+  --nc-button-bgColor: green;
+  --nc-button-color  : white;
+  display            : initial;
+  padding            : 0 0.3em;
 }
 
 .walkthrough-controls .nextBtn{
-  --clickable-bg-hover: var(--flame-orange);
-  background-color    : var(--flame-orange);
-  color               : white;
-  padding-left        : 0.3em;
+  --nc-button-bgHover: var(--flame-orange);
+  --nc-button-bgColor: var(--flame-orange);
+  --nc-button-color  : white;
+  padding-left       : 0.3em;
 }
 
 .walkthrough-wrapper.done .nextBtn{
