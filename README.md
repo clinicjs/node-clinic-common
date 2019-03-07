@@ -28,6 +28,7 @@ Common functionality shared throughout node-clinic.
   - [Icons](#icons)
   - [Components](#components)
     - [button](#button)
+    - [link](#link)
     - [dropdown](#dropdown)
     - [checkbox](#checkbox)
     - [contexOverlay](#contexoverlay)
@@ -298,6 +299,28 @@ style can be customised by defining these CSS vars in your CSS
   --nc-button-bgHover
   --nc-button-hoverOutline
 ```
+
+### link
+```js
+  // link({ label, classNames = [], leftIcon = '', rightIcon = '', href, title = '', target = '' })
+  div.appendChild(link({
+    label: 'Documentation',
+    title: 'Click me!',
+    href: '/docs',
+    classNames: ['openDocs'],
+    rightIcon: externalLink
+  }))
+```
+
+style can be customised by defining these CSS vars in your CSS
+```css
+  --nc-link-bgColor
+  --nc-link-color
+  --nc-link-fontSize
+  --nc-link-bgHover
+  --nc-link-hoverOutline
+```
+
 ### dropdown
 ```js
 // dropdown({ label, classNames = [], disabled = false, expandAbove = false, content })
