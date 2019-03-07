@@ -1,9 +1,9 @@
 .nc-dropdown {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: var(--nc-dropdown-borderColor, rgba(255, 255, 255, 0.7));
   padding: 1px;
   display: flex;
   position: relative;
-  color: var(--max-contrast);
+  color: var(--nc-dropdown-color, white);
   z-index: 2;
 }
 .nc-dropdown .label{
@@ -14,7 +14,7 @@
 }
 
 .nc-dropdown .label-wrapper {
-  background-color: var(--opposite-contrast);
+  background-color: var(--nc-dropdown-bgColor, black);
   align-items: center;
   display: flex;
   min-width: 2.4em;    
@@ -40,7 +40,7 @@
 
 
 .nc-dropdown .dropdown-content-wrapper {
-  background-color: var(--opposite-contrast);
+  background-color: var(--nc-dropdown-contentBg, black);
   position: absolute;
   right: 0;
   top: calc(100% + 2px);
@@ -48,7 +48,7 @@
   opacity: 0;
   --anim-duration: 0.2s;
   transform-origin: right top;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--nc-dropdown-contentBorderColor, rgba(255, 255, 255, 0.5));
 }
 
 .nc-dropdown.nc-dropdown.direction-up .dropdown-content-wrapper {
@@ -68,7 +68,7 @@
   bottom: calc(100% + 2px);
 }
 
- /* animation */
+
 @keyframes dropdown-expand {
   0% {
     opacity: 0;

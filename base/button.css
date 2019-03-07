@@ -1,19 +1,19 @@
 .nc-button {
   align-items     : center;
-  background-color: var(--opposite-contrast);
+  background-color: var(--nc-button-bgColor, black);
   border          : none;
-  color           : var(--max-contrast);
+  color           : var(--nc-button-color, white);
   cursor          : pointer;
   display         : flex;
-  font-size       : var(--small-text-size);
+  font-size       : var(--nc-button-fontSize, 1rem);
   justify-content: center;
   line-height     : 1;
   min-width       : 0;
   padding         : 0.3em;
 }
 .nc-button:hover:not(:disabled) {
-  background-color: var(--clickable-bg-hover);
-  outline         : 1px dotted var(--light-glare);
+  background-color: var(--nc-button-bgHover);
+  outline         : 1px dotted var(--nc-button-hoverOutline);
 }
 
 .nc-button:disabled {

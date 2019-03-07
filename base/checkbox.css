@@ -1,5 +1,5 @@
 .nc-checkbox {
-  background-color: var(--opposite-contrast);
+  background-color: var(--nc-checkbox-bgColor, black); 
   padding         : 0.3em;
   display         : flex;
   cursor          : pointer;
@@ -20,8 +20,8 @@
 }
 
 .nc-checkbox:hover:not(:disabled) {
-  background-color: var(--clickable-bg-hover);
-  outline: 1px dotted var(--light-glare);  
+  background-color: var(--nc-checkbox-hoverColor, white);
+  outline: 1px dotted var(--nc-checkbox-hoverOutline); 
 }
 
 .nc-checkbox .icon-wrapper {
@@ -32,7 +32,7 @@
   margin         : 0.133em;
   flex-shrink    : 0;
   justify-content: center;
-  color          : var(--checkbox-border-color);
+  color          : var(--nc-checkbox-borderColor);
 }
 .nc-checkbox .icon-wrapper svg{
   display: none;
@@ -46,7 +46,7 @@
 }
 
 .nc-checkbox :checked ~ .icon-wrapper{
-  color: var(--max-contrast);
+  color: var(--nc-checkbox-checkedIconColor); 
 }
 
 .nc-checkbox :checked ~ .icon-wrapper .checkbox-checked-svg{
@@ -54,7 +54,7 @@
 }
 
 .nc-checkbox :indeterminate ~ .icon-wrapper {
-  color: var(--grey-highlight);
+  color: var(--nc-checkbox-indeterminateIconColor); 
 }
 
 .nc-checkbox :indeterminate ~ .icon-wrapper .checkbox-indetermined-svg {
