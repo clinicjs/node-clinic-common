@@ -7,27 +7,34 @@ Common functionality shared throughout node-clinic.
 
 <!-- MarkdownTOC autolink="true" levels="1,2,3,4" -->
 
-- [Utils](#utils)
-  - [`getLoggingPaths(toolName, toolSpecificFiles=[])`](#getloggingpathstoolname-toolspecificfiles)
-- [Scripts](#scripts)
-  - [`buildJs(opts = {})`](#buildjsopts--)
+- [node-clinic-common](#node-clinic-common)
+  - [Utils](#utils)
+    - [`getLoggingPaths(toolName, toolSpecificFiles=[])`](#getloggingpathstoolname-toolspecificfiles)
+  - [Scripts](#scripts)
+    - [`buildJs(opts = {})`](#buildjsopts)
+      - [Usage](#usage)
+    - [`buildCss(opts = {})`](#buildcssopts)
+      - [Usage](#usage)
+  - [Templates](#templates)
+    - [`mainTemplate(opts = {})`](#maintemplateopts)
+      - [Usage](#usage)
+  - [Styles](#styles)
     - [Usage](#usage)
-  - [`buildCss(opts = {})`](#buildcssopts--)
-    - [Usage](#usage-1)
-- [Templates](#templates)
-  - [`mainTemplate(opts = {})`](#maintemplateopts--)
-    - [Usage](#usage-2)
-- [Styles](#styles)
-  - [Usage](#usage-3)
-  - [Standards](#standards)
-    - [Breakdown](#breakdown)
-- [Behaviours](#behaviours)
-  - [`ask()`](#ask)
-  - [Usage](#usage-4)
-- [Icons](#icons)
-- [Components](#components)
+    - [Standards](#standards)
+      - [Breakdown](#breakdown)
+  - [Behaviours](#behaviours)
+    - [`ask()`](#ask)
+    - [Usage](#usage)
+  - [Icons](#icons)
+  - [Components](#components)
+    - [button](#button)
+    - [dropdown](#dropdown)
+    - [checkbox](#checkbox)
+    - [contexOverlay](#contexoverlay)
+    - [Walkthrough](#walkthrough)
+    - [helpers](#helpers)
   - [Spinner](#spinner)
-- [License](#license)
+  - [License](#license)
 
 <!-- /MarkdownTOC -->
 
@@ -253,8 +260,158 @@ Now you can use it like this:
 ***
 
 ## Components
+A set of base components and helpers. All the components styles are `@imported` in `style.css` and can be imported as follows:
+```css
+@import "@nearform/clinic-common/base/style.css";
+```
 
-### Spinner
+Each component can be imported singularly:
+```js
+const button = require('@nearform/clinic-common/base/button.js')
+```
+
+or you can import multiple components at once:
+
+```js
+const { button, checkbox, contextOverlay } = require('@nearform/clinic-common/base')
+```
+
+Each component is a function that returns an HTML element
+
+### button
+```js
+  // button({label, classNames = [], leftIcon = '', rightIcon = '', disabled = false, onClick, title})
+  myForm.appendChild(button({
+    label: 'Submit',
+    title: 'Click me!',
+    classNames: ['submitBtn', 'primaryButton'],
+    leftIcon: submitIcon,
+    onClick: () => validateAndSubmit()
+  }))
+```
+
+style can be customised by defining these CSS vars in your CSS
+```css
+  --nc-button-bgColor
+  --nc-button-color
+  --nc-button-fontSize
+  --nc-button-bgHover
+  --nc-button-hoverOutline
+```
+### dropdown
+```js
+// dropdown({ label, classNames = [], disabled = false, expandAbove = false, content })
+  div.appendChild(dropdown({
+    classNames: ['key-v8'],
+    label: checkbox({
+      leftLabel: 'V8',
+      onChange: e => {
+        this.setCodeAreaVisibility('all-v8', e.target.checked)
+      }
+    }),
+    content: `<span>This is some content. ${greetings}</span>`,
+    expandAbove: true
+  }))
+```
+
+style can be customised by defining these CSS vars in your CSS
+```css
+  --nc-checkbox-bgColor
+  --nc-checkbox-hoverColor
+  --nc-checkbox-hoverOutline
+  --nc-checkbox-borderColor
+  --nc-checkbox-checkedIconColor
+  --nc-checkbox-indeterminateIconColor
+```
+
+### checkbox
+```js
+  // checkbox({ leftLabel, rightLabel, classNames = [], checked = false, disabled = false, indeterminate = false, onChange })
+  checkbox({
+    classNames: ['key-core'],
+    leftLabel: `<span class='after-bp-1'>Node JS</span>
+      <span class='before-bp-1'>Node</span>`,
+    onChange: e => this.setCodeAreaVisibility('core', e.target.checked)
+  })
+```
+
+style can be customised by defining these CSS vars in your CSS
+```css
+  --nc-dropdown-borderColor
+  --nc-dropdown-color
+  --nc-dropdown-bgColor
+  --nc-dropdown-contentBg
+  --nc-dropdown-contentBorderColor
+```
+
+### contexOverlay
+Displays an overlay containig the given `msg` right next to the targetElement or the targetRect
+```js
+  // const options = {
+  //   msg,
+  //   targetElement,
+  //   targetRect,
+  //   outerRect,
+  //   offset,
+  //   pointerCoords,
+  //   verticalAlign = 'bottom'
+  // }
+
+    overlay.show({
+      msg: this.wrapper,
+      classNames: ['wt-container'],
+      offset: { y: 10, height: 20 },
+      targetElement: document.querySelector('.my-cool-element'),
+      showArrow: true
+    })  
+```
+
+### Walkthrough
+A class to display step-by-step guide to the UI features.
+
+```steps``` is an array of objects, each step has the following properties:
+- attachTo: a css selector to identify the element described
+- msg: an HTMLElement or string template of the message to be displayed
+```js
+const steps = [
+  {
+    attachTo: '#selection-controls',
+    msg: `
+    <div>
+      <div class="step-1">
+        ${flame}
+        Hello, and welcome to Flame!
+      </div>
+    </div>
+    `
+  },
+  {
+    attachTo: '.frame-dropdown',
+    msg: `
+    <div>
+      <p>Do you like Flame?</p>
+      <img style="width:400px; height: 225px; display:block;" src="https://images.pexels.com/photos/750225/pexels-photo-750225.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+      ${docs}
+    </div>`
+  }
+]
+
+```
+```js
+const WT = new Walkthrough({ steps = [], showBackdrop = false, showControls = true })
+```
+
+### helpers
+A set of useful functions. Currently contains:
+- ```toHtml(data)``` Data can be a string, a function or an HTMLElement. The output is an HTMLElement
+```js
+  const myHtml = helpers.toHtml(`<span>${greetings}</span>`)
+  // or
+  const myHtml = helpers.toHtml(getGreetings)
+
+```
+
+## Spinner
 To add the `loading spinner` to your app please import `@nearform/clinic-common/spinner` in your `main.js` and the style.css file to your `style.css`
 
 Example:
