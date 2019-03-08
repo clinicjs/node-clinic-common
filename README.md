@@ -33,6 +33,7 @@ Common functionality shared throughout node-clinic.
     - [checkbox](#checkbox)
     - [contexOverlay](#contexoverlay)
     - [Walkthrough](#walkthrough)
+    - [howDoesThisWork](#howdoesthiswork)
     - [helpers](#helpers)
   - [Spinner](#spinner)
   - [License](#license)
@@ -392,10 +393,24 @@ Displays an overlay containig the given `msg` right next to the targetElement or
 ### Walkthrough
 A class to display step-by-step guide to the UI features.
 
-```steps``` is an array of objects, each step has the following properties:
-- attachTo: a css selector to identify the element described
-- msg: an HTMLElement or string template of the message to be displayed
 ```js
+const WT = new Walkthrough({ steps = [], showBackdrop = false, showControls = true, onProgress })
+```
+`WT` exposes the following methods:
+```js
+  `start`
+  `next`
+  `end`
+  `skipTo`
+```
+```steps``` is an array of objects, each step has the following properties:
+- `attachTo`: a css selector to identify the element described
+- `msg`: an HTMLElement or string template of the message to be displayed
+
+
+```onProgress(index)``` gets triggered whenever the Walkthrough component state changes.
+```js
+// steps definition example
 const steps = [
   {
     attachTo: '#selection-controls',
@@ -418,11 +433,21 @@ const steps = [
     </div>`
   }
 ]
+```
+
+### howDoesThisWork
+The standardised button to tools which activates the Walkthroughs
+```js
+  // howDoesThisWork(steps, onProgress)
+  const hdtw = howDoesThisWork(wtSteps, index => {
+    this.pushHistory()
+  })
+
+  // hdtw.WtPlayer -> the embeded walkthrough player
+  // hdtw.button -> the button instance to append to the DOM
 
 ```
-```js
-const WT = new Walkthrough({ steps = [], showBackdrop = false, showControls = true })
-```
+
 
 ### helpers
 A set of useful functions. Currently contains:
