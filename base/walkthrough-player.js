@@ -17,10 +17,10 @@ class WalkthroughPlayer {
     this.distanceFromElement = 5
 
     this.wrapper = document.createElement('div')
-    this.wrapper.classList.add('walkthrough-wrapper')
+    this.wrapper.classList.add('nc-walkthrough-wrapper')
 
     this.content = document.createElement('div')
-    this.content.classList.add('walkthrough-content')
+    this.content.classList.add('nc-walkthrough-content')
 
     this.wrapper.appendChild(this.content)
 
@@ -31,7 +31,7 @@ class WalkthroughPlayer {
         onClick: () => this.end()
       }))
       this.controls = document.createElement('div')
-      this.controls.classList.add('walkthrough-controls')
+      this.controls.classList.add('nc-walkthrough-controls')
 
       this.prevBtn = button({
         leftIcon: chevronLeft,
@@ -40,19 +40,20 @@ class WalkthroughPlayer {
       this.controls.appendChild(this.prevBtn)
 
       this.stepsWrapper = document.createElement('div')
-      this.stepsWrapper.classList.add('walkthrough-controls-steps')
+      this.stepsWrapper.classList.add('nc-walkthrough-controls-steps')
 
       this.steps.forEach(s => {
         this.stepsWrapper.appendChild(helpers.toHtml(`<span class="step"/>`))
       })
       this.controls.appendChild(this.stepsWrapper)
 
-      this.controls.appendChild(button({
+      this.nextBtn = button({
         classNames: ['nextBtn'],
         rightIcon: chevronRight,
         label: 'Next',
         onClick: e => this.next()
-      }))
+      })
+      this.controls.appendChild(this.nextBtn)
 
       this.controls.appendChild(button({
         classNames: ['doneBtn'],
@@ -135,6 +136,8 @@ class WalkthroughPlayer {
     })
 
     if (this.showBackdrop) this._showBackDrop()
+
+    this.nextBtn.focus()
   }
 }
 
