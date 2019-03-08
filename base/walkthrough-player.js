@@ -8,10 +8,11 @@ const chevronLeft = require('../icons/chevron-left')
 const close = require('../icons/close')
 
 class WalkthroughPlayer {
-  constructor ({ steps = [], showBackdrop = false, showControls = true }) {
+  constructor ({ steps = [], showBackdrop = false, showControls = true, onProgress }) {
     this.steps = steps
     this.showBackdrop = showBackdrop
-    this.currentStepIndex = -1
+    this.onProgress = onProgress
+    this.currentStepIndex = undefined
 
     this.distanceFromElement = 5
 
@@ -65,28 +66,29 @@ class WalkthroughPlayer {
 
   start () {
     this.currentStepIndex = 0
-    return this._render()
+    this._render()
   }
 
   next () {
     this.currentStepIndex++
-    return this._render()
+    this._render()
   }
 
   prev () {
     this.currentStepIndex--
-    return this._render()
+    this._render()
   }
 
   skipTo (index) {
     this.currentStepIndex = index
-    return this._render()
+    this._render()
   }
 
   end () {
     overlay.hide()
+    this.currentStepIndex = undefined
     this._hideBackDrop()
-    return this.currentStepIndex
+    this.onProgress && this.onProgress(this.currentStepIndex)
   }
 
   _showBackDrop () {
@@ -106,6 +108,8 @@ class WalkthroughPlayer {
     this.currentStepIndex = Math.max(this.currentStepIndex, 0)
 
     if (this.currentStepIndex < 0) this.currentStepIndex = 0
+
+    this.onProgress && this.onProgress(this.currentStepIndex)
 
     this.wrapper.classList.toggle('done', this.currentStepIndex === this.steps.length - 1)
     this.prevBtn.disabled = this.currentStepIndex === 0
@@ -131,8 +135,6 @@ class WalkthroughPlayer {
     })
 
     if (this.showBackdrop) this._showBackDrop()
-
-    return this.currentStepIndex
   }
 }
 
