@@ -19,42 +19,46 @@ const backdropBottom = wrapper.querySelector('.nc-element-highlighter-bottom')
 const backdropLeft = wrapper.querySelector('.nc-element-highlighter-left')
 const backdropBorder = wrapper.querySelector('.nc-element-highlighter-border')
 
-document.body.appendChild(wrapper)
+let elOptions = null
 
-const elementHighLighter = {
-  wrapper: wrapper,
-  options: null,
+function render () {
+  if (!elOptions) return
+  const { element, padding = 5, showBorder = true } = elOptions
 
-  show: options => {
-    wrapper.classList.add('show')
-    elementHighLighter.options = options
-    elementHighLighter._render()
-  },
+  wrapper.classList.toggle('showBorder', showBorder)
+  const pos = element.getBoundingClientRect()
+  backdropContainer.style.cssText = `opacity:0.6;`
+  backdropTop.style.cssText = `transform:translate3d(${pos.left - padding}px, calc(-100vh + ${pos.top - padding}px), 0)`
+  backdropRight.style.cssText = `transform:translate3d(${pos.left + pos.width + padding}px, ${pos.top - padding}px, 0)`
+  backdropBottom.style.cssText = `transform:translate3d(calc(-100vw + ${pos.left + pos.width + padding}px), ${pos.top + pos.height + padding}px, 0)`
+  backdropLeft.style.cssText = `transform:translate3d(calc(-100vw + ${pos.left - padding}px), calc(-100vh + ${pos.top + pos.height + padding}px), 0)`
 
-  hide: () => {
-    backdropContainer.style.cssText = `opacity:0.6;`
-    wrapper.classList.remove('show')
-  },
-
-  _render: () => {
-    if (!elementHighLighter.options) return
-    const { element, padding = 5, showBorder = true } = elementHighLighter.options
-
-    wrapper.classList.toggle('showBorder', showBorder)
-    const pos = element.getBoundingClientRect()
-    backdropContainer.style.cssText = `opacity:0.6;`
-    backdropTop.style.cssText = `transform:translate3d(${pos.left - padding}px, calc(-100vh + ${pos.top - padding}px), 0)`
-    backdropRight.style.cssText = `transform:translate3d(${pos.left + pos.width + padding}px, ${pos.top - padding}px, 0)`
-    backdropBottom.style.cssText = `transform:translate3d(calc(-100vw + ${pos.left + pos.width + padding}px), ${pos.top + pos.height + padding}px, 0)`
-    backdropLeft.style.cssText = `transform:translate3d(calc(-100vw + ${pos.left - padding}px), calc(-100vh + ${pos.top + pos.height + padding}px), 0)`
-
-    if (showBorder) {
-      backdropBorder.style.cssText = `left:${pos.left - padding}px;top:${pos.top - padding}px;width:${pos.width + padding * 2}px;height:${pos.height + padding * 2}px;`
-    }
+  if (showBorder) {
+    backdropBorder.style.cssText = `left:${pos.left - padding}px;top:${pos.top - padding}px;width:${pos.width + padding * 2}px;height:${pos.height + padding * 2}px;`
   }
 }
 
-window.addEventListener('resize', debounce(elementHighLighter._render, 200))
-window.addEventListener('scroll', debounce(elementHighLighter._render, 200))
+const debRender = debounce(render, 200)
+
+const elementHighLighter = {
+  show: options => {
+    document.body.appendChild(wrapper)
+    wrapper.classList.add('show')
+    elOptions = options
+    render()
+
+    window.addEventListener('resize', debRender)
+    window.addEventListener('scroll', debRender)
+  },
+
+  hide: () => {
+    document.body.removeChild(wrapper)
+    backdropContainer.style.cssText = `opacity:0.6;`
+    wrapper.classList.remove('show')
+
+    window.removeEventListener('resize', debRender)
+    window.removeEventListener('scroll', debRender)
+  }
+}
 
 module.exports = elementHighLighter
