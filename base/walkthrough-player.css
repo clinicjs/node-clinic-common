@@ -56,8 +56,8 @@
 }
 
 .walkthrough-controls .nextBtn{
-  --nc-button-bgHover: var(--flame-orange);
-  --nc-button-bgColor: var(--flame-orange);
+  --nc-button-bgHover: var(--nc-walkthrough-theme, rgb(255, 170, 43));
+  --nc-button-bgColor: var(--nc-walkthrough-theme, rgb(255, 170, 43));
   --nc-button-color  : white;
   padding-left       : 0.3em;
 }
@@ -82,5 +82,5 @@
 }
 
 .walkthrough-controls-steps .step.current {
-  background-color: var(--flame-orange);
+  background-color: var(--nc-walkthrough-theme, rgb(255, 170, 43));
 }
