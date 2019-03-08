@@ -6,6 +6,8 @@ const contextOverlay = require('./helpers.js')
 const Walkthrough = require('./walkthrough-player.js')
 const link = require('./link.js')
 
+const howDoesThisWork = require('./how-does-this-work.js')
+
 module.exports = {
   button,
   checkbox,
@@ -13,5 +15,6 @@ module.exports = {
   helpers,
   contextOverlay,
   Walkthrough,
-  link
+  link,
+  howDoesThisWork
 }
