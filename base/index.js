@@ -2,7 +2,7 @@ const button = require('./button.js')
 const checkbox = require('./checkbox.js')
 const dropdown = require('./drop-down.js')
 const helpers = require('./helpers.js')
-const contextOverlay = require('./helpers.js')
+const ContextOverlay = require('./helpers.js')
 const Walkthrough = require('./walkthrough-player.js')
 const link = require('./link.js')
 
@@ -13,7 +13,7 @@ module.exports = {
   checkbox,
   dropdown,
   helpers,
-  contextOverlay,
+  ContextOverlay,
   Walkthrough,
   link,
   howDoesThisWork

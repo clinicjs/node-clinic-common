@@ -1,11 +1,13 @@
 const button = require('./button.js')
 const helpers = require('./helpers.js')
-const overlay = require('./context-overlay.js')
+const ContextOverlay = require('./context-overlay.js')
 const elHighlighter = require('./element-highlighter.js')
 
 const chevronRight = require('../icons/chevron-right')
 const chevronLeft = require('../icons/chevron-left')
 const close = require('../icons/close')
+
+const WtOverlay = new ContextOverlay()
 
 class WalkthroughPlayer {
   constructor ({ steps = [], showBackdrop = false, showControls = true, onProgress }) {
@@ -55,11 +57,12 @@ class WalkthroughPlayer {
       })
       this.controls.appendChild(this.nextBtn)
 
-      this.controls.appendChild(button({
+      this.doneBtn = button({
         classNames: ['doneBtn'],
         label: 'Done!',
         onClick: e => this.end()
-      }))
+      })
+      this.controls.appendChild(this.doneBtn)
 
       this.wrapper.appendChild(this.controls)
     }
@@ -86,7 +89,7 @@ class WalkthroughPlayer {
   }
 
   end () {
-    overlay.hide()
+    WtOverlay.hide()
     this.currentStepIndex = undefined
     this._hideBackDrop()
     this.onProgress && this.onProgress(this.currentStepIndex)
@@ -112,7 +115,9 @@ class WalkthroughPlayer {
 
     this.onProgress && this.onProgress(this.currentStepIndex)
 
-    this.wrapper.classList.toggle('done', this.currentStepIndex === this.steps.length - 1)
+    const isDone = this.currentStepIndex === this.steps.length - 1
+
+    this.wrapper.classList.toggle('done', isDone)
     this.prevBtn.disabled = this.currentStepIndex === 0
 
     if (this.showControls) {
@@ -123,7 +128,7 @@ class WalkthroughPlayer {
     this.content.innerHTML = ''
     this.content.appendChild(helpers.toHtml(step.msg))
 
-    overlay.show({
+    WtOverlay.show({
       msg: this.wrapper,
       classNames: ['wt-container'],
       offset: { y: -this.distanceFromElement, height: this.distanceFromElement * 2 },
@@ -137,7 +142,11 @@ class WalkthroughPlayer {
 
     if (this.showBackdrop) this._showBackDrop()
 
-    this.nextBtn.focus()
+    if (isDone) {
+      this.doneBtn.focus()
+    } else {
+      this.nextBtn.focus()
+    }
   }
 }
 

@@ -1,48 +1,58 @@
 const { toHtml } = require('./helpers.js')
 const debounce = require('lodash.debounce')
 
-const overlayEl = document.createElement('div')
-overlayEl.classList.add('nc-context-overlay')
+class Overlay {
+  constructor () {
+    this.overlayEl = document.createElement('div')
+    this.overlayEl.classList.add('nc-context-overlay')
 
-const overlayInnerEl = document.createElement('div')
-overlayInnerEl.classList.add('nc-context-overlay-inner')
+    this.overlayInnerEl = document.createElement('div')
+    this.overlayInnerEl.classList.add('nc-context-overlay-inner')
 
-overlayEl.appendChild(overlayInnerEl)
+    this.overlayEl.appendChild(this.overlayInnerEl)
 
-const overlayArrow = document.createElement('div')
-overlayArrow.classList.add('nc-context-overlay-arrow')
-overlayEl.appendChild(overlayArrow)
+    this.overlayArrow = document.createElement('div')
+    this.overlayArrow.classList.add('nc-context-overlay-arrow')
+    this.overlayEl.appendChild(this.overlayArrow)
 
-overlayArrow.addEventListener('animationend', () => {
-  overlayArrow.classList.remove('fade-in')
-})
+    this.overlayArrow.addEventListener('animationend', () => {
+      this.overlayArrow.classList.remove('fade-in')
+    })
 
-document.body.appendChild(overlayEl)
+    this.options = null
+    this.position = null
 
-const overlay = {
-  el: overlayInnerEl,
-  options: null,
-  position: null,
+    this._debRender = debounce(this._render, 200).bind(this)
+  }
 
-  show: (options) => {
-    overlay.options = options
-    overlayEl.classList.add('show', ...options.classNames || [])
-    overlay._render()
-  },
+  show (options) {
+    document.body.appendChild(this.overlayEl)
 
-  hide: () => {
-    overlayInnerEl.innerHTML = ''
-    overlayEl.style.cssText = ''
-    overlayInnerEl.style.cssText = ''
-    overlayEl.classList.remove('show')
-  },
+    this.options = options
+    this.overlayEl.classList.add('show', ...options.classNames || [])
+    this._render()
 
-  getPosition: () => this.position,
+    window.addEventListener('resize', this._debRender)
+    window.addEventListener('scroll', this._debRender)
+  }
 
-  _render: () => {
-    if (!overlayEl.classList.contains('show')) return
+  hide () {
+    document.body.removeChild(this.overlayEl)
+    this.overlayInnerEl.innerHTML = ''
+    this.overlayEl.style.cssText = ''
+    this.overlayInnerEl.style.cssText = ''
+    this.overlayEl.classList.remove('show')
 
-    overlayEl.classList.toggle('showArrow', overlay.options.showArrow)
+    window.removeEventListener('resize', this._debRender)
+    window.removeEventListener('scroll', this._debRender)
+  }
+
+  getPosition () { return this.position }
+
+  _render () {
+    if (!this.overlayEl.classList.contains('show')) return
+
+    this.overlayEl.classList.toggle('showArrow', this.options.showArrow)
 
     let {
       msg,
@@ -52,7 +62,7 @@ const overlay = {
       offset,
       pointerCoords,
       verticalAlign = 'bottom'
-    } = overlay.options
+    } = this.options
 
     let {
       left: x,
@@ -67,7 +77,7 @@ const overlay = {
 
     let msgHtmlNode = toHtml(msg)
 
-    const arrowHeight = overlay.options.showArrow ? 10 : 0
+    const arrowHeight = this.options.showArrow ? 10 : 0
 
     if (offset) {
       x += offset.x || 0
@@ -81,30 +91,30 @@ const overlay = {
     // if the element is in the lower half of the screen than align the overlay to the top side
     let ttTop = y + (verticalAlign === 'bottom' ? height + arrowHeight : -arrowHeight)
 
-    overlayArrow.classList.add('fade-in')
+    this.overlayArrow.classList.add('fade-in')
 
-    overlayEl.classList.toggle('arrowTop', verticalAlign === 'bottom')
-    overlayEl.classList.toggle('arrowBottom', verticalAlign === 'top')
+    this.overlayEl.classList.toggle('arrowTop', verticalAlign === 'bottom')
+    this.overlayEl.classList.toggle('arrowBottom', verticalAlign === 'top')
 
     if (pointerCoords) {
       // centering on the mouse pointer horizontally
       ttLeft = x + pointerCoords.x
     }
 
-    const oldWidth = overlayInnerEl.style.width
-    overlayInnerEl.style.width = 'auto'
+    const oldWidth = this.overlayInnerEl.style.width
+    this.overlayInnerEl.style.width = 'auto'
 
-    overlayInnerEl.innerHTML = ''
-    overlayInnerEl.appendChild(msgHtmlNode)
+    this.overlayInnerEl.innerHTML = ''
+    this.overlayInnerEl.appendChild(msgHtmlNode)
 
-    overlayEl.style.cssText = `left:${ttLeft}px; top:${ttTop}px;`
+    this.overlayEl.style.cssText = `left:${ttLeft}px; top:${ttTop}px;`
     // calculating the actual overlay width
     const ttWidth = msgHtmlNode.offsetWidth
     const ttHeight = msgHtmlNode.offsetHeight
 
-    overlayInnerEl.style.width = oldWidth
+    this.overlayInnerEl.style.width = oldWidth
 
-    const justToForceRedraw = overlayInnerEl.offsetWidth
+    const justToForceRedraw = this.overlayInnerEl.offsetWidth
     // the following line is to avoid the "no-unused-vars" error
     if (justToForceRedraw === 0) console.log(justToForceRedraw)
 
@@ -123,7 +133,7 @@ const overlay = {
 
     const maxWidth = outerRect ? outerRect.width + 'px' : 'auto'
     const top = verticalAlign === 'top' ? -ttHeight : 0
-    overlayInnerEl.style.cssText = `left:-${deltaX}px; max-width:${maxWidth}; top:${top}px; height:${ttHeight}px; width:${ttWidth}px`
+    this.overlayInnerEl.style.cssText = `left:-${deltaX}px; max-width:${maxWidth}; top:${top}px; height:${ttHeight}px; width:${ttWidth}px`
 
     // making a note of the position
     this.position = {
@@ -135,7 +145,4 @@ const overlay = {
   }
 }
 
-window.addEventListener('resize', debounce(overlay._render, 200))
-window.addEventListener('scroll', debounce(overlay._render, 200))
-
-module.exports = overlay
+module.exports = Overlay
