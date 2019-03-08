@@ -1,7 +1,5 @@
 .nc-element-highlighter {
   display   : none;
-  opacity   : 0;
-  transition: opacity 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   position  : relative;
   z-index   : 5;
 }
@@ -16,7 +14,8 @@
   left            : 0;
   width           : 100vw;
   height          : 100vh;
-  transition      : transform 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  opacity         : 0;
+  transition      : all 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   background-color: #000;
 }
 .nc-element-highlighter .nc-element-highlighter-border {
@@ -30,19 +29,19 @@
   position  : absolute;
   width     : 10px;
   height    : 10px;
-  color     : var(--flame-orange);
+  color     : var(--nc-element-highlighter-theme, rgb(255, 170, 43));
 }
 
 .nc-element-highlighter .nc-element-highlighter-border::before {
-  border-top : 2px solid;
-  border-left: 2px solid;
-  top        : -1px;
-  left       : -1px;
+  border-top : 3px solid;
+  border-left: 3px solid;
+  top        : -2px;
+  left       : -2px;
 }
 
 .nc-element-highlighter .nc-element-highlighter-border::after {
-  border-bottom: 2px solid;
-  border-right : 2px solid;
-  right        : -1px;
-  bottom       : -1px;
+  border-bottom: 3px solid;
+  border-right : 3px solid;
+  right        : -2px;
+  bottom       : -2px;
 }
