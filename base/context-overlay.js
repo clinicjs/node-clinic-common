@@ -66,6 +66,7 @@ class Overlay {
 
     let target = targetRect || (targetElement && targetElement.getBoundingClientRect())
     if (!target) {
+      verticalAlign = 'center'
       target = {
         left: 0,
         top: document.documentElement.clientHeight / 2,
@@ -81,13 +82,13 @@ class Overlay {
       height
     } = target
 
-    if (y + height > window.innerHeight / 2) {
+    if (verticalAlign !== 'center' && y + height > window.innerHeight / 2) {
       verticalAlign = 'top'
     }
 
     let msgHtmlNode = toHtml(msg)
 
-    const arrowHeight = this.options.showArrow ? 10 : 0
+    const arrowHeight = verticalAlign !== 'center' && this.options.showArrow ? 10 : 0
 
     if (offset) {
       x += offset.x || 0
