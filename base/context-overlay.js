@@ -64,12 +64,22 @@ class Overlay {
       verticalAlign = 'bottom'
     } = this.options
 
+    let target = targetRect || (targetElement && targetElement.getBoundingClientRect())
+    if (!target) {
+      target = {
+        left: 0,
+        top: document.documentElement.clientHeight / 2,
+        width: document.documentElement.clientWidth,
+        height: 0
+      }
+    }
+
     let {
       left: x,
       top: y,
       width,
       height
-    } = targetRect || targetElement.getBoundingClientRect()
+    } = target
 
     if (y + height > window.innerHeight / 2) {
       verticalAlign = 'top'

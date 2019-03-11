@@ -22,7 +22,7 @@ const backdropBorder = wrapper.querySelector('.nc-element-highlighter-border')
 let elOptions = null
 
 function render () {
-  if (!elOptions) return
+  if (!elOptions || !elOptions.element) return
   const { element, padding = 5, showBorder = true } = elOptions
 
   wrapper.classList.toggle('showBorder', showBorder)
