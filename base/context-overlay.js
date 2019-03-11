@@ -114,9 +114,7 @@ class Overlay {
 
     this.overlayInnerEl.style.width = oldWidth
 
-    const justToForceRedraw = this.overlayInnerEl.offsetWidth
-    // the following line is to avoid the "no-unused-vars" error
-    if (justToForceRedraw === 0) console.log(justToForceRedraw)
+    const justToForceRedraw = this.overlayInnerEl.offsetWidth // eslint-disable-line no-unused-vars
 
     // positioning the overlay content
     // making sure that it doesn't go over the element right edge

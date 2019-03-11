@@ -33,7 +33,7 @@ Common functionality shared throughout node-clinic.
     - [checkbox](#checkbox)
     - [contexOverlay](#contexoverlay)
     - [Walkthrough](#walkthrough)
-    - [howDoesThisWork](#howdoesthiswork)
+    - [walkthroughButton](#walkthroughbutton)
     - [helpers](#helpers)
   - [Spinner](#spinner)
   - [License](#license)
@@ -394,7 +394,7 @@ Displays an overlay containig the given `msg` right next to the targetElement or
 A class to display step-by-step guide to the UI features.
 
 ```js
-const WT = new Walkthrough({ steps = [], showBackdrop = false, showControls = true, onProgress })
+const wt = new Walkthrough({ steps = [], showBackdrop = false, showControls = true, onProgress })
 ```
 `WT` exposes the following methods:
 ```js
@@ -435,16 +435,18 @@ const steps = [
 ]
 ```
 
-### howDoesThisWork
+### walkthroughButton
 The standardised button to tools which activates the Walkthroughs
 ```js
-  // howDoesThisWork(steps, onProgress)
-  const hdtw = howDoesThisWork(wtSteps, index => {
+  // walkthroughButton(steps, onProgress, [label])
+  const hdtw = walkthroughButton(wtSteps, index => {
     this.pushHistory()
   })
 
   // hdtw.WtPlayer -> the embeded walkthrough player
   // hdtw.button -> the button instance to append to the DOM
+
+  // label defaults to 'How does this work'
 
 ```
 
