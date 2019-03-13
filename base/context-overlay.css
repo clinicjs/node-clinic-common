@@ -1,7 +1,6 @@
 .nc-context-overlay {
   position: fixed;
   z-index: 9;
-  transition: left 1s cubic-bezier(0.65, 0.05, 0.36, 1), top 1s cubic-bezier(0.65, 0.05, 0.36, 1);
   display: none;
 }
 
@@ -15,7 +14,6 @@
   width: 20px;
   position: absolute;
   top: 0px;
-  transition: left 1s ease-in-out, top 1s ease-in-out, height 0.5s ease-in-out, width 0.5s ease-in-out;
 }
 
 .nc-context-overlay-arrow {
@@ -35,23 +33,4 @@
   border-top-color: white;
   bottom: -19px;
   display: block;
-}
-
-.nc-context-overlay-arrow.fade-in {
-  animation: 1s context-overlay-arrow-fade-in 1 normal forwards;
-}
-
- /* arrow animation */
- @keyframes context-overlay-arrow-fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  90% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
 }
