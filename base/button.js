@@ -1,17 +1,29 @@
-module.exports = ({ label, classNames = [], leftIcon = '', rightIcon = '', disabled = false, onClick, title = '' } = {}) => {
+module.exports = (options = {}) => {
   const button = document.createElement('button')
-  button.classList.add('nc-button', ...classNames)
+  let btnOptions = options
 
-  button.disabled = disabled
-  button.title = title
-
-  if (onClick) {
-    button.addEventListener('click', onClick)
+  if (btnOptions.onClick) {
+    button.addEventListener('click', btnOptions.onClick)
   }
-  button.innerHTML = `
-    ${leftIcon}
-    ${label ? `<span class="label">${label}</span>` : ``}
-    ${rightIcon}
-    `
+
+  button.update = (options) => {
+    _render(Object.assign({}, btnOptions, options))
+  }
+
+  function _render ({ label, classNames = [], leftIcon = '', rightIcon = '', disabled = false, onClick, title = '' }) {
+    button.disabled = disabled
+    button.title = title
+    button.className = ['nc-button', ...(options.classNames || [])].join(' ')
+
+    button.innerHTML = `
+      <span class='nc-button__inner-container'>
+      ${leftIcon}
+      ${label ? `<span class="nc-button__label">${label}</span>` : ``}
+      ${rightIcon}
+      </span>
+      `
+  }
+
+  button.update(options)
   return button
 }

@@ -1,18 +1,21 @@
 .nc-button {
-  align-items     : center;
   background-color: var(--nc-button-bgColor, black);
   border          : none;
   color           : var(--nc-button-color, white);
   cursor          : pointer;
-  display         : flex;
   font-size       : var(--nc-button-fontSize, 1rem);
-  justify-content : center;
   line-height     : 1;
   min-width       : 0;
-  padding         : 0.3em;
+  padding         : 0;
 }
+
+.nc-button::-moz-focus-inner {
+  border:0;
+}
+
 .nc-button:hover:not(:disabled) {
   background-color: var(--nc-button-bgHover, rgb(25, 25, 25));
+  outline         : 1px dotted var(--nc-button-hoverOutline, rgba(255, 255, 255, 0.5));
 }
 
 .nc-button:focus {
@@ -25,13 +28,20 @@
   filter : saturate(0);
 }
 
+.nc-button__inner-container{
+  display         : flex;
+  justify-content : center;
+  align-items     : center;
+  padding         : 0.3em;
+}
+
 .nc-button .icon-img {
   font-size  : 1.5em;
   margin     : 0.133em;
   flex-shrink: 0;
 }
 
-.nc-button .label {
+.nc-button__label {
   margin       : 0.3em;
   overflow     : hidden;
   text-overflow: ellipsis;
