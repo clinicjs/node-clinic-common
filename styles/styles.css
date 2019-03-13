@@ -5,6 +5,32 @@ html {
   --nc-colour-tray-backdrop: rgba(0, 0, 0, 0.6);
   --nc-colour-tray: #292d39;
   --nc-colour-header-background: #292d39;
+  --nc-font-family-sans: Archia, sans-serif;
+  --nc-font-family-sans-alt: Campton, sans-serif;
+  --nc-font-family-monospace: 'Space Mono', monospace;
+}
+
+html {
+  font-family: var(--nc-font-family-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--nc-font-family-sans-alt);
+}
+
+pre,
+code {
+  font-family: var(--nc-font-family-monospace);
+}
+
+input,
+button {
+  font-family: inherit;
 }
 
 /* Icon */

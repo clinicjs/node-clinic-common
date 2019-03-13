@@ -1,6 +1,6 @@
 {
   "name": "@nearform/clinic-common",
-  "version": "1.5.1",
+  "version": "2.0.0",
   "description": "Shared parts between the clinic suite",
   "main": "index.js",
   "directories": {
@@ -35,6 +35,7 @@
     "loose-envify": "^1.4.0",
     "postcss": "^7.0.11",
     "postcss-import": "^12.0.1",
-    "stream-template": "0.0.10"
+    "stream-template": "0.0.10",
+    "webfontloader": "^1.6.28"
   }
 }
