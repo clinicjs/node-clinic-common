@@ -16,6 +16,8 @@ class WalkthroughPlayer {
     this.onProgress = onProgress
     this.currentStepIndex = undefined
 
+    this.visible = false
+
     this.distanceFromElement = 5
 
     this.wrapper = document.createElement('div')
@@ -89,6 +91,7 @@ class WalkthroughPlayer {
   }
 
   end () {
+    this.visible = false
     WtOverlay.hide()
     this.currentStepIndex = undefined
     this._hideBackDrop()
@@ -113,8 +116,6 @@ class WalkthroughPlayer {
 
     if (this.currentStepIndex < 0) this.currentStepIndex = 0
 
-    this.onProgress && this.onProgress(this.currentStepIndex)
-
     const isDone = this.currentStepIndex === this.steps.length - 1
 
     this.wrapper.classList.toggle('done', isDone)
@@ -124,17 +125,31 @@ class WalkthroughPlayer {
       this.prev.setAttribute('disabled', this.currentStepIndex <= 0 ? true : null)
     }
 
+    this.onProgress && this.onProgress(this.currentStepIndex)
+
     const step = this.steps[this.currentStepIndex]
-    this.content.innerHTML = ''
-    this.content.appendChild(helpers.toHtml(step.msg))
 
     WtOverlay.show({
-      msg: this.wrapper,
-      classNames: ['wt-container'],
+      classNames: ['wt-container', this.visible ? 'zoom-out' : ''],
       offset: { y: -this.distanceFromElement, height: this.distanceFromElement * 2 },
       targetElement: document.querySelector(step.attachTo),
       showArrow: true
     })
+
+    setTimeout(() => {
+      this.content.innerHTML = ''
+      this.content.appendChild(helpers.toHtml(step.msg))
+
+      WtOverlay.updateContent({
+        msg: this.wrapper,
+        classNames: ['wt-container', 'zoom-in', `wt-step-${this.currentStepIndex}`]
+      })
+      if (isDone) {
+        this.doneBtn.focus()
+      } else {
+        this.nextBtn.focus()
+      }
+    }, 300)
 
     Array.from(this.stepsWrapper.children).forEach((c, i) => {
       c.classList.toggle('current', i === this.currentStepIndex)
@@ -142,11 +157,7 @@ class WalkthroughPlayer {
 
     if (this.showBackdrop) this._showBackDrop()
 
-    if (isDone) {
-      this.doneBtn.focus()
-    } else {
-      this.nextBtn.focus()
-    }
+    this.visible = true
   }
 }
 
