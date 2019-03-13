@@ -26,6 +26,7 @@ Common functionality shared throughout node-clinic.
     - [`ask()`](#ask)
     - [Usage](#usage)
   - [Icons](#icons)
+  - [Images](#images)
   - [Components](#components)
     - [button](#button)
     - [link](#link)
@@ -261,6 +262,34 @@ Now you can use it like this:
 
 ***
 
+## Images
+It is possible to embed Base64-Encoded images.
+
+`scripts/build-images.js` exposes two methods:
+
+```js
+  path(sourceDir, exportDir)
+  // and
+  file(filePath, exportDir)
+```
+The supported file extensions are:
+`png` `jpeg` `jpg` and `gif`
+
+Use example:
+```js
+  // in your npm script
+  const buildImg = require('@nearform/clinic-common/scripts/build-images')
+  buildImg.file('my/amazing/image.jpg', 'visualizer/assets/images')
+
+  // in your .js file you first import the image
+  const myImage = require('visualizer/assets/images/image.js')
+
+  // and then you use it
+  `<img src=${myImage} ... />
+```
+
+***
+
 ## Components
 A set of base components and helpers. All the components styles are `@imported` in `style.css` and can be imported as follows:
 ```css
@@ -370,6 +399,8 @@ style can be customised by defining these CSS vars in your CSS
 
 ### contexOverlay
 Displays an overlay containig the given `msg` right next to the targetElement or the targetRect
+
+If **targetElement** and **targetRect** are `null||undefined` then the overlay content will be centerd on the page. 
 ```js
   // const options = {
   //   msg,
