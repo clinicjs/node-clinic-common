@@ -22,14 +22,22 @@ const backdropBorder = wrapper.querySelector('.nc-element-highlighter-border')
 let elOptions = null
 
 function render () {
-  if (!elOptions || !elOptions.element) {
+  if (!elOptions) {
     elementHighLighter.hide()
     return
   }
   const { element, padding = 5, showBorder = true } = elOptions
 
-  wrapper.classList.toggle('showBorder', showBorder)
-  const pos = element.getBoundingClientRect()
+  wrapper.classList.toggle('show-border', showBorder && element !== null)
+  const pos = element
+    ? element.getBoundingClientRect()
+    : {
+      top: document.documentElement.clientHeight / 2,
+      left: document.documentElement.clientWidth / 2,
+      width: 0,
+      height: 0
+    }
+
   backdropContainer.style.cssText = `opacity:0.6;`
   backdropTop.style.cssText = `transform:translate3d(${pos.left - padding}px, calc(-100vh + ${pos.top - padding}px), 0)`
   backdropRight.style.cssText = `transform:translate3d(${pos.left + pos.width + padding}px, ${pos.top - padding}px, 0)`
