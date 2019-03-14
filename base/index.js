@@ -6,6 +6,7 @@ const ContextOverlay = require('./helpers.js')
 const Walkthrough = require('./walkthrough-player.js')
 const link = require('./link.js')
 const walkthroughButton = require('./walkthrough-button.js')
+const accordion = require('./accordion.js')
 
 module.exports = {
   button,
@@ -15,5 +16,6 @@ module.exports = {
   ContextOverlay,
   Walkthrough,
   link,
-  walkthroughButton
+  walkthroughButton,
+  accordion
 }
