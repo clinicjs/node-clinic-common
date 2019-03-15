@@ -56,7 +56,8 @@ module.exports = ({ label, classNames = [], disabled = false, expandAbove = fals
   })
 
   const contentWrapper = document.createElement('div')
-  contentWrapper.classList.add('dropdown-content-wrapper')
+  contentWrapper.classList.add('nc-dropdown-content-wrapper')
+  contentWrapper.classList.add('scroll-container')
 
   wrapper.close = () => {
     wrapper.classList.remove('expanded')
