@@ -1,5 +1,6 @@
 const minusIcon = require('../icons/minus')
 const button = require('./button.js')
+const container = require('./collapsible-container.js')
 const { toHtml } = require('./helpers.js')
 
 module.exports = ({ label, classNames = [], disabled = false, onClick, title = '', content = '', isExpanded = false }) => {
@@ -23,41 +24,25 @@ module.exports = ({ label, classNames = [], disabled = false, onClick, title = '
   btn.querySelector('.nc-button__inner-container').appendChild(verticalLine)
 
   accordion.appendChild(btn)
-  const contentWrapper = toHtml('<div class="nc-accordion__content-wrapper"></div>')
-  const innerContentWrapper = toHtml('<div class="nc-accordion__inner-content-wrapper"></div>')
-  innerContentWrapper.appendChild(toHtml(content))
-  contentWrapper.appendChild(innerContentWrapper)
-  accordion.appendChild(contentWrapper)
 
-  contentWrapper.addEventListener('transitionend', () => {
-    if (!expanded) {
-      accordion.classList.remove('expanded')
-    } else {
-      contentWrapper.style.cssText = 'height:auto;'
-    }
-  })
+  const collapsibleContainer = container({ content })
+  accordion.appendChild(collapsibleContainer)
+
+  if (isExpanded) {
+    toggleAccordion(true)
+  }
+
+  accordion.classList.toggle('show-expand-icon', !isExpanded)
 
   function toggleAccordion (isExpanded = !expanded) {
     expanded = isExpanded
     accordion.classList.toggle('show-expand-icon', !expanded)
 
-    if (expanded) {
-      accordion.classList.add('expanded')
-      contentWrapper.style.cssText = `height:${contentWrapper.scrollHeight}px;`
-    } else {
-      contentWrapper.style.cssText = `height:${contentWrapper.scrollHeight}px;`
-      const justToForceRedraw = contentWrapper.offsetWidth // eslint-disable-line no-unused-vars
-      contentWrapper.style.cssText = `height:0px;`
-    }
+    collapsibleContainer.toggle(expanded)
+    accordion.classList.toggle('expanded', expanded)
   }
 
   accordion.toggle = toggleAccordion
-
-  if (isExpanded) {
-    toggleAccordion(true)
-    contentWrapper.style.cssText = 'height:auto;'
-  }
-  accordion.classList.toggle('show-expand-icon', !isExpanded)
 
   return accordion
 }

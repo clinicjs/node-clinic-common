@@ -22,20 +22,6 @@
   transform: rotateZ(0deg);  /* this is needed by MS Edge */
 }
 
-.nc-accordion__content-wrapper {
-  overflow: hidden;
-  transition: height 0.4s ease-in-out;
-  height: 0px;
-}
-
-.nc-accordion__inner-content-wrapper {
-  display: none;
-}
-
-.nc-accordion.expanded .nc-accordion__inner-content-wrapper {
-  display: block;
-}
-
 .nc-accordion.show-expand-icon .nc-button__inner-container .icon-img{
   transform: rotateZ(90deg);
 }
