@@ -7,6 +7,7 @@ const Walkthrough = require('./walkthrough-player.js')
 const link = require('./link.js')
 const walkthroughButton = require('./walkthrough-button.js')
 const accordion = require('./accordion.js')
+const collapsibleContainer = require('./collapsible-container.js')
 
 module.exports = {
   button,
@@ -17,5 +18,6 @@ module.exports = {
   Walkthrough,
   link,
   walkthroughButton,
-  accordion
+  accordion,
+  collapsibleContainer
 }
