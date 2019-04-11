@@ -1,6 +1,6 @@
-# node-clinic-common
+# Clinic.js Common
 
-Common functionality shared throughout node-clinic.
+Common functionality shared throughout Clinic.js.
 
 <details>
   <summary>Table of contents</summary>
@@ -56,7 +56,7 @@ Create a function that builds paths for tool log information. The returned funct
 ```
 
 Arguments:
-  - `toolName` - name of the clinic tool.
+  - `toolName` - name of the Clinic.js tool.
   - `toolSpecificFiles` - array of file names to generate, on top of the defaults (`/`, `/systeminfo`).
     If `toolName` is 'doctor', this defaults to `['/traceevent', '/processstat']`.
     If `toolName` is 'bubbleprof', this defaults to `['/traceevent', '/stacktrace']`.
@@ -162,9 +162,9 @@ CSS should be written using classes using [BEM](https://csswizardry.com/2013/01/
 Inside this repo, all classes are vendor-prfixed with `.nc-` to avoid class name collision with third party or tool specific styles. For tool-based styling, all styles should follow the same conventions with prefixes for the tools as follows:
 
 ```
-.ncd- Clinic Doctor
-.ncb- Clinic Bubbleprof
-.ncf- Clinic Flame
+.ncd- Clinic.js Doctor
+.ncb- Clinic.js Bubbleprof
+.ncf- Clinic.js Flame
 ```
 
 #### Breakdown

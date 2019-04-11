@@ -250,6 +250,24 @@ button {
   align-items: center;
 }
 
+/* Modifiers */
+
+.nc-light-on-dark,
+html.light-theme main .nc--dark-on-light  {
+  /* Light text on a dark background may look blocky without this, esp. on MacOS
+   * Only for use on light text on a dark background, see:
+   * http://usabilitypost.com/2012/11/05/stop-fixing-font-smoothing/
+   */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.nc--dark-on-light,
+html.light-theme main .nc-light-on-dark {
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
 @media(min-width: 640px) {
   .nc-ask-button {
     padding: 0.5em 1em;
