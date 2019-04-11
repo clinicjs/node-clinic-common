@@ -5,7 +5,7 @@ const close = require('../icons/close')
 
 const askTray = opts => streamTemplate`
   <div class="nc-tray-backdrop" data-nc-ask-tray-backdrop></div>
-  <div class="nc-tray">
+  <div class="nc-tray nc-light-on-dark">
     <div class="nc-tray__inner">
       <h3>Ask an expert</h3>
       <p>Need help understanding this output?</p>
