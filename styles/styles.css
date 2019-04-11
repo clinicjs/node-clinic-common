@@ -226,7 +226,7 @@ html {
 
 /* Modifiers */
 
-.nc--light-on-dark,
+.nc-light-on-dark,
 html.light-theme main .nc--dark-on-light  {
   /* Light text on a dark background may look blocky without this, esp. on MacOS
    * Only for use on light text on a dark background, see:
@@ -237,7 +237,7 @@ html.light-theme main .nc--dark-on-light  {
 }
 
 .nc--dark-on-light,
-html.light-theme main .nc--light-on-dark {
+html.light-theme main .nc-light-on-dark {
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
 }
