@@ -1,0 +1,36 @@
+.nc-context-overlay {
+  position: fixed;
+  z-index: 9;
+  display: none;
+}
+
+.nc-context-overlay.show {
+  display: block;
+}
+
+.nc-context-overlay-inner {
+  overflow: hidden;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 0px;
+}
+
+.nc-context-overlay-arrow {
+  position: absolute;
+  border: 10px solid transparent;  
+  left: -10px;
+  display: none;
+}
+
+.nc-context-overlay.arrowTop .nc-context-overlay-arrow {
+  border-bottom-color: white;
+  top: -19px;
+  display: block;
+}
+
+.nc-context-overlay.arrowBottom .nc-context-overlay-arrow {
+  border-top-color: white;
+  bottom: -19px;
+  display: block;
+}

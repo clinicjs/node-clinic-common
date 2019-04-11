@@ -17,7 +17,7 @@ const askTray = opts => streamTemplate`
         You'll be prompted to login/signup and we'll contact you for details about how we can help with your file analysis.
       </p>
     </div>
-    <button class="nc-button nc-tray__close" data-nc-ask-tray-close>
+    <button class="nc-ask-button nc-tray__close" data-nc-ask-tray-close>
       <span class="nc-tray__close-icon nc-icon">${close}</span>
     </button>
   </div>

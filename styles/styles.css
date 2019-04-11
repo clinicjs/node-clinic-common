@@ -69,8 +69,8 @@ button {
   overflow: auto;
 }
 
-/* Button */
-.nc-button {
+/* Ask Button */
+.nc-ask-button {
   display: inline-block;
   position: relative;
   z-index: 0;
@@ -89,7 +89,7 @@ button {
   cursor: pointer;
 }
 
-.nc-button:before {
+.nc-ask-button:before {
   content: '';
   position: absolute;
   left: 0;
@@ -102,16 +102,16 @@ button {
   transition: opacity 0.2s ease-out;
 }
 
-.nc-button:hover:before,
-.nc-button:active:before {
+.nc-ask-button:hover:before,
+.nc-ask-button:active:before {
   opacity: 0.1;
 }
 
-.nc-button:active:before {
+.nc-ask-button:active:before {
   background-color: black;
 }
 
-.nc-button:after {
+.nc-ask-button:after {
   content: '';
   position: absolute;
   right: -0.5em;
@@ -125,7 +125,7 @@ button {
   transform: translateY(10px);
 }
 
-.nc-button.is-notified:after {
+.nc-ask-button.is-notified:after {
   opacity: 1;
   transform: translateY(0);
   transition-property: opacity, transform;
@@ -133,12 +133,12 @@ button {
   transition-timing-function: ease-out;
 }
 
-.nc-button:focus {
+.nc-ask-button:focus {
   outline: 0;
   box-shadow: 0 0 0 1px var(--nc-colour-notification-dot);
 }
 
-.nc-button__text {
+.nc-ask-button__text {
   display: none;
 }
 
@@ -171,6 +171,11 @@ button {
 
 .nc-tray__inner {
   padding: 32px;
+}
+
+.nc-tray__inner a:link,
+.nc-tray__inner a:visited {
+  color: inherit;
 }
 
 .nc-tray__close {
@@ -269,16 +274,16 @@ html.light-theme main .nc-light-on-dark {
 }
 
 @media(min-width: 640px) {
-  .nc-button {
+  .nc-ask-button {
     padding: 0.5em 1em;
     font-size: 16px;
   }
 
-  .nc-button__icon {
+  .nc-ask-button__icon {
     margin-right: 0.25em;
   }
 
-  .nc-button__text {
+  .nc-ask-button__text {
     display: initial;
   }
 

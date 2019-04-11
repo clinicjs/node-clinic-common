@@ -1,0 +1,60 @@
+.nc-button {
+  background-color: var(--nc-button-bgColor, black);
+  border          : none;
+  color           : var(--nc-button-color, white);
+  cursor          : pointer;
+  font-size       : var(--nc-button-fontSize, 1rem);
+  line-height     : 1;
+  min-width       : 0;
+  padding         : 0;
+}
+
+.nc-button::-moz-focus-inner {
+  border:0;
+}
+
+.nc-button:hover:not(:disabled) {
+  background-color: var(--nc-button-bgHover, rgb(25, 25, 25));
+  outline         : 1px dotted var(--nc-button-hoverOutline, rgba(255, 255, 255, 0.5));
+}
+
+.nc-button:focus {
+  outline         : 1px dotted var(--nc-button-hoverOutline, rgba(255, 255, 255, 0.5));  
+}
+
+.nc-button:disabled {
+  opacity: 0.5;
+  cursor : auto;
+  filter : saturate(0);
+}
+
+.nc-button__inner-container{
+  display         : flex;
+  justify-content : center;
+  align-items     : center;
+  padding         : 0.3em;
+}
+
+.nc-button .icon-img {
+  font-size  : 1.5em;
+  margin     : 0.133em;
+  flex-shrink: 0;
+}
+
+.nc-button__label {
+  margin       : 0.3em;
+  overflow     : hidden;
+  text-overflow: ellipsis;
+  white-space  : nowrap;
+  min-width    : 1.3em;
+}
+
+/* secondary-btn style */
+.nc-button.secondary-btn {
+  background-color: transparent;
+}
+
+.nc-button.secondary-btn:hover:not(:disabled) {
+  background-color: rgb(0, 0, 0, 0.15);
+  outline         : transparent;
+}

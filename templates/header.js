@@ -25,11 +25,11 @@ const header = (opts = {}) => streamTemplate`
       >
         ${opts.nearFormLogo}
       </a>
-      <button class="nc-button" data-nc-ask-button>
-        <span class="nc-icon nc-button__icon">
+      <button class="nc-ask-button" data-nc-ask-button>
+        <span class="nc-icon nc-ask-button__icon">
           ${speechBubble}
         </span>
-        <span class="nc-button__text">Ask an expert</span>
+        <span class="nc-ask-button__text">Ask an expert</span>
       </button>
     </div>
   </div>

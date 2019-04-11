@@ -1,0 +1,128 @@
+
+.wt-container {
+  opacity: 0;
+  transition: left 1.5s cubic-bezier(0.65, 0.05, 0.36, 1), top 1.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.wt-container.zoom-out {
+  animation: wt-zoom-out 0.3s ease-in-out forwards;
+}
+.wt-container.zoom-in {
+  animation: wt-zoom-in 0.6s ease-in-out forwards;
+}
+
+.wt-container .nc-context-overlay-inner {
+  background-color: #fff;
+  border-radius   : 3px;
+  box-shadow      : 0 2px 3px rgba(0, 0, 0, 0.5);
+  color           : rgb(39, 39, 39);
+  overflow        : hidden;
+  transition      : left 0.5s ease-in-out, top 0.5s ease-in-out, height 0.5s ease-in-out, width 0.5s ease-in-out;
+}
+
+.nc-walkthrough-wrapper {
+  display       : flex;
+  flex-direction: column;
+  min-width     : 300px;
+}
+
+.nc-walkthrough-content{
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  padding   : 20px;
+  flex-grow : 1;
+}
+
+.nc-walkthrough-controls {
+  display        : flex;
+  justify-content: space-between;
+  padding        : 3px;
+  flex-shrink    : 0;
+}
+
+.nc-walkthrough-controls .nc-button,
+.closeBtn {
+  --nc-button-bgHover: rgba(15, 15, 15, 0.2);
+  --nc-button-bgColor: transparent;
+  --nc-button-color  : rgba(0, 0, 0, 0.5);
+  flex-shrink        : 0;
+  padding            : 0;
+}
+
+.nc-walkthrough-wrapper .closeBtn {
+  font-size: 10px;
+  padding  : 5px;
+  position : absolute;
+  right    : 0;
+  top      : 1px;
+}
+
+.nc-walkthrough-wrapper .doneBtn {
+  display: none;
+}
+
+.nc-walkthrough-wrapper.done .doneBtn {
+  --nc-button-bgHover: rgb(2, 112, 2);
+  --nc-button-bgColor: green;
+  --nc-button-color  : white;
+  display            : initial;
+  padding            : 0 0.3em;
+}
+
+.nc-walkthrough-controls .nextBtn {
+  --nc-button-bgHover: var(--nc-walkthrough-theme, rgb(255, 170, 43));
+  --nc-button-bgColor: var(--nc-walkthrough-theme, rgb(255, 170, 43));
+  --nc-button-color  : white;
+} 
+
+.nc-walkthrough-controls .nextBtn .nc-button__inner-container {
+  padding-left       : 0.6em;
+}
+
+.nc-walkthrough-wrapper .nc-button {
+  --nc-button-hoverOutline: rgba(0, 0, 0, 0.5);
+}
+
+.nc-walkthrough-wrapper.done .nextBtn {
+  display: none;
+}
+
+.nc-walkthrough-controls-steps {
+  align-items    : center;
+  display        : flex;
+  flex-grow      : 1;
+  justify-content: center;
+}
+
+.nc-walkthrough-controls-steps .step {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius   : 10px;
+  height          : 10px;
+  margin          : 2px;
+  width           : 10px;
+}
+
+.nc-walkthrough-controls-steps .step.current {
+  background-color: var(--nc-walkthrough-theme, rgb(255, 170, 43));
+}
+
+@keyframes wt-zoom-out {
+  0% {
+    opacity: 1;
+    transform: scale(1);    
+  }  
+  100% {
+    opacity: 0;
+    transform: scale(0.8);    
+  }
+}
+
+@keyframes wt-zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);    
+  }  
+  100% {
+    opacity: 1;
+    transform: scale(1);    
+  }
+}

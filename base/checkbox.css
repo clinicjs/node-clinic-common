@@ -1,0 +1,67 @@
+.nc-checkbox {
+  background-color: var(--nc-checkbox-bgColor, black); 
+  padding         : 0.3em;
+  display         : flex;
+  cursor          : pointer;
+  align-items     : center;
+  min-width       : 0;
+}
+
+.nc-checkbox input {
+  display: none;
+}
+
+.nc-checkbox .copy-wrapper {
+  margin       : 0.3em;
+  overflow     : hidden;
+  text-overflow: ellipsis;
+  white-space  : nowrap;
+  min-width    : 1.3em;
+}
+
+.nc-checkbox:hover:not(:disabled) {
+  background-color: var(--nc-checkbox-hoverColor, white);
+  outline: 1px dotted var(--nc-checkbox-hoverOutline); 
+}
+
+.nc-checkbox .icon-wrapper {
+  align-items    : center;
+  border-radius  : 3px;
+  display        : flex;
+  font-size      : 1.5em;
+  margin         : 0.133em;
+  flex-shrink    : 0;
+  justify-content: center;
+  color          : var(--nc-checkbox-borderColor);
+}
+.nc-checkbox .icon-wrapper svg {
+  display: none;
+}
+.nc-checkbox .icon-wrapper .checkbox-unchecked-svg {
+  display: initial;
+}
+
+.nc-checkbox :checked ~ .icon-wrapper .checkbox-unchecked-svg{ 
+  display: none;
+}
+
+.nc-checkbox :checked ~ .icon-wrapper {
+  color: var(--nc-checkbox-checkedIconColor); 
+}
+
+.nc-checkbox :checked ~ .icon-wrapper .checkbox-checked-svg {
+  display: initial;
+}
+
+.nc-checkbox :indeterminate ~ .icon-wrapper {
+  color: var(--nc-checkbox-indeterminateIconColor); 
+}
+
+.nc-checkbox :indeterminate ~ .icon-wrapper .checkbox-indetermined-svg {
+  display: initial;
+}
+
+.nc-checkbox :indeterminate ~ .icon-wrapper .checkbox-unchecked-svg,
+.nc-checkbox :indeterminate ~ .icon-wrapper .checkbox-checked-svg {
+  display: none;
+}
