@@ -173,6 +173,11 @@ button {
   padding: 32px;
 }
 
+.nc-tray__inner a:link,
+.nc-tray__inner a:visited {
+  color: inherit;
+}
+
 .nc-tray__close {
   position: absolute;
   top: 8px;
