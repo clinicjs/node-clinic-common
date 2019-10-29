@@ -25,7 +25,7 @@
   "homepage": "https://github.com/nearform/node-clinic-common#readme",
   "devDependencies": {
     "standard": "^14.3.1",
-    "tap": "^12.1.0"
+    "tap": "^14.8.2"
   },
   "dependencies": {
     "brfs": "^2.0.1",
