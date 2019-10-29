@@ -1,0 +1,31 @@
+.nc-accordion {
+  font-size: 1rem;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.nc-accordion .nc-button {
+  width: 100%;
+  font-size: 1em;
+}
+
+.nc-accordion .nc-button__inner-container {
+  justify-content: space-between;
+  position: relative;
+}
+
+.nc-accordion .nc-button__inner-container .icon-img{
+  position: absolute;
+  right: 0.33em;
+  top: 50%;
+  margin: -0.5em 0 0 0;  
+  transition: transform 0.6s ease-in-out;
+  transform: rotateZ(0deg);  /* this is needed by MS Edge */
+}
+
+.nc-accordion.show-expand-icon .nc-button__inner-container .icon-img{
+  transform: rotateZ(90deg);
+}
+
+.nc-accordion.show-expand-icon .nc-button__inner-container .vertical-line {
+  transform: rotateZ(180deg);
+}

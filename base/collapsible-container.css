@@ -1,0 +1,13 @@
+.nc-collapsible-container {
+  overflow: hidden;
+  transition: height 0.4s ease-in-out;
+  height: 0px;
+}
+
+.nc-collapsible-container__inner-content-wrapper {
+  display: none;
+}
+
+.nc-collapsible-container.expanded .nc-collapsible-container__inner-content-wrapper {
+  display: block;
+}

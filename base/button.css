@@ -28,7 +28,7 @@
   filter : saturate(0);
 }
 
-.nc-button__inner-container{
+.nc-button__inner-container {
   display         : flex;
   justify-content : center;
   align-items     : center;
