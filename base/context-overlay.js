@@ -79,7 +79,7 @@ class Overlay {
     const oldWidth = this.overlayInnerEl.style.width
     this.overlayInnerEl.style.width = 'auto'
 
-    let msgHtmlNode = this.options.msg && toHtml(this.options.msg)
+    const msgHtmlNode = this.options.msg && toHtml(this.options.msg)
 
     if (msgHtmlNode) {
       this.overlayInnerEl.innerHTML = ''
@@ -178,7 +178,7 @@ class Overlay {
     let ttLeft = x + width / 2
 
     // if the element is in the lower half of the screen than align the overlay to the top side
-    let ttTop = y + (verticalAlign === 'bottom' ? height + arrowHeight : -arrowHeight)
+    const ttTop = y + (verticalAlign === 'bottom' ? height + arrowHeight : -arrowHeight)
 
     this.overlayEl.classList.toggle('arrowTop', verticalAlign === 'bottom')
     this.overlayEl.classList.toggle('arrowBottom', verticalAlign === 'top')

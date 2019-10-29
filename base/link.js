@@ -8,7 +8,7 @@ module.exports = ({ label, classNames = [], leftIcon = '', rightIcon = '', href,
 
   link.innerHTML = `
     ${leftIcon}
-    ${label ? `<span class="label">${label}</span>` : ``}
+    ${label ? `<span class="label">${label}</span>` : ''}
     ${rightIcon}
     `
   return link

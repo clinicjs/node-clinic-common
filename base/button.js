@@ -1,6 +1,6 @@
 module.exports = (options = {}) => {
   const button = document.createElement('button')
-  let btnOptions = options
+  const btnOptions = options
 
   if (btnOptions.onClick) {
     button.addEventListener('click', btnOptions.onClick)
@@ -18,7 +18,7 @@ module.exports = (options = {}) => {
     button.innerHTML = `
       <span class='nc-button__inner-container'>
       ${leftIcon}
-      ${label ? `<span class="nc-button__label">${label}</span>` : ``}
+      ${label ? `<span class="nc-button__label">${label}</span>` : ''}
       ${rightIcon}
       </span>
       `

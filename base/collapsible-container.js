@@ -27,7 +27,7 @@ module.exports = ({ content = '', classNames = [], isExpanded = false }) => {
     } else {
       contentWrapper.style.cssText = `height:${contentWrapper.scrollHeight}px;`
       const justToForceRedraw = contentWrapper.offsetWidth // eslint-disable-line no-unused-vars
-      contentWrapper.style.cssText = `height:0px;`
+      contentWrapper.style.cssText = 'height:0px;'
     }
 
     // if the element is not visible when expanded then the transitionend event doesn't get triggered

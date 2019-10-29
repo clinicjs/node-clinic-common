@@ -47,7 +47,7 @@ class WalkthroughPlayer {
       this.stepsWrapper.classList.add('nc-walkthrough-controls-steps')
 
       this.steps.forEach(s => {
-        this.stepsWrapper.appendChild(helpers.toHtml(`<span class="step"/>`))
+        this.stepsWrapper.appendChild(helpers.toHtml('<span class="step"/>'))
       })
       this.controls.appendChild(this.stepsWrapper)
 

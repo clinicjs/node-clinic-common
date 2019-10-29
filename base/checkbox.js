@@ -14,7 +14,7 @@ module.exports = ({ leftLabel, rightLabel, classNames = [], checked = false, dis
         ${leftLabel ? `
         <span class="copy-wrapper">
           <span class="checkbox-copy-label">${leftLabel}</span>
-        </span>` : ``}
+        </span>` : ''}
         
         <span class="icon-wrapper">
           ${checkboxCheckedIcon}
@@ -24,7 +24,7 @@ module.exports = ({ leftLabel, rightLabel, classNames = [], checked = false, dis
         ${rightLabel ? `
         <span class="copy-wrapper">
           <span class="checkbox-copy-label">${rightLabel}</span>
-        </span>` : ``}
+        </span>` : ''}
     `
   const input = wrappingLabel.querySelector('input')
   input.indeterminate = indeterminate

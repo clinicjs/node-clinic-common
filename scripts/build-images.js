@@ -12,7 +12,7 @@ function exportFile (file, exportDir) {
   const fileNameArr = file.split('/').splice(-1)[0].split('.')
   fileNameArr.pop()
   const fileName = fileNameArr.join('.')
-  console.log(chalk.bgGreen(` Exporting: `), chalk.green(`${fileName}`), chalk.green(`✓`))
+  console.log(chalk.bgGreen(' Exporting: '), chalk.green(`${fileName}`), chalk.green('✓'))
 
   // reading the file
   const imageAsBase64 = fs.readFileSync(`${file}`, 'base64')
