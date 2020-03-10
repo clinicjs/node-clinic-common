@@ -66,6 +66,9 @@ Arguments:
 
 A function that will check file contents for transpiled code. Check also includes a search for a source map comment.
 
+Arguments:
+  - `fileName` - Path to the file being passed in.
+
 ***
 
 ## Scripts
