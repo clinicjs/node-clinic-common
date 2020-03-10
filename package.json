@@ -37,5 +37,10 @@
     "postcss-import": "^12.0.1",
     "stream-template": "0.0.10",
     "webfontloader": "^1.6.28"
+  },
+  "standard": {
+    "ignore": [
+      "/test/fixtures/"
+    ]
   }
 }
