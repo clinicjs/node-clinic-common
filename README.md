@@ -10,6 +10,7 @@ Common functionality shared throughout Clinic.js.
 - [node-clinic-common](#node-clinic-common)
   - [Utils](#utils)
     - [`getLoggingPaths(toolName, toolSpecificFiles=[])`](#getloggingpathstoolname-toolspecificfiles)
+    - [`checkForTranspiledCode(fileName)`](#checkfortranspiledcode-filename)
   - [Scripts](#scripts)
     - [`buildJs(opts = {})`](#buildjsopts)
       - [Usage](#usage)
@@ -60,6 +61,13 @@ Arguments:
   - `toolSpecificFiles` - array of file names to generate, on top of the defaults (`/`, `/systeminfo`).
     If `toolName` is 'doctor', this defaults to `['/traceevent', '/processstat']`.
     If `toolName` is 'bubbleprof', this defaults to `['/traceevent', '/stacktrace']`.
+
+### `checkForTranspiledCode(fileName)`
+
+A function that will check file contents for transpiled code. Check also includes a search for a source map comment.
+
+Arguments:
+  - `fileName` - Path to the file being passed in.
 
 ***
 
