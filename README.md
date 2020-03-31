@@ -11,6 +11,7 @@ Common functionality shared throughout Clinic.js.
   - [Utils](#utils)
     - [`getLoggingPaths(toolName, toolSpecificFiles=[])`](#getloggingpathstoolname-toolspecificfiles)
     - [`checkForTranspiledCode(fileName)`](#checkfortranspiledcode-filename)
+    - [`workers`](#workers)
   - [Scripts](#scripts)
     - [`buildJs(opts = {})`](#buildjsopts)
       - [Usage](#usage)
@@ -68,6 +69,19 @@ A function that will check file contents for transpiled code. Check also include
 
 Arguments:
   - `fileName` - Path to the file being passed in.
+
+### `workers`
+
+An object that provides an information about Node.js worker thread support.
+
+```js
+const { workers } = require('@nearform/node-clinic-common')
+
+console.log(workers.isMainThread)
+console.log(workers.threadId)
+```
+
+If Worker Threads are not supported on the Node.js version used, the `isMainThread` property will be `true`, and the `threadId` property will be `0`.
 
 ***
 
@@ -408,7 +422,7 @@ style can be customised by defining these CSS vars in your CSS
 ### contexOverlay
 Displays an overlay containig the given `msg` right next to the targetElement or the targetRect
 
-If **targetElement** and **targetRect** are `null||undefined` then the overlay content will be centerd on the page. 
+If **targetElement** and **targetRect** are `null||undefined` then the overlay content will be centerd on the page.
 ```js
   // const options = {
   //   msg,
@@ -426,7 +440,7 @@ If **targetElement** and **targetRect** are `null||undefined` then the overlay c
       offset: { y: 10, height: 20 },
       targetElement: document.querySelector('.my-cool-element'),
       showArrow: true
-    })  
+    })
 ```
 
 ### Walkthrough
