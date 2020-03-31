@@ -91,6 +91,8 @@ const scriptFile = buildJs({
 
 💡 The `debug` option will ensure the bundle contains a sourcemap
 
+💡 If `fakeDataPath` is not provided, make sure to provide a separate `dataFile` to the [main template](#templates).
+
 ### `buildCss(opts = {})`
 Returns a PostCSS bundle (Promise)
 
@@ -109,7 +111,7 @@ const styleFile = buildCss({
 ***
 
 ## Templates
-Templates use stream-templates to interpolate streams, promises and strings into a common template without the need to buffer them first.
+Templates use [`stream-template`](https://github.com/almost/stream-template) to interpolate streams, promises and strings into a common template without the need to buffer them first.
 
 ### `mainTemplate(opts = {})`
 Returns a streamTemplate (Readable Stream)
@@ -127,6 +129,7 @@ const outputFile = mainTemplate({
   favicon: 'URI', (String)
   title: 'Title', (String)
   styles: styleFile, (Readable Stream)
+  data: dataFile, (Readable Stream)
   script: scriptFile, (Promise)
   headerLogoUrl: 'https://github.com/somewhere', (String)
   headerLogoTitle: 'Logo title', (String)
@@ -138,6 +141,8 @@ const outputFile = mainTemplate({
   body: 'extra <body> contents' (String)
 })
 ```
+
+💡 `opts.data` can be provided to place the JSON output of the analysis into its own script tag. When not provided, analysis data should be bundled in the `scriptFile` by the user.
 
 ***
 

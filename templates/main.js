@@ -19,6 +19,9 @@ const main = (opts = {}) => streamTemplate`
       ${header(opts)}
       ${opts.body}
       ${askTray(opts)}
+      ${opts.data ? streamTemplate`
+        <script type="application/json" id="clinic-data">${opts.data}</script>
+      ` : ''}
       <script>${opts.script}</script>
     </body>
   </html>
