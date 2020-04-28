@@ -2,7 +2,6 @@
 
 const streamTemplate = require('stream-template')
 const close = require('../icons/close')
-const copy = require('../icons/copy')
 
 const askTray = opts => streamTemplate`
   <div class="nc-tray-backdrop" data-nc-ask-tray-backdrop></div>
@@ -13,7 +12,7 @@ const askTray = opts => streamTemplate`
       <p>You can make up to 5 free Ask requests per month during early access. This gives you up to an hour of free analysis per month, provided by the world leaders in Node.js.</p>
       <p>Full Terms and Conditions are on the <a href="https://clinicjs.org">Clinic.js</a> site.</p>
       <p>Submit your request by running this command:</p>
-      <pre class="nc-code"><span class="nc-code-icon">${copy}</span> <span class="nc-code-text">clinic ask ${opts.uploadId}</span></pre>
+      <pre class="nc-code">clinic ask ${opts.uploadId}</pre>
       <p>
         You'll be prompted to login/signup and we'll contact you for details about how we can help with your file analysis.
       </p>
