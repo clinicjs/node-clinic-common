@@ -1,5 +1,7 @@
 'use strict'
 
+const copy = require('clipboard-copy')
+
 const CLASS = {
   BUTTON_NOTIFIED: 'is-notified',
   TRAY_VISIBLE: 'is-tray-visible',
@@ -10,6 +12,11 @@ const timeoutFrame = (cb, duration) => setTimeout(
   () => window.requestAnimationFrame(cb),
   duration
 )
+
+function copyToClipboard () {
+  const code = document.querySelector('.nc-code-text')
+  copy(code.innerHTML)
+}
 
 const init = () => {
   // Get DOM node refs
@@ -34,11 +41,15 @@ const init = () => {
 
     if (!isTrayToggled()) {
       $body.classList.add(CLASS.TRAY_VISIBLE)
-      timeoutFrame(() => $body.classList.add(CLASS.TRAY_ACTIVE), 100)
+      timeoutFrame(() => {
+        $body.classList.add(CLASS.TRAY_ACTIVE)
+        document.querySelector('.nc-code').addEventListener('click',copyToClipboard)
+      }, 100)
     } else {
       const removeVisibleClass = () => {
         $body.classList.remove(CLASS.TRAY_VISIBLE)
         $trayBackdrop.removeEventListener('transitionend', removeVisibleClass)
+        document.querySelector('.nc-code').removeEventListener('click',copyToClipboard)
       }
 
       $trayBackdrop.addEventListener('transitionend', removeVisibleClass)
