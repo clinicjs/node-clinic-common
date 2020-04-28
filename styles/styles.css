@@ -1,6 +1,7 @@
 html {
   --nc-colour-text: white;
   --nc-colour-code: #E9F100;
+  --nc-colour-code-hover: rgb(242, 247, 148);
   --nc-colour-notification-dot: #2165E5;
   --nc-colour-tray-backdrop: rgba(0, 0, 0, 0.6);
   --nc-colour-tray: #292d39;
@@ -67,6 +68,18 @@ button {
   background-color: rgba(0, 0, 0, 0.1);
   line-height: 1.75;
   overflow: auto;
+  cursor: pointer;
+}
+
+.nc-code:hover {
+  color: var(--nc-colour-code-hover);
+}
+
+.nc-code-icon {
+  width: 1em;
+  height: 1em;
+  position: relative;
+  top: 0.2em;
 }
 
 /* Ask Button */
