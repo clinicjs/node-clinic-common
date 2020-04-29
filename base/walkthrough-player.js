@@ -38,6 +38,7 @@ class WalkthroughPlayer {
       this.controls.classList.add('nc-walkthrough-controls')
 
       this.prevBtn = button({
+        classNames: ['prevBtn'],
         leftIcon: chevronLeft,
         onClick: e => this.prev()
       })
@@ -120,6 +121,14 @@ class WalkthroughPlayer {
 
     this.wrapper.classList.toggle('done', isDone)
     this.prevBtn.disabled = this.currentStepIndex === 0
+    
+    if (this.currentStepIndex === 0) {
+      const btn = this.controls.getElementsByClassName('prevBtn')[0]
+      btn.style.visibility = 'hidden'
+    } else {
+      const btn = this.controls.getElementsByClassName('prevBtn')[0]
+      btn.style.visibility = 'visible'
+    }
 
     if (this.showControls) {
       this.prev.setAttribute('disabled', this.currentStepIndex <= 0 ? true : null)
