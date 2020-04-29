@@ -119,7 +119,7 @@ class WalkthroughPlayer {
     const isDone = this.currentStepIndex === this.steps.length - 1
 
     this.wrapper.classList.toggle('done', isDone)
-    
+
     if (this.currentStepIndex === 0) {
       this.prevBtn.style.visible = 'hidden'
     }
