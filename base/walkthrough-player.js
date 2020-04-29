@@ -38,7 +38,6 @@ class WalkthroughPlayer {
       this.controls.classList.add('nc-walkthrough-controls')
 
       this.prevBtn = button({
-        classNames: ['prevBtn'],
         leftIcon: chevronLeft,
         onClick: e => this.prev()
       })
