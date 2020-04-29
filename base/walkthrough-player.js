@@ -123,11 +123,7 @@ class WalkthroughPlayer {
     this.prevBtn.disabled = this.currentStepIndex === 0
     
     if (this.currentStepIndex === 0) {
-      const btn = this.controls.getElementsByClassName('prevBtn')[0]
-      btn.style.visibility = 'hidden'
-    } else {
-      const btn = this.controls.getElementsByClassName('prevBtn')[0]
-      btn.style.visibility = 'visible'
+      this.prevBtn.style.visible = 'hidden'
     }
 
     if (this.showControls) {
@@ -148,7 +144,11 @@ class WalkthroughPlayer {
     setTimeout(() => {
       this.content.innerHTML = ''
       this.content.appendChild(helpers.toHtml(step.msg))
-
+      if (this.currentStepIndex === 0) {
+        this.prevBtn.style.visibility = 'hidden'
+      } else {
+        this.prevBtn.style.visibility = 'visible'
+      }
       WtOverlay.updateContent({
         msg: this.wrapper,
         classNames: ['wt-container', 'zoom-in', `wt-step-${this.currentStepIndex}`]
