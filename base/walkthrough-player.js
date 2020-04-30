@@ -28,7 +28,7 @@ class WalkthroughPlayer {
 
     this.wrapper.appendChild(this.content)
 
-    this.wrapper.addEventListener('keydown', (event) => {
+    this.wrapper.addEventListener('keyup', (event) => {
       if (event.code === 'Escape') {
         this.end()
       }
