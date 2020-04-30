@@ -142,11 +142,8 @@ class WalkthroughPlayer {
     setTimeout(() => {
       this.content.innerHTML = ''
       this.content.appendChild(helpers.toHtml(step.msg))
-      if (this.currentStepIndex === 0) {
-        this.prevBtn.style.visibility = 'hidden'
-      } else {
-        this.prevBtn.style.visibility = 'visible'
-      }
+  this.prevBtn.style.visibility = this.currentStepIndex === 0 ? 'hidden' : 'visible'
+
       WtOverlay.updateContent({
         msg: this.wrapper,
         classNames: ['wt-container', 'zoom-in', `wt-step-${this.currentStepIndex}`]
