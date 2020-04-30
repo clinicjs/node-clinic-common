@@ -69,8 +69,16 @@ button {
   overflow: auto;
 }
 
+/* Help Button */
+.nc-button.walkthrough-button {
+  margin-left: 15px;
+}
+.nc-button.walkthrough-button .nc-button__inner-container {
+  padding: 0px;
+}
+
 /* Ask Button */
-.nc-ask-button {
+.nc-ask-button, .nc-button.walkthrough-button {
   display: inline-block;
   position: relative;
   z-index: 0;
@@ -103,11 +111,14 @@ button {
 }
 
 .nc-ask-button:hover:before,
-.nc-ask-button:active:before {
+.nc-ask-button:active:before,
+.nc-button.walkthrough-button:hover:before,
+.nc-button.walkthrough-button:active:before {
   opacity: 0.1;
 }
 
-.nc-ask-button:active:before {
+.nc-ask-button:active:before,
+.nc-button.walkthrough-button:active:before {
   background-color: black;
 }
 
