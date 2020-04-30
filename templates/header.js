@@ -15,7 +15,7 @@ const header = (opts = {}) => streamTemplate`
       ${opts.headerLogo}
       <span>
         <div class="nc-header__logo-text">${opts.headerText}</div>
-        <div class="nc-header__tool-version">${opts.toolVersion}</div>
+        <div class="nc-header__tool-version">v${opts.toolVersion}</div>
       </span>
     </a>
     <div class="nc-header__inner">
