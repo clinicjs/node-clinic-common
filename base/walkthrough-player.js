@@ -142,7 +142,7 @@ class WalkthroughPlayer {
     setTimeout(() => {
       this.content.innerHTML = ''
       this.content.appendChild(helpers.toHtml(step.msg))
-  this.prevBtn.style.visibility = this.currentStepIndex === 0 ? 'hidden' : 'visible'
+      this.prevBtn.style.visibility = this.currentStepIndex === 0 ? 'hidden' : 'visible'
 
       WtOverlay.updateContent({
         msg: this.wrapper,
