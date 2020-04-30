@@ -240,6 +240,12 @@ button {
   margin-right: 13px;
 }
 
+.nc-header__tool-version {
+  color: var(--nc-colour-text);
+  font-size: 12px;
+  text-align: right;
+}
+
 .nc-header__sponsor {
   padding-right: 13px;
 }
