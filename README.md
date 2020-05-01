@@ -132,6 +132,7 @@ const outputFile = mainTemplate({
   headerLogoTitle: 'Logo title', (String)
   headerLogo: logoFile, (String)
   headerText: 'Text', (String)
+  toolVersion: '1.2.3', (String)
   nearFormLogo: 'URI', (String)
   uploadId: 'ID', (String)
   head: 'extra <head> content', (String)
