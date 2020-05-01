@@ -119,7 +119,10 @@ class WalkthroughPlayer {
     const isDone = this.currentStepIndex === this.steps.length - 1
 
     this.wrapper.classList.toggle('done', isDone)
-    this.prevBtn.disabled = this.currentStepIndex === 0
+
+    if (this.currentStepIndex === 0) {
+      this.prevBtn.style.visible = 'hidden'
+    }
 
     if (this.showControls) {
       this.prev.setAttribute('disabled', this.currentStepIndex <= 0 ? true : null)
@@ -139,6 +142,7 @@ class WalkthroughPlayer {
     setTimeout(() => {
       this.content.innerHTML = ''
       this.content.appendChild(helpers.toHtml(step.msg))
+      this.prevBtn.style.visibility = this.currentStepIndex === 0 ? 'hidden' : 'visible'
 
       WtOverlay.updateContent({
         msg: this.wrapper,
