@@ -28,6 +28,12 @@ class WalkthroughPlayer {
 
     this.wrapper.appendChild(this.content)
 
+    this.wrapper.addEventListener('keyup', (event) => {
+      if (event.code === 'Escape') {
+        this.end()
+      }
+    })
+
     if (showControls) {
       this.wrapper.appendChild(button({
         classNames: ['closeBtn'],
