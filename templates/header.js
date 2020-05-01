@@ -13,7 +13,10 @@ const header = (opts = {}) => streamTemplate`
       rel="noopener noreferrer"
     >
       ${opts.headerLogo}
-      <span class="nc-header__logo-text">${opts.headerText}</span>
+      <span>
+        <div class="nc-header__logo-text">${opts.headerText}</div>
+        <div class="nc-header__tool-version">v${opts.toolVersion}</div>
+      </span>
     </a>
     <div class="nc-header__inner">
       <a
