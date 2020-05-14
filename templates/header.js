@@ -19,15 +19,6 @@ const header = (opts = {}) => streamTemplate`
       </span>
     </a>
     <div class="nc-header__inner">
-      <a
-        class="nc-header__sponsor"
-        href="https://nearform.com"
-        title="NearForm"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        ${opts.nearFormLogo}
-      </a>
       <button class="nc-ask-button" data-nc-ask-button>
         <span class="nc-icon nc-ask-button__icon">
           ${speechBubble}
