@@ -259,6 +259,8 @@ button {
 
 .nc-header__sponsor {
   padding-right: 13px;
+  position: relative;
+  top: 8px;
 }
 
 .nc-header__sponsor svg {
@@ -323,6 +325,8 @@ html.light-theme main .nc-light-on-dark {
 
   .nc-header__sponsor {
     padding-right: 16px;
+    position: relative;
+    top: 8px;
   }
 
   .nc-header__sponsor svg {
