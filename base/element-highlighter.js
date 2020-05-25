@@ -38,7 +38,7 @@ function render () {
       height: 0
     }
 
-  backdropContainer.style.cssText = 'opacity:0.6;'
+  backdropContainer.style.cssText = 'opacity:0.8;'
   backdropTop.style.cssText = `transform:translate3d(${pos.left - padding}px, calc(-100vh + ${pos.top - padding}px), 0)`
   backdropRight.style.cssText = `transform:translate3d(${pos.left + pos.width + padding}px, ${pos.top - padding}px, 0)`
   backdropBottom.style.cssText = `transform:translate3d(calc(-100vw + ${pos.left + pos.width + padding}px), ${pos.top + pos.height + padding}px, 0)`
