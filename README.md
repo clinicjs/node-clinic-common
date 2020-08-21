@@ -414,7 +414,7 @@ style can be customised by defining these CSS vars in your CSS
 ### contexOverlay
 Displays an overlay containig the given `msg` right next to the targetElement or the targetRect
 
-If **targetElement** and **targetRect** are `null||undefined` then the overlay content will be centerd on the page. 
+If **targetElement** and **targetRect** are `null||undefined` then the overlay content will be centerd on the page.
 ```js
   // const options = {
   //   msg,
@@ -432,7 +432,7 @@ If **targetElement** and **targetRect** are `null||undefined` then the overlay c
       offset: { y: 10, height: 20 },
       targetElement: document.querySelector('.my-cool-element'),
       showArrow: true
-    })  
+    })
 ```
 
 ### Walkthrough
@@ -556,4 +556,4 @@ Attaching the spinner to an element creates a new instance of `spinner` that can
 
 ## License
 
-[GPL 3.0](LICENSE)
+[MIT](LICENSE)

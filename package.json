@@ -1,6 +1,6 @@
 {
   "name": "@nearform/clinic-common",
-  "version": "3.2.1",
+  "version": "4.0.0",
   "description": "Shared parts between the Clinic.js suite",
   "main": "index.js",
   "engines": {
@@ -21,7 +21,7 @@
     "url": "git+https://github.com/nearform/node-clinic-common.git"
   },
   "author": "Ruben Bridgewater <ruben@bridgewater.de>",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/nearform/node-clinic-common/issues"
   },
