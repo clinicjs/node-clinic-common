@@ -76,7 +76,6 @@
 |search|<img src="../assets/search.svg?sanitize=true" width="100%" height="44" />|
 |sidepanel-collapse|<img src="../assets/sidepanel-collapse.svg?sanitize=true" width="100%" height="44" />|
 |sidepanel-expand|<img src="../assets/sidepanel-expand.svg?sanitize=true" width="100%" height="44" />|
-|speech-bubble|<img src="../assets/speech-bubble.svg?sanitize=true" width="100%" height="44" />|
 |star|<img src="../assets/star.svg?sanitize=true" width="100%" height="44" />|
 |timeline-detail|<img src="../assets/timeline-detail.svg?sanitize=true" width="100%" height="44" />|
 |timeline|<img src="../assets/timeline.svg?sanitize=true" width="100%" height="44" />|
@@ -84,7 +83,6 @@
 |trending-up|<img src="../assets/trending-up.svg?sanitize=true" width="100%" height="44" />|
 |undo|<img src="../assets/undo.svg?sanitize=true" width="100%" height="44" />|
 |unstar|<img src="../assets/unstar.svg?sanitize=true" width="100%" height="44" />|
-|upload|<img src="../assets/upload.svg?sanitize=true" width="100%" height="44" />|
 |user|<img src="../assets/user.svg?sanitize=true" width="100%" height="44" />|
 |vertical-more|<img src="../assets/vertical-more.svg?sanitize=true" width="100%" height="44" />|
 |warning-triangle|<img src="../assets/warning-triangle.svg?sanitize=true" width="100%" height="44" />|

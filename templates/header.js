@@ -1,7 +1,6 @@
 'use strict'
 
 const streamTemplate = require('stream-template')
-const speechBubble = require('../icons/speech-bubble')
 
 const header = (opts = {}) => streamTemplate`
   <div class="nc-header">
@@ -18,14 +17,7 @@ const header = (opts = {}) => streamTemplate`
         <div class="nc-header__tool-version">v${opts.toolVersion}</div>
       </span>
     </a>
-    <div class="nc-header__inner">
-      <button class="nc-ask-button" data-nc-ask-button>
-        <span class="nc-icon nc-ask-button__icon">
-          ${speechBubble}
-        </span>
-        <span class="nc-ask-button__text">Ask an expert</span>
-      </button>
-    </div>
+    <div class="nc-header__inner"></div>
   </div>
 `
 
