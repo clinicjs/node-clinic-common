@@ -9,11 +9,11 @@
  */
 
 // Largely inspired by: https://github.com/simple-icons/simple-icons
-
-const exportDir = `${__dirname}/../icons`
-const indexFile = `${exportDir}/index.js`
-const iconsDir = `${__dirname}/../assets`
-const mdIconsMap = `${exportDir}/readme.md`
+const path = require('path')
+const exportDir = path.join(__dirname, '../icons')
+const indexFile = path.join(exportDir, 'index.js')
+const iconsDir = path.join(__dirname, '../assets')
+const mdIconsMap = path.join(exportDir, 'readme.md')
 
 const fs = require('fs')
 

@@ -7,7 +7,7 @@ const helpers = {
           return parser.parseFromString(content, 'text/html').body.firstElementChild
           // returns a HTMLDocument, which also is a Document.
         } else {
-          var node = document.createElement('span')
+          const node = document.createElement('span')
           node.className = defaultClass || ''
           node.textContent = content
           return node
