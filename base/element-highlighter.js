@@ -32,11 +32,11 @@ function render () {
   const pos = element
     ? element.getBoundingClientRect()
     : {
-      top: document.documentElement.clientHeight / 2,
-      left: document.documentElement.clientWidth / 2,
-      width: 0,
-      height: 0
-    }
+        top: document.documentElement.clientHeight / 2,
+        left: document.documentElement.clientWidth / 2,
+        width: 0,
+        height: 0
+      }
 
   backdropContainer.style.cssText = 'opacity:0.6;'
   backdropTop.style.cssText = `transform:translate3d(${pos.left - padding}px, calc(-100vh + ${pos.top - padding}px), 0)`

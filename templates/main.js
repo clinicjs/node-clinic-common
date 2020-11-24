@@ -2,7 +2,7 @@
 
 const streamTemplate = require('stream-template')
 const header = require('./header')
-
+/* eslint-disable multiline-ternary */
 const main = (opts = {}) => streamTemplate`
   <!DOCTYPE html>
   <html lang="en" class="${opts.htmlClass}">
@@ -24,5 +24,5 @@ const main = (opts = {}) => streamTemplate`
     </body>
   </html>
 `
-
+/* eslint-enable multiline-ternary */
 module.exports = main
