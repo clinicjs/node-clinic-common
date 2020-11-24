@@ -23,9 +23,6 @@ Common functionality shared throughout Clinic.js.
     - [Usage](#usage)
     - [Standards](#standards)
       - [Breakdown](#breakdown)
-  - [Behaviours](#behaviours)
-    - [`ask()`](#ask)
-    - [Usage](#usage)
   - [Icons](#icons)
   - [Images](#images)
   - [Components](#components)
@@ -188,22 +185,6 @@ Inside this repo, all classes are vendor-prfixed with `.nc-` to avoid class name
 
 /* Element: Tray inner component */
 .nc-tray__inner { ...
-```
-
-***
-
-## Behaviours
-Importable JS modules which expose an attach function and return a programmable API with at least a `destroy()` method. Each behaviour uses data-attributes to target DOM nodes.
-
-### `ask()`
-Returns an object with a `destroy()` and `toggleTray()` method to allow showing/hiding of the 'Ask an expert' side tray. This behaviour binds event listeners to open the tray on header button click and close it on close button and backdrop click.
-
-### Usage
-```js
-const askBehaviours = require('@nearform/clinic-common/behaviours/ask')
-
-// Bind ask behaviours
-askBehaviours()
 ```
 
 ***

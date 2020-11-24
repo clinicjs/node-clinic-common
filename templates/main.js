@@ -2,7 +2,6 @@
 
 const streamTemplate = require('stream-template')
 const header = require('./header')
-const askTray = require('./ask-tray')
 
 const main = (opts = {}) => streamTemplate`
   <!DOCTYPE html>
@@ -18,7 +17,6 @@ const main = (opts = {}) => streamTemplate`
     <body class="${opts.bodyClass}">
       ${header(opts)}
       ${opts.body}
-      ${askTray(opts)}
       ${opts.data ? streamTemplate`
         <script type="application/json" id="clinic-data">${opts.data}</script>
       ` : ''}
