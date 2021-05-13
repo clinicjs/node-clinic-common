@@ -76,6 +76,7 @@
 |search|<img src="../assets/search.svg?sanitize=true" width="100%" height="44" />|
 |sidepanel-collapse|<img src="../assets/sidepanel-collapse.svg?sanitize=true" width="100%" height="44" />|
 |sidepanel-expand|<img src="../assets/sidepanel-expand.svg?sanitize=true" width="100%" height="44" />|
+|speech-bubble|<img src="../assets/speech-bubble.svg?sanitize=true" width="100%" height="44" />|
 |star|<img src="../assets/star.svg?sanitize=true" width="100%" height="44" />|
 |timeline-detail|<img src="../assets/timeline-detail.svg?sanitize=true" width="100%" height="44" />|
 |timeline|<img src="../assets/timeline.svg?sanitize=true" width="100%" height="44" />|
