@@ -75,7 +75,7 @@ Returns a Browserify bundle (Readable Stream)
 
 #### Usage
 ```js
-const buildJs = require('@nearform/clinic-common/scripts/build-js')
+const buildJs = require('@clinic/clinic-common/scripts/build-js')
 
 const scriptFile = buildJs({
   basedir: __dirname, (String)
@@ -95,7 +95,7 @@ Returns a PostCSS bundle (Promise)
 
 #### Usage
 ```js
-const buildCss = require('@nearform/clinic-common/scripts/build-css')
+const buildCss = require('@clinic/clinic-common/scripts/build-css')
 
 const styleFile = buildCss({
   stylePath, (String)
@@ -119,7 +119,7 @@ This will need to be used in conjunction with the common UI [styles](#styles) an
 
 #### Usage
 ```js
-const mainTemplate = require('@nearform/clinic-common/templates/main')
+const mainTemplate = require('@clinic/clinic-common/templates/main')
 
 const outputFile = mainTemplate({
   htmlClass: '', (String)
@@ -159,7 +159,7 @@ html {
 
 ### Usage
 ```css
-@import '@nearform/clinic-common/styles/styles.css';
+@import '@clinic/clinic-common/styles/styles.css';
 
 .your {
   tool: styles;
@@ -196,7 +196,7 @@ Useful to inline svg files.
 
 **Use examples:**
 ```js
-const icons = require('@nearform/clinic-common/icons')
+const icons = require('@clinic/clinic-common/icons')
 
 console.log(icons.activity)
 
@@ -209,7 +209,7 @@ output:
 
 Alternatively you can import the needed icons individually:
 ```js
-const cog = require('@nearform/clinic-common/icons/cog')
+const cog = require('@clinic/clinic-common/icons/cog')
 ...
 `<span class="my_icon_wrapper">${cog}</span>`
 ```
@@ -217,7 +217,7 @@ const cog = require('@nearform/clinic-common/icons/cog')
 
 Basic style can be imported into the page by adding the following line to your main css file (if you use [postcss-import](https://github.com/postcss/postcss-import)):
 ```css
-@import "@nearform/clinic-common/icons/style.css";
+@import "@clinic/clinic-common/icons/style.css";
 ```
 
 That will add the following rules:
@@ -235,7 +235,7 @@ That will add the following rules:
 It is possible to use an icon as a background image too.
 In your `style.css` import the icons you need, i.e.:
 ```css
-@import "@nearform/clinic-common/icons/cog.css";
+@import "@clinic/clinic-common/icons/cog.css";
 ```
 
 This will generate the following **css variable** :
@@ -272,7 +272,7 @@ The supported file extensions are:
 Use example:
 ```js
   // in your npm script
-  const buildImg = require('@nearform/clinic-common/scripts/build-images')
+  const buildImg = require('@clinic/clinic-common/scripts/build-images')
   buildImg.file('my/amazing/image.jpg', 'visualizer/assets/images')
 
   // in your .js file you first import the image
@@ -287,18 +287,18 @@ Use example:
 ## Components
 A set of base components and helpers. All the components styles are `@imported` in `style.css` and can be imported as follows:
 ```css
-@import "@nearform/clinic-common/base/style.css";
+@import "@clinic/clinic-common/base/style.css";
 ```
 
 Each component can be imported singularly:
 ```js
-const button = require('@nearform/clinic-common/base/button.js')
+const button = require('@clinic/clinic-common/base/button.js')
 ```
 
 or you can import multiple components at once:
 
 ```js
-const { button, checkbox, contextOverlay } = require('@nearform/clinic-common/base')
+const { button, checkbox, contextOverlay } = require('@clinic/clinic-common/base')
 ```
 
 Each component is a function that returns an HTML element
@@ -487,24 +487,24 @@ A set of useful functions. Currently contains:
 ```
 
 ## Spinner
-To add the `loading spinner` to your app please import `@nearform/clinic-common/spinner` in your `main.js` and the style.css file to your `style.css`
+To add the `loading spinner` to your app please import `@clinic/clinic-common/spinner` in your `main.js` and the style.css file to your `style.css`
 
 Example:
 in main.js
 ```js
-require('@nearform/clinic-common/spinner')
+require('@clinic/clinic-common/spinner')
 ```
 
 in style.css
 ```css
-@import "@nearform/clinic-common/spinner/style.css";
+@import "@clinic/clinic-common/spinner/style.css";
 ```
 
 This will display the loading spinner while the page gets loaded.
 If you need to show the spinner later on, maybe while the app is busy doing some calculation, you can programmatically switch the spinner on and off as shown in the following example:
 
 ```js
-const spinner = require('@nearform/clinic-common/spinner')
+const spinner = require('@clinic/clinic-common/spinner')
 
 ...
 const redrawSpinner = spinner.attachTo(document.querySelector('#myHtmlContainerNode'))
