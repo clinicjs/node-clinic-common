@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/clinicjs/node-clinic-common#readme",
   "devDependencies": {
-    "standard": "^16.0.3",
+    "standard": "^17.0.0",
     "tap": "^15.1.1"
   },
   "dependencies": {
