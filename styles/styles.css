@@ -209,6 +209,14 @@ button {
   text-align: right;
 }
 
+.nc-header__elapsed-time {
+  color: var(--nc-colour-text);
+  font-size: 12px;
+  margin-left: 12px;
+  padding: 12px;
+  border-left: 1px solid var(--nc-colour-tray);
+}
+
 .nc-header__sponsor {
   padding-right: 13px;
   position: relative;
