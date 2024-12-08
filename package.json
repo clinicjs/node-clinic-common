@@ -37,7 +37,7 @@
     "lodash.debounce": "^4.0.8",
     "loose-envify": "^1.4.0",
     "postcss": "^8.1.10",
-    "postcss-import": "^13.0.0",
+    "postcss-import": "^15.1.0",
     "stream-template": "0.0.10",
     "webfontloader": "^1.6.28"
   },
