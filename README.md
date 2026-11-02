@@ -71,7 +71,7 @@ Arguments:
 ## Scripts
 
 ### `buildJs(opts = {})`
-Returns a Browserify bundle (Readable Stream)
+Returns a bundle as a Readable Stream
 
 #### Usage
 ```js
@@ -80,15 +80,16 @@ const buildJs = require('@clinic/clinic-common/scripts/build-js')
 const scriptFile = buildJs({
   basedir: __dirname, (String)
   debug: this.debug, (Boolean)
-  fakeDataPath, (String)
   scriptPath, (String)
-  beforeBundle: b => b.doSomethingWithBundle() (Function)
+  beforeBundle: b => b.require({ source, file: fakeDataPath }) (Function, optional)
 })
 ```
 
 💡 The `debug` option will ensure the bundle contains a sourcemap
 
-💡 If `fakeDataPath` is not provided, make sure to provide a separate `dataFile` to the [main template](#templates).
+💡 The `beforeBundle` hook can provide a virtual module, commonly used for runtime data.
+
+`fakeDataPath` is a deprecated, unused `buildJs` option. Esbuild loads files ending in `.json` as JSON based on their extension.
 
 ### `buildCss(opts = {})`
 Returns a PostCSS bundle (Promise)

@@ -37,8 +37,8 @@
   },
   "dependencies": {
     "brfs": "^2.0.1",
-    "browserify": "^17.0.0",
-    "loose-envify": "^1.4.0",
+    "esbuild": "^0.28.2",
+    "events": "^3.3.0",
     "postcss": "^8.1.10",
     "postcss-import": "^13.0.0",
     "stream-template": "0.0.10"
