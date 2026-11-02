@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install Node.js 12
+      - name: Install Node.js 22
         uses: actions/setup-node@v3.8.1
         with:
-          node-version: 12.x
+          node-version: 22.x
       - name: Install dependencies
         run: npm install
       - name: Check linting

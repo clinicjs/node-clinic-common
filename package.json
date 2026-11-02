@@ -10,9 +10,9 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "npm run lint && tap test/*.test.js",
-    "lint": "standard --fix",
-    "ci-lint": "standard",
+    "test": "tap test/*.test.js",
+    "lint": "eslint --fix .",
+    "ci-lint": "eslint .",
     "build-svgs": "node scripts/build-svgs.js && npm run lint",
     "prepublishOnly": "npm run build-svgs"
   },
@@ -27,7 +27,8 @@
   },
   "homepage": "https://github.com/clinicjs/node-clinic-common#readme",
   "devDependencies": {
-    "standard": "^17.0.0",
+    "eslint": "^10.0.0",
+    "neostandard": "^0.14.1",
     "tap": "^16.0.1"
   },
   "dependencies": {
@@ -37,10 +38,5 @@
     "postcss": "^8.1.10",
     "postcss-import": "^13.0.0",
     "stream-template": "0.0.10"
-  },
-  "standard": {
-    "ignore": [
-      "/test/fixtures/"
-    ]
   }
 }
