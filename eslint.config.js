@@ -1,5 +1,6 @@
 const neostandard = require('neostandard')
 
+/** @type {import('eslint').Linter.Config[]} */
 module.exports = [
   ...neostandard({
     ignores: ['test/fixtures/**']

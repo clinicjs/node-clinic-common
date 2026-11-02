@@ -1,9 +1,24 @@
 const { toHtml } = require('./helpers.js')
 
+/** @typedef {import('./helpers.js').HtmlContent} HtmlContent */
+
+/**
+ * @typedef {Object} CollapsibleContainerOptions
+ * @property {HtmlContent} [content]
+ * @property {string[]} [classNames]
+ * @property {boolean} [isExpanded]
+ */
+
+/**
+ * Create a height-animated content container.
+ * @param {CollapsibleContainerOptions} options
+ * @returns {HTMLElement & { toggle: (isExpanded?: boolean) => void }}
+ */
 module.exports = ({ content = '', classNames = [], isExpanded = false }) => {
   let expanded = false
 
-  const contentWrapper = toHtml(`<div class="${['nc-collapsible-container', ...classNames].join(' ')}"></div>`)
+  /** @type {HTMLElement & { toggle: (isExpanded?: boolean) => void }} */
+  const contentWrapper = /** @type {HTMLElement & { toggle: (isExpanded?: boolean) => void }} */ (toHtml(`<div class="${['nc-collapsible-container', ...classNames].join(' ')}"></div>`))
 
   const innerContentWrapper = toHtml('<div class="nc-collapsible-container__inner-content-wrapper"></div>')
   innerContentWrapper.appendChild(toHtml(content))
@@ -11,13 +26,16 @@ module.exports = ({ content = '', classNames = [], isExpanded = false }) => {
 
   contentWrapper.addEventListener('transitionend', onTransitionEnd)
 
-  function onTransitionEnd () {
+  /** @param {TransitionEvent} [event] */
+  function onTransitionEnd (event) {
+    if (event && (event.target !== contentWrapper || (event.propertyName && event.propertyName !== 'height'))) return
     if (!expanded) {
       contentWrapper.classList.remove('expanded')
     } else {
       contentWrapper.style.cssText = 'height:auto;'
     }
   }
+  /** @param {boolean} [isExpanded] */
   function toggle (isExpanded = !expanded) {
     expanded = isExpanded
 
@@ -26,7 +44,7 @@ module.exports = ({ content = '', classNames = [], isExpanded = false }) => {
       contentWrapper.style.cssText = `height:${contentWrapper.scrollHeight}px;`
     } else {
       contentWrapper.style.cssText = `height:${contentWrapper.scrollHeight}px;`
-      const justToForceRedraw = contentWrapper.offsetWidth // eslint-disable-line no-unused-vars
+      void contentWrapper.offsetWidth // eslint-disable-line no-void -- force a layout read before collapsing
       contentWrapper.style.cssText = 'height:0px;'
     }
 

@@ -298,7 +298,7 @@ const button = require('@clinic/clinic-common/base/button.js')
 or you can import multiple components at once:
 
 ```js
-const { button, checkbox, contextOverlay } = require('@clinic/clinic-common/base')
+const { button, checkbox, ContextOverlay } = require('@clinic/clinic-common/base')
 ```
 
 Each component is a function that returns an HTML element

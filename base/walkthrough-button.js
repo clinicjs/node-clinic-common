@@ -2,6 +2,21 @@ const Wt = require('./walkthrough-player')
 const button = require('./button.js')
 const helpIcon = require('../icons/circle-question')
 
+/** @typedef {import('./helpers.js').HtmlContent} HtmlContent */
+
+/**
+ * @typedef {Object} WalkthroughButtonOptions
+ * @property {Array<{ attachTo: string, msg: HtmlContent }>} steps
+ * @property {((stepIndex: number | undefined) => void) | undefined} [onProgress]
+ * @property {string} [label]
+ * @property {string | undefined} [title]
+ */
+
+/**
+ * Create a button that starts a walkthrough.
+ * @param {WalkthroughButtonOptions} options
+ * @returns {{ button: HTMLButtonElement, WtPlayer: InstanceType<typeof Wt> }}
+ */
 module.exports = ({ steps, onProgress, label = 'How does this work', title }) => {
   const wt = new Wt({
     steps,

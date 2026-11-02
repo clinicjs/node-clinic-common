@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": ["node"],
+    "module": "Node16",
+    "moduleResolution": "Node16"
+  },
+  "include": [
+    "index.js",
+    "base/**/*.js",
+    "behaviours/**/*.js",
+    "lib/**/*.js",
+    "scripts/**/*.js",
+    "types/**/*.d.ts",
+    "spinner/**/*.js",
+    "templates/**/*.js",
+    "test/**/*.js",
+    "test-support/**/*.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "test/fixtures",
+    "coverage"
+  ]
+}

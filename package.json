@@ -4,16 +4,18 @@
   "description": "Shared parts between the Clinic.js suite",
   "main": "index.js",
   "engines": {
-    "node": ">= 12.13.0"
+    "node": ">= 22.0.0"
   },
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "test": "tap test/*.test.js",
-    "lint": "eslint --fix .",
+    "test": "node --test \"test/**/*.test.js\"",
+    "test:coverage": "node --experimental-test-coverage --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 --test \"test/**/*.test.js\"",
+    "lint": "eslint .",
     "ci-lint": "eslint .",
-    "build-svgs": "node scripts/build-svgs.js && npm run lint",
+    "build-svgs": "node scripts/build-svgs-cli.js && npm run lint",
+    "typecheck": "tsc -p .",
     "prepublishOnly": "npm run build-svgs"
   },
   "repository": {
@@ -27,9 +29,11 @@
   },
   "homepage": "https://github.com/clinicjs/node-clinic-common#readme",
   "devDependencies": {
+    "@types/node": "^26.6.6",
     "eslint": "^10.0.0",
+    "jsdom": "^30.1.3",
     "neostandard": "^0.14.1",
-    "tap": "^16.0.1"
+    "typescript": "^6.0.3"
   },
   "dependencies": {
     "brfs": "^2.0.1",
