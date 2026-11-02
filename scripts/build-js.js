@@ -1,8 +1,7 @@
 const esbuild = require('esbuild')
-const brfs = require('brfs')
-const fs = require('node:fs/promises')
 const path = require('node:path')
 const { Readable } = require('node:stream')
+const staticFsPlugin = require('./static-fs-plugin')
 
 const eventsPath = require.resolve('events/')
 
@@ -48,31 +47,6 @@ const buildJs = ({ basedir, debug, scriptPath, beforeBundle, env = {} }) => {
   if (beforeBundle) beforeBundle(bundler)
 
   /** @type {EsbuildPlugin} */
-  const brfsPlugin = {
-    name: 'clinic-brfs',
-    setup (build) {
-      build.onLoad({ filter: /\.[cm]?jsx?$/ }, async args => {
-        const source = await fs.readFile(args.path)
-        const transform = brfs(args.path, { sourceMap: debug })
-        const transformed = await new Promise((resolve, reject) => {
-          /** @type {Buffer[]} */
-          const chunks = []
-          transform.on('data', /** @param {Buffer} chunk */ chunk => chunks.push(chunk))
-          transform.once('error', reject)
-          transform.once('end', () => resolve(Buffer.concat(chunks).toString('utf8')))
-          transform.end(source)
-        })
-
-        return {
-          contents: transformed,
-          loader: args.path.endsWith('.jsx') ? 'jsx' : 'js',
-          resolveDir: path.dirname(args.path)
-        }
-      })
-    }
-  }
-
-  /** @type {EsbuildPlugin} */
   const injectedFilesPlugin = {
     name: 'clinic-injected-files',
     setup (build) {
@@ -108,7 +82,7 @@ const buildJs = ({ basedir, debug, scriptPath, beforeBundle, env = {} }) => {
       write: false,
       sourcemap: debug ? 'inline' : false,
       define: defines,
-      plugins: [injectedFilesPlugin, eventsPlugin, brfsPlugin]
+      plugins: [injectedFilesPlugin, eventsPlugin, staticFsPlugin]
     })
 
     for (const outputFile of result.outputFiles) {

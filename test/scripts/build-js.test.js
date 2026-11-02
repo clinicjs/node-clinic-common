@@ -68,3 +68,24 @@ test('buildJs works without a beforeBundle hook', async function (/** @type {imp
   }))
   t.assert.match(bundle, /module\.exports = false/)
 })
+
+test('buildJs inlines static fs.readFile contents', async function (/** @type {import('node:test').TestContext} */ t) {
+  t.plan(2)
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'clinic-js-read-file-'))
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }))
+  fs.writeFileSync(path.join(root, 'asset.txt'), 'async asset contents')
+  fs.writeFileSync(path.join(root, 'entry.js'), `
+    const fs = require('fs')
+    function onRead (err, contents) { window.assetContents = contents }
+    fs.readFile(__dirname + '/asset.txt', 'utf8', onRead)
+  `)
+
+  const bundle = await collect(buildJs({
+    basedir: root,
+    debug: false,
+    scriptPath: './entry.js'
+  }))
+
+  t.assert.match(bundle, /async asset contents/)
+  t.assert.match(bundle, /queueMicrotask/)
+})
