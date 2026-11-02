@@ -6,13 +6,12 @@
  */
 
 const fs = require('fs')
-const chalk = require('chalk')
 
 function exportFile (file, exportDir) {
   const fileNameArr = file.split('/').splice(-1)[0].split('.')
   fileNameArr.pop()
   const fileName = fileNameArr.join('.')
-  console.log(chalk.bgGreen(' Exporting: '), chalk.green(`${fileName}`), chalk.green('✓'))
+  console.log('\u001b[42m Exporting: \u001b[0m', `\u001b[32m${fileName}\u001b[0m`, '\u001b[32m✓\u001b[0m')
 
   // reading the file
   const imageAsBase64 = fs.readFileSync(`${file}`, 'base64')

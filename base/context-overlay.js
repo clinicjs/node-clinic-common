@@ -1,5 +1,5 @@
 const { toHtml } = require('./helpers.js')
-const debounce = require('lodash.debounce')
+const debounce = require('./debounce.js')
 
 class Overlay {
   constructor () {

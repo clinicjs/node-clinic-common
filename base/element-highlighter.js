@@ -1,4 +1,4 @@
-const debounce = require('lodash.debounce')
+const debounce = require('./debounce.js')
 
 const wrapper = document.createElement('div')
 wrapper.classList.add('nc-element-highlighter')
