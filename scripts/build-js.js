@@ -1,9 +1,28 @@
 const esbuild = require('esbuild')
+const fs = require('node:fs')
 const path = require('node:path')
 const { Readable } = require('node:stream')
 const staticFsPlugin = require('./static-fs-plugin')
 
 const eventsPath = require.resolve('events/')
+
+/**
+ * Resolve a path consistently with esbuild, including macOS symlinked temp
+ * directories such as `/var` -> `/private/var`.
+ *
+ * Virtual injection paths do not need to exist, so fall back to the absolute
+ * path when realpath resolution is not possible.
+ * @param {string} filePath
+ * @returns {string}
+ */
+function canonicalPath (filePath) {
+  const resolved = path.resolve(filePath)
+  try {
+    return fs.realpathSync.native(resolved)
+  } catch {
+    return resolved
+  }
+}
 
 /** @typedef {import('esbuild').Plugin} EsbuildPlugin */
 
@@ -40,7 +59,7 @@ const buildJs = ({ basedir, debug, scriptPath, beforeBundle, env = {} }) => {
   /** @type {BuildJsBundler} */
   const bundler = {
     require: ({ source, file }) => {
-      injectedFiles.set(path.resolve(basedir, file), source)
+      injectedFiles.set(canonicalPath(path.resolve(basedir, file)), source)
       return bundler
     }
   }
@@ -51,7 +70,7 @@ const buildJs = ({ basedir, debug, scriptPath, beforeBundle, env = {} }) => {
     name: 'clinic-injected-files',
     setup (build) {
       build.onLoad({ filter: /.*/ }, args => {
-        const filePath = path.resolve(args.path)
+        const filePath = canonicalPath(args.path)
         const contents = injectedFiles.get(filePath)
         if (contents === undefined) return undefined
 
