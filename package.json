@@ -25,7 +25,6 @@
   },
   "homepage": "https://github.com/clinicjs/node-clinic-common#readme",
   "devDependencies": {
-    "@types/node": "^26.6.6",
     "eslint": "^10.0.0",
     "jsdom": "^30.1.3",
     "neostandard": "^0.14.1"
