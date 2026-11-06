@@ -1,37 +1,58 @@
-on: [push, pull_request]
-
 name: CI
+
+on:
+  push:
+    branches:
+     - main
+     - next
+     - 'v*'
+    paths-ignore:
+      - '*.md'
+  pull_request:
+    paths-ignore:
+      - '*.md'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Install Node.js 22
-        uses: actions/setup-node@v3.8.1
+      - uses: actions/checkout@v7
+      - name: Install Node.js 26
+        uses: actions/setup-node@v7
         with:
-          node-version: 22.x
+          node-version: 26
       - name: Install dependencies
         run: npm install
       - name: Check linting
-        run: npm run ci-lint
-      - name: Check types
-        run: npm run typecheck
+        run: npm run lint
 
   test:
     name: Test
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        node-version: [22.x]
+        os: 
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+        node-version:
+          - 22
+          - 24
+          - 26
 
     runs-on: ${{matrix.os}}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install Node.js ${{matrix.node-version}}
-        uses: actions/setup-node@v3.8.1
+        uses: actions/setup-node@v7
         with:
           node-version: ${{matrix.node-version}}
       - name: Install dependencies

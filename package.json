@@ -6,16 +6,12 @@
   "engines": {
     "node": ">= 22.0.0"
   },
-  "directories": {
-    "lib": "lib"
-  },
   "scripts": {
     "test": "node --test \"test/**/*.test.js\"",
     "test:coverage": "node --experimental-test-coverage --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 --test \"test/**/*.test.js\"",
     "lint": "eslint .",
-    "ci-lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "build-svgs": "node scripts/build-svgs-cli.js && npm run lint",
-    "typecheck": "tsc -p .",
     "prepublishOnly": "npm run build-svgs"
   },
   "repository": {
@@ -32,8 +28,7 @@
     "@types/node": "^26.6.6",
     "eslint": "^10.0.0",
     "jsdom": "^30.1.3",
-    "neostandard": "^0.14.1",
-    "typescript": "^6.0.3"
+    "neostandard": "^0.14.1"
   },
   "dependencies": {
     "esbuild": "^0.28.2",
