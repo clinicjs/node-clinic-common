@@ -30,9 +30,11 @@ Common functionality shared throughout Clinic.js.
     - [link](#link)
     - [dropdown](#dropdown)
     - [checkbox](#checkbox)
-    - [contexOverlay](#contexoverlay)
+    - [ContextOverlay](#contextoverlay)
     - [Walkthrough](#walkthrough)
     - [walkthroughButton](#walkthroughbutton)
+    - [accordion](#accordion)
+    - [collapsibleContainer](#collapsiblecontainer)
     - [helpers](#helpers)
   - [Spinner](#spinner)
   - [License](#license)
@@ -71,7 +73,7 @@ Arguments:
 ## Scripts
 
 ### `buildJs(opts = {})`
-Returns a Browserify bundle (Readable Stream)
+Returns a bundle as a Readable Stream
 
 #### Usage
 ```js
@@ -80,15 +82,16 @@ const buildJs = require('@clinic/clinic-common/scripts/build-js')
 const scriptFile = buildJs({
   basedir: __dirname, (String)
   debug: this.debug, (Boolean)
-  fakeDataPath, (String)
   scriptPath, (String)
-  beforeBundle: b => b.doSomethingWithBundle() (Function)
+  beforeBundle: b => b.require({ source, file: fakeDataPath }) (Function, optional)
 })
 ```
 
 💡 The `debug` option will ensure the bundle contains a sourcemap
 
-💡 If `fakeDataPath` is not provided, make sure to provide a separate `dataFile` to the [main template](#templates).
+💡 The `beforeBundle` hook can provide a virtual module, commonly used for runtime data.
+
+`fakeDataPath` is a deprecated, unused `buildJs` option. Esbuild loads files ending in `.json` as JSON based on their extension.
 
 ### `buildCss(opts = {})`
 Returns a PostCSS bundle (Promise)
@@ -115,7 +118,7 @@ Returns a streamTemplate (Readable Stream)
 
 Use this template for building tool output with a common chrome including a header and a popout tray.
 
-This will need to be used in conjunction with the common UI [styles](#styles) and the tray [behaviours](#behaviours).
+This will need to be used in conjunction with the common UI [styles](#styles).
 
 #### Usage
 ```js
@@ -123,17 +126,18 @@ const mainTemplate = require('@clinic/clinic-common/templates/main')
 
 const outputFile = mainTemplate({
   htmlClass: '', (String)
+  bodyClass: '', (String)
   favicon: 'URI', (String)
   title: 'Title', (String)
   styles: styleFile, (Readable Stream)
-  data: dataFile, (Readable Stream)
-  script: scriptFile, (Promise)
+  data: data, (String)
+  script: scriptFile, (Readable Stream)
   headerLogoUrl: 'https://github.com/somewhere', (String)
   headerLogoTitle: 'Logo title', (String)
-  headerLogo: logoFile, (String)
+  headerLogo: logoFile, (Readable Stream or String)
   headerText: 'Text', (String)
   toolVersion: '1.2.3', (String)
-  uploadId: 'ID', (String)
+  elapsedTime: '12s', (String or Number)
   head: 'extra <head> content', (String)
   body: 'extra <body> contents' (String)
 })
@@ -169,7 +173,7 @@ html {
 ### Standards
 CSS should be written using classes using [BEM](https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) as a naming convention for better encapsulation and lower specificity.
 
-Inside this repo, all classes are vendor-prfixed with `.nc-` to avoid class name collision with third party or tool specific styles. For tool-based styling, all styles should follow the same conventions with prefixes for the tools as follows:
+Inside this repo, all classes are vendor-prefixed with `.nc-` to avoid class name collision with third party or tool specific styles. For tool-based styling, all styles should follow the same conventions with prefixes for the tools as follows:
 
 ```
 .ncd- Clinic.js Doctor
@@ -298,7 +302,7 @@ const button = require('@clinic/clinic-common/base/button.js')
 or you can import multiple components at once:
 
 ```js
-const { button, checkbox, contextOverlay } = require('@clinic/clinic-common/base')
+const { button, checkbox, ContextOverlay } = require('@clinic/clinic-common/base')
 ```
 
 Each component is a function that returns an HTML element
@@ -363,12 +367,11 @@ style can be customised by defining these CSS vars in your CSS
 
 style can be customised by defining these CSS vars in your CSS
 ```css
-  --nc-checkbox-bgColor
-  --nc-checkbox-hoverColor
-  --nc-checkbox-hoverOutline
-  --nc-checkbox-borderColor
-  --nc-checkbox-checkedIconColor
-  --nc-checkbox-indeterminateIconColor
+  --nc-dropdown-borderColor
+  --nc-dropdown-color
+  --nc-dropdown-bgColor
+  --nc-dropdown-contentBg
+  --nc-dropdown-contentBorderColor
 ```
 
 ### checkbox
@@ -384,17 +387,18 @@ style can be customised by defining these CSS vars in your CSS
 
 style can be customised by defining these CSS vars in your CSS
 ```css
-  --nc-dropdown-borderColor
-  --nc-dropdown-color
-  --nc-dropdown-bgColor
-  --nc-dropdown-contentBg
-  --nc-dropdown-contentBorderColor
+  --nc-checkbox-bgColor
+  --nc-checkbox-hoverColor
+  --nc-checkbox-hoverOutline
+  --nc-checkbox-borderColor
+  --nc-checkbox-checkedIconColor
+  --nc-checkbox-indeterminateIconColor
 ```
 
-### contexOverlay
-Displays an overlay containig the given `msg` right next to the targetElement or the targetRect
+### ContextOverlay
+Displays an overlay containing the given `msg` right next to the `targetElement` or `targetRect`.
 
-If **targetElement** and **targetRect** are `null||undefined` then the overlay content will be centerd on the page.
+If **targetElement** and **targetRect** are `null||undefined` then the overlay content will be centered on the page.
 ```js
   // const options = {
   //   msg,
@@ -425,6 +429,7 @@ const wt = new Walkthrough({ steps = [], showBackdrop = false, showControls = tr
 ```js
   `start`
   `next`
+  `prev`
   `end`
   `skipTo`
 ```
@@ -473,6 +478,24 @@ The standardised button to tools which activates the Walkthroughs
 
   // label defaults to 'How does this work'
 
+```
+
+### accordion
+```js
+// accordion({ label, classNames = [], disabled = false, onClick, title = '', content = '', isExpanded = false })
+const item = accordion({
+  label: 'Details',
+  content: '<p>More information</p>'
+})
+```
+
+### collapsibleContainer
+```js
+// collapsibleContainer({ content = '', classNames = [], isExpanded = false })
+const panel = collapsibleContainer({
+  content: '<p>More information</p>',
+  isExpanded: true
+})
 ```
 
 

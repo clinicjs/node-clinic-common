@@ -1,16 +1,50 @@
 'use strict'
 
-const WebFont = require('webfontloader')
-
 const styleSheetUrl = 'https://clinicjs.org/assets/css/fonts.css'
-const allFonts = [
+
+const allFonts = /** @type {const} */ ([
   'Archia:n4',
   'Archia:n7',
   'Campton:n7',
   'Space Mono:n4',
   'Space Mono:n7'
-]
+])
 
+/** @typedef {typeof allFonts[number]} FontIdentifier */
+
+/**
+ * Parse a family and variant identifier into a CSS FontFace descriptor.
+ * @param {FontIdentifier} font Built-in font identifier in `Family:variant` form.
+ * @returns {{ identifier: FontIdentifier, family: string, variant: string, descriptor: string }} Parsed font data.
+ */
+const parseFont = font => {
+  const separatorIndex = font.indexOf(':')
+  const family = font.slice(0, separatorIndex)
+  const variant = font.slice(separatorIndex + 1)
+  const weight = variant === 'n7' ? 700 : 400
+  return {
+    identifier: font,
+    family,
+    variant,
+    descriptor: `${weight} 16px "${family}"`
+  }
+}
+const parsedFonts = allFonts.map(parseFont)
+
+/**
+ * @typedef {Object} FontLoaderOptions
+ * @property {() => void} [onLoad] Called when at least one font loads.
+ * @property {() => void} [onTimeout] Called when the configured timeout expires.
+ * @property {() => void} [onLoadAfterTimeout] Called when critical fonts load after timeout.
+ * @property {number} [timeout=2000] Timeout in milliseconds.
+ * @property {ReadonlyArray<FontIdentifier>} [criticalFonts] Built-in critical font identifiers to wait for.
+ */
+
+/**
+ * Start loading the stylesheet and fonts.
+ * @param {FontLoaderOptions} [opts]
+ * @returns {{ destroy: () => void }} Handle that cancels pending work and removes the stylesheet.
+ */
 const init = (opts = {}) => {
   const {
     onLoad,
@@ -20,75 +54,68 @@ const init = (opts = {}) => {
     criticalFonts = allFonts
   } = opts
 
-  // Flag loaded state
-  let isLoading = true
-  // Keep track of loaded fonts
-  const loadedFonts = []
+  let didTimeout = false
+  let didLoad = false
+  let didLoadAfterTimeout = false
+  let didStartLoading = false
+  let isDestroyed = false
+  /** @type {Set<FontIdentifier>} */
+  const loadedFonts = new Set()
+  const stylesheet = document.createElement('link')
+  stylesheet.rel = 'stylesheet'
+  stylesheet.href = styleSheetUrl
 
-  // Ensure timeout is triggered if all fonts fail to load
-  const timeoutId = setTimeout(() => {
-    isLoading = false
-
-    if (onTimeout) {
-      onTimeout()
-    }
-
-    maybeLoadAfterTimeout()
-  }, timeout)
-
-  // Check loaded fonts array against given critical fonts
   const maybeLoadAfterTimeout = () => {
-    // If loaded already, exit
-    if (isLoading) {
-      return
-    }
+    if (isDestroyed || !didTimeout || didLoadAfterTimeout || !onLoadAfterTimeout) return
 
-    // Create array of difference between loaded fonts and critical fonts
-    const loadedCriticalFonts = loadedFonts.filter(
-      item => criticalFonts.indexOf(item) > -1
-    )
-
-    // Call onLoadAfterTimeout if all critical fonts have loaded
-    if (criticalFonts.length === loadedCriticalFonts.length && onLoadAfterTimeout) {
-      isLoading = false
-
+    const allCriticalFontsLoaded = criticalFonts.every(font => loadedFonts.has(font))
+    if (allCriticalFontsLoaded) {
+      didLoadAfterTimeout = true
       onLoadAfterTimeout()
     }
   }
 
-  // On all font load
-  const active = () => {
-    isLoading = false
-    clearTimeout(timeoutId)
-
-    if (onLoad) {
-      onLoad()
-    }
-  }
-
-  // On individual font load
-  const fontactive = (font, variant) => {
-    loadedFonts.push(`${font}:${variant}`)
+  const timeoutId = setTimeout(() => {
+    didTimeout = true
+    if (onTimeout) onTimeout()
     maybeLoadAfterTimeout()
+  }, timeout)
+
+  const loadFonts = () => parsedFonts.forEach(async font => {
+    let loadedFaces
+    try {
+      loadedFaces = await document.fonts.load(font.descriptor)
+    } catch {
+      return
+    }
+
+    if (isDestroyed || loadedFaces.length === 0) return
+    loadedFonts.add(font.identifier)
+    maybeLoadAfterTimeout()
+    if (!didLoad) {
+      didLoad = true
+      clearTimeout(timeoutId)
+      if (onLoad) onLoad()
+    }
+  })
+
+  stylesheet.onload = () => {
+    if (isDestroyed || didStartLoading) return
+    didStartLoading = true
+
+    loadFonts()
   }
 
-  // Noop
-  const destroy = () => null
-
-  const webFontOpts = Object.assign({
-    custom: {
-      families: allFonts,
-      urls: [styleSheetUrl]
-    },
-    active,
-    fontactive
-  }, opts)
-
-  // Kick things off
-  WebFont.load(webFontOpts)
+  document.head.appendChild(stylesheet)
 
   return {
-    destroy
+    destroy: () => {
+      isDestroyed = true
+      clearTimeout(timeoutId)
+      stylesheet.onload = null
+      stylesheet.onerror = null
+      stylesheet.remove()
+    }
   }
 }
 

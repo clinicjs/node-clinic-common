@@ -1,0 +1,52 @@
+/** @type {typeof import('node:test').test} */
+const test = require('node:test')
+const { installDom } = require('../../test-support/dom.js')
+test('dropdown opens, updates content, closes, and handles outside clicks', function (/** @type {import("node:test").TestContext} */ t) {
+  t.plan(15)
+  const { document, window } = installDom(t)
+  const createDropdown = require('../../base/drop-down.js')
+  const dropdown = createDropdown({ label: 'More', content: 'First', expandAbove: true })
+
+  dropdown.open()
+  t.assert.ok(dropdown.classList.contains('expanded'))
+  t.assert.ok(dropdown.classList.contains('direction-up'))
+
+  const labelWrapper = /** @type {HTMLElement} */ (/** @type {unknown} */ (dropdown.children[0]))
+  const contentWrapper = /** @type {HTMLElement} */ (/** @type {unknown} */ (dropdown.children[2]))
+
+  dropdown.update({ label: 'Updated', content: 'Second' })
+  t.assert.strictEqual(/** @type {HTMLElement} */ (/** @type {unknown} */ (labelWrapper.children[0])).textContent, 'Updated')
+  t.assert.strictEqual(/** @type {HTMLElement} */ (/** @type {unknown} */ (contentWrapper.children[0])).textContent, 'Second')
+  dropdown.update({ label: '', content: '' })
+  t.assert.strictEqual(/** @type {HTMLElement} */ (/** @type {unknown} */ (labelWrapper.children[0])).textContent, '')
+  t.assert.strictEqual(contentWrapper.children.length, 0)
+  dropdown.close()
+  t.assert.ok(!dropdown.classList.contains('expanded'))
+  t.assert.ok(dropdown.classList.contains('contracted'))
+
+  const toggleButton = /** @type {HTMLButtonElement} */ (/** @type {unknown} */ (dropdown.children[1]))
+  toggleButton.click()
+  t.assert.ok(dropdown.classList.contains('expanded'))
+  toggleButton.click()
+  const nested = document.createElement('span')
+  dropdown.appendChild(nested)
+  nested.dispatchEvent(new window.Event('animationend', { bubbles: true }))
+  t.assert.ok(dropdown.classList.contains('contracted'))
+  dropdown.dispatchEvent(new window.Event('animationend'))
+  t.assert.ok(!dropdown.classList.contains('contracted'))
+
+  const first = createDropdown({ content: 'First' })
+  const second = createDropdown({ content: 'Second' })
+
+  first.open()
+  second.open()
+  t.assert.ok(!first.classList.contains('expanded'))
+  t.assert.ok(second.classList.contains('expanded'))
+  first.close()
+  document.body.dispatchEvent(new window.MouseEvent('click', { bubbles: true }))
+  t.assert.ok(!second.classList.contains('expanded'))
+
+  second.open()
+  document.body.dispatchEvent(new window.MouseEvent('click', { bubbles: true }))
+  t.assert.ok(!second.classList.contains('expanded'))
+})

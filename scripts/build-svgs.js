@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /**
  * @fileoverview
  * Compiles our icons into static .js files that can be imported in the browser
@@ -9,49 +7,61 @@
  */
 
 // Largely inspired by: https://github.com/simple-icons/simple-icons
-const path = require('path')
-const exportDir = path.join(__dirname, '../icons')
-const indexFile = path.join(exportDir, 'index.js')
-const iconsDir = path.join(__dirname, '../assets')
-const mdIconsMap = path.join(exportDir, 'readme.md')
+const path = require('node:path')
+const fs = require('node:fs')
 
-const fs = require('fs')
+/**
+ * @typedef {object} BuildSvgsOptions
+ * @property {string} [assetsDir] Directory containing SVG files and style.css.
+ * @property {string} [exportDir] Directory to receive generated icon modules and styles.
+ */
 
-const svgs = []
-fs.readdir(iconsDir, function (err, items) {
-  if (err) {
-    console.error(err)
-  } else {
-    const files = items.filter(file => file.indexOf('.svg') > 0)
-    files.forEach((file, i) => {
-      // reading the file and removing any line break
-      const svg = fs.readFileSync(`${iconsDir}/${file}`, 'utf8').replace(/(\r\n\t|\n|\r\t)/gm, '')
-      const fileName = file.split('.')[0]
+/**
+ * Compile SVG assets into individual modules, styles, a readme, and an index.
+ * The export directory must already exist.
+ * @param {BuildSvgsOptions} [options]
+ * @returns {Promise<void>} Resolves after all generated files have been written.
+ * @throws {NodeJS.ErrnoException} If an input or output filesystem operation fails.
+ */
+async function buildSvgs ({ assetsDir = path.join(__dirname, '../assets'), exportDir = path.join(__dirname, '../icons') } = {}) {
+  const indexFile = path.join(exportDir, 'index.js')
+  const mdIconsMap = path.join(exportDir, 'readme.md')
+  /** @type {string[]} */
+  const svgs = []
 
-      const svgTag = svg.replace('<svg ', `<svg class="icon-img ${fileName}-svg" `)
+  /** @type {string[]} */
+  const items = await fs.promises.readdir(assetsDir)
+  /** @type {string[]} */
+  const files = items.filter(file => path.extname(file).toLowerCase() === '.svg')
+  files.forEach(file => {
+    // reading the file and removing any line break
+    const svg = fs.readFileSync(path.join(assetsDir, file), 'utf8').replace(/(\r\n\t|\n|\r\t)/gm, '')
+    const fileName = path.basename(file, path.extname(file))
 
-      svgs.push(`['${fileName}'] : \`${svgTag}\``)
-      fs.writeFileSync(
-        `${exportDir}/${fileName}.js`,
-        `module.exports = \`${svgTag}\`\n`
-      )
+    const svgTag = svg.replace('<svg ', `<svg class="icon-img ${fileName}-svg" `)
 
-      fs.writeFileSync(
-        `${exportDir}/${fileName}.css`,
-        `html { --${fileName}-icon: url('data:image/svg+xml;utf8,${svg}');}\n`
-      )
-    })
+    svgs.push(`[${JSON.stringify(fileName)}]: ${JSON.stringify(svgTag)}`)
+    fs.writeFileSync(
+      path.join(exportDir, `${fileName}.js`),
+      `module.exports = ${JSON.stringify(svgTag)}\n`
+    )
 
-    const md = files.map(f => `|${f.split('.')[0]}|<img src="../assets/${f}?sanitize=true" width="100%" height="44" />|`).join('\n')
-    fs.writeFileSync(mdIconsMap, `| Name | icon |\n|---|---|\n${md}`)
-  }
+    fs.writeFileSync(
+      path.join(exportDir, `${fileName}.css`),
+      `html { --${fileName}-icon: url('data:image/svg+xml;utf8,${encodeURIComponent(svg).replace(/'/g, '%27')}');}\n`
+    )
+  })
+
+  const md = files.map(f => `|${path.basename(f, path.extname(f))}|<img src="../assets/${f}?sanitize=true" width="100%" height="44" />|`).join('\n')
+  fs.writeFileSync(mdIconsMap, `| Name | icon |\n|---|---|\n${md}`)
 
   // write our generic index.js
-
-  fs.copyFileSync(`${iconsDir}/style.css`, `${exportDir}/style.css`)
+  fs.copyFileSync(path.join(assetsDir, 'style.css'), path.join(exportDir, 'style.css'))
 
   fs.writeFileSync(indexFile, `
 module.exports = {
   ${svgs.join(',')}\n
   }\n`)
-})
+}
+
+module.exports = buildSvgs

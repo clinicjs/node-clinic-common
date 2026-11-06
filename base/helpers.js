@@ -1,10 +1,18 @@
+/** @typedef {string | HTMLElement | (() => HtmlContent)} HtmlContent */
+
 const helpers = {
+  /**
+   * Convert text, markup, a callback result, or an existing element to an HTMLElement.
+   * @param {HtmlContent} content
+   * @param {string} [defaultClass]
+   * @returns {HTMLElement}
+   */
   toHtml: (content, defaultClass) => {
     switch (typeof content) {
       case 'string':
         if (content.trim().indexOf('<') === 0) {
           const parser = new window.DOMParser()
-          return parser.parseFromString(content, 'text/html').body.firstElementChild
+          return /** @type {HTMLElement} */ (parser.parseFromString(content, 'text/html').body.firstElementChild)
           // returns a HTMLDocument, which also is a Document.
         } else {
           const node = document.createElement('span')
@@ -14,7 +22,7 @@ const helpers = {
         }
 
       case 'function':
-        return helpers.toHtml(content())
+        return helpers.toHtml(content(), defaultClass)
 
       case 'object':
         if (content.nodeType === 1) {
